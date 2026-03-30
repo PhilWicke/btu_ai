@@ -1,0 +1,265 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --black: #2c2a25;
+  --white: #f5f2ec;
+  --gray: #8a8377;
+  --gray-light: #d6d0c5;
+  --accent: #b8a578;
+}
+
+body {
+  font-family: "SF Mono", "Fira Code", "Fira Mono", "Roboto Mono", "Courier New", monospace;
+  background: var(--white);
+  color: var(--black);
+  font-size: 14px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+.container {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 48px 24px;
+}
+
+/* Header */
+.header {
+  margin-bottom: 56px;
+}
+
+.header h1 {
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  margin-bottom: 8px;
+}
+
+.header .subtitle {
+  font-size: 13px;
+  color: var(--gray);
+  font-weight: 400;
+}
+
+.header .subtitle a {
+  color: var(--gray);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.header .subtitle a:hover {
+  color: var(--black);
+}
+
+/* Announcements */
+.announcements {
+  margin-bottom: 40px;
+}
+
+.announcements h2,
+.section-title {
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--gray);
+  margin-bottom: 12px;
+}
+
+.section-title {
+  margin-bottom: 0;
+}
+
+.announcement-list {
+  list-style: none;
+  border: 1px solid var(--gray-light);
+  padding: 16px;
+  background: rgba(184,165,120,0.06);
+}
+
+.announcement-item {
+  display: flex;
+  gap: 16px;
+  font-size: 13px;
+  padding: 4px 0;
+}
+
+.announcement-item + .announcement-item {
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px solid var(--gray-light);
+}
+
+.announcement-date {
+  color: var(--gray);
+  min-width: 90px;
+  flex-shrink: 0;
+}
+
+.announcement-text {
+  color: var(--black);
+}
+
+/* Lecture List */
+.lecture-list {
+  list-style: none;
+}
+
+.lecture-item {
+  border-bottom: 1px solid var(--gray-light);
+}
+
+.lecture-item:first-child {
+  border-top: 1px solid var(--gray-light);
+}
+
+.lecture-link {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 16px 0;
+  text-decoration: none;
+  color: var(--black);
+  transition: padding-left 0.15s, background 0.15s;
+}
+
+.lecture-link:hover {
+  padding-left: 12px;
+  background: linear-gradient(90deg, rgba(184,165,120,0.12) 0%, transparent 100%);
+}
+
+.lecture-number {
+  font-size: 12px;
+  color: var(--gray);
+  min-width: 32px;
+}
+
+.lecture-title {
+  flex: 1;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.lecture-title.tbd {
+  color: var(--gray);
+  font-weight: 400;
+}
+
+.lecture-date {
+  font-size: 12px;
+  color: var(--gray);
+  text-align: right;
+  min-width: 100px;
+}
+
+/* Badge */
+.badge {
+  display: inline-block;
+  background: var(--accent);
+  color: var(--black);
+  font-size: 10px;
+  font-weight: 600;
+  padding: 2px 6px;
+  margin-left: 8px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* Lecture Detail Page */
+.back-link {
+  display: inline-block;
+  font-size: 13px;
+  color: var(--gray);
+  text-decoration: none;
+  margin-bottom: 32px;
+  transition: color 0.15s;
+}
+
+.back-link:hover {
+  color: var(--black);
+}
+
+.back-link::before {
+  content: "\2190\00a0";
+}
+
+.lecture-detail h2 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.lecture-meta {
+  font-size: 13px;
+  color: var(--gray);
+  margin-bottom: 32px;
+}
+
+.lecture-detail section {
+  margin-bottom: 32px;
+}
+
+.lecture-detail h3 {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--gray);
+}
+
+.lecture-detail p {
+  font-size: 14px;
+  line-height: 1.7;
+  margin-bottom: 12px;
+}
+
+.lecture-detail ul {
+  list-style: none;
+  padding: 0;
+}
+
+.lecture-detail ul li {
+  font-size: 14px;
+  padding: 4px 0;
+  padding-left: 16px;
+  position: relative;
+}
+
+.lecture-detail ul li::before {
+  content: "\2014";
+  position: absolute;
+  left: 0;
+  color: var(--gray);
+}
+
+/* Footer */
+.footer {
+  margin-top: 64px;
+  padding-top: 16px;
+  border-top: 1px solid var(--gray-light);
+  font-size: 12px;
+  color: var(--gray);
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .container {
+    padding: 32px 16px;
+  }
+
+  .lecture-link {
+    flex-wrap: wrap;
+    gap: 2px;
+  }
+
+  .lecture-date {
+    width: 100%;
+    text-align: left;
+    padding-left: 32px;
+  }
+}
