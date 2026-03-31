@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Lora:wght@500;600&display=swap');
+
 * {
   margin: 0;
   padding: 0;
@@ -5,15 +7,18 @@
 }
 
 :root {
-  --black: #2c2a25;
-  --white: #f5f2ec;
-  --gray: #8a8377;
-  --gray-light: #d6d0c5;
-  --accent: #b8a578;
+  --black: #33302b;
+  --white: #f7f4ef;
+  --gray: #8e8578;
+  --gray-light: #e4dfd6;
+  --accent: #a0875a;
+  --accent-soft: rgba(160,135,90,0.08);
+  --radius: 4px;
+  --transition: 0.2s ease;
 }
 
 body {
-  font-family: "SF Mono", "Fira Code", "Fira Mono", "Roboto Mono", "Courier New", monospace;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   background: var(--white);
   color: var(--black);
   font-size: 14px;
@@ -24,19 +29,22 @@ body {
 .container {
   max-width: 640px;
   margin: 0 auto;
-  padding: 48px 24px;
+  padding: 64px 32px;
 }
 
 /* Header */
 .header {
-  margin-bottom: 56px;
+  margin-bottom: 48px;
+  padding-bottom: 32px;
+  border-bottom: 1px solid var(--gray-light);
 }
 
 .header h1 {
-  font-size: 18px;
+  font-family: "Lora", Georgia, serif;
+  font-size: 24px;
   font-weight: 600;
   letter-spacing: -0.02em;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
 }
 
 .header .subtitle {
@@ -45,40 +53,37 @@ body {
   font-weight: 400;
 }
 
-.header .subtitle a {
-  color: var(--gray);
-  text-decoration: underline;
-  text-underline-offset: 2px;
-}
-
-.header .subtitle a:hover {
-  color: var(--black);
-}
-
-/* Announcements */
-.announcements {
-  margin-bottom: 40px;
-}
-
+/* Section Titles */
 .announcements h2,
 .section-title {
-  font-size: 13px;
+  font-size: 11px;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.1em;
   color: var(--gray);
   margin-bottom: 12px;
 }
 
 .section-title {
-  margin-bottom: 0;
+  margin-top: 48px;
+  margin-bottom: 12px;
+}
+
+.section-meta {
+  font-size: 13px;
+  color: var(--gray);
+  margin-bottom: 8px;
+}
+
+/* Announcements */
+.announcements {
+  margin-bottom: 48px;
 }
 
 .announcement-list {
   list-style: none;
-  border: 1px solid var(--gray-light);
-  padding: 16px;
-  background: rgba(184,165,120,0.06);
+  border-left: 2px solid var(--accent);
+  padding-left: 16px;
 }
 
 .announcement-item {
@@ -90,14 +95,13 @@ body {
 
 .announcement-item + .announcement-item {
   margin-top: 8px;
-  padding-top: 8px;
-  border-top: 1px solid var(--gray-light);
 }
 
 .announcement-date {
   color: var(--gray);
-  min-width: 90px;
+  min-width: 80px;
   flex-shrink: 0;
+  font-size: 12px;
 }
 
 .announcement-text {
@@ -109,33 +113,30 @@ body {
   list-style: none;
 }
 
-.lecture-item {
-  border-bottom: 1px solid var(--gray-light);
-}
-
-.lecture-item:first-child {
+.lecture-item + .lecture-item {
   border-top: 1px solid var(--gray-light);
 }
 
 .lecture-link {
   display: flex;
-  justify-content: space-between;
   align-items: baseline;
-  padding: 16px 0;
+  padding: 12px 8px;
+  margin: 0 -8px;
   text-decoration: none;
   color: var(--black);
-  transition: padding-left 0.15s, background 0.15s;
+  border-radius: var(--radius);
+  transition: color var(--transition), background var(--transition);
 }
 
-.lecture-link:hover {
-  padding-left: 12px;
-  background: linear-gradient(90deg, rgba(184,165,120,0.12) 0%, transparent 100%);
+a.lecture-link:hover {
+  color: var(--accent);
+  background: var(--accent-soft);
 }
 
 .lecture-number {
   font-size: 12px;
   color: var(--gray);
-  min-width: 32px;
+  min-width: 28px;
 }
 
 .lecture-title {
@@ -144,29 +145,37 @@ body {
   font-weight: 500;
 }
 
-.lecture-title.tbd {
-  color: var(--gray);
-  font-weight: 400;
-}
-
 .lecture-date {
   font-size: 12px;
   color: var(--gray);
   text-align: right;
-  min-width: 100px;
+  min-width: 56px;
+  margin-left: 16px;
 }
 
-/* Badge */
-.badge {
-  display: inline-block;
-  background: var(--accent);
-  color: var(--black);
-  font-size: 10px;
-  font-weight: 600;
-  padding: 2px 6px;
-  margin-left: 8px;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
+/* Upcoming (future) Lectures */
+.lecture-item.upcoming .lecture-link {
+  cursor: default;
+}
+
+.lecture-item.upcoming .lecture-title {
+  color: var(--gray);
+  font-weight: 400;
+}
+
+.lecture-item.upcoming a.lecture-link:hover {
+  color: var(--gray);
+}
+
+/* Cancelled Lectures */
+.lecture-item.cancelled .lecture-link {
+  cursor: default;
+  opacity: 0.45;
+}
+
+.cancelled-text {
+  font-weight: 400;
+  font-style: italic;
 }
 
 /* Lecture Detail Page */
@@ -175,12 +184,12 @@ body {
   font-size: 13px;
   color: var(--gray);
   text-decoration: none;
-  margin-bottom: 32px;
-  transition: color 0.15s;
+  margin-bottom: 40px;
+  transition: color var(--transition);
 }
 
 .back-link:hover {
-  color: var(--black);
+  color: var(--accent);
 }
 
 .back-link::before {
@@ -188,7 +197,8 @@ body {
 }
 
 .lecture-detail h2 {
-  font-size: 18px;
+  font-family: "Lora", Georgia, serif;
+  font-size: 20px;
   font-weight: 600;
   margin-bottom: 4px;
 }
@@ -200,15 +210,15 @@ body {
 }
 
 .lecture-detail section {
-  margin-bottom: 32px;
+  margin-bottom: 28px;
 }
 
 .lecture-detail h3 {
-  font-size: 14px;
+  font-size: 11px;
   font-weight: 600;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.1em;
   color: var(--gray);
 }
 
@@ -225,16 +235,20 @@ body {
 
 .lecture-detail ul li {
   font-size: 14px;
-  padding: 4px 0;
+  padding: 3px 0;
   padding-left: 16px;
   position: relative;
 }
 
 .lecture-detail ul li::before {
-  content: "\2014";
+  content: "";
   position: absolute;
-  left: 0;
-  color: var(--gray);
+  left: 4px;
+  top: 11px;
+  width: 4px;
+  height: 4px;
+  background: var(--accent);
+  border-radius: 50%;
 }
 
 /* Footer */
@@ -249,7 +263,7 @@ body {
 /* Responsive */
 @media (max-width: 480px) {
   .container {
-    padding: 32px 16px;
+    padding: 40px 20px;
   }
 
   .lecture-link {
@@ -260,6 +274,10 @@ body {
   .lecture-date {
     width: 100%;
     text-align: left;
-    padding-left: 32px;
+    padding-left: 28px;
+  }
+
+  .schedule-list {
+    columns: 1;
   }
 }

@@ -11,7 +11,7 @@
     <header class="header">
       <h1>Language Models</h1>
       <p class="subtitle">Machine Learning Basics to Modern Artificial Intelligence</p>
-      <p class="subtitle">BTU &mdash; Summer 2026</p>
+      <p class="subtitle">BTU &mdash; Summer 2026 &mdash; H&ouml;rsaal 9.122</p>
     </header>
 
     <!-- ===================== ANNOUNCEMENTS =====================
@@ -36,12 +36,14 @@
 
     <!-- ======================== LECTURES ========================
          To update a lecture:
-         1. Change the title from "TBD" to the lecture name
-         2. Remove the "tbd" class from the <span> (so it's just "lecture-title")
-         3. Update the href to point to the correct file in lectures/
+         1. Change the title text
+         2. Update the href to point to the correct file in lectures/
 
-         Template for a named lecture:
-         <li class="lecture-item">
+         Cancelled dates use class="lecture-item cancelled" with a <div>.
+         Dates in the future are greyed out automatically via script.
+
+         Template:
+         <li class="lecture-item" data-date="YYYY-MM-DD">
            <a href="lectures/XX-slug.html" class="lecture-link">
              <span class="lecture-number">XX</span>
              <span class="lecture-title">Lecture Title</span>
@@ -50,119 +52,184 @@
          </li>
     ============================================================= -->
     <h2 class="section-title">Lectures</h2>
+    <p class="section-meta">Mondays &mdash; H&ouml;rsaal 9.122</p>
 
     <ul class="lecture-list">
       <li class="lecture-item">
         <a href="lectures/01-introduction.html" class="lecture-link">
           <span class="lecture-number">01</span>
-          <span class="lecture-title">Introduction <span class="badge">First</span></span>
-          <span class="lecture-date">13 Apr 2026</span>
+          <span class="lecture-title">Introduction</span>
+          <span class="lecture-date">13 Apr</span>
         </a>
       </li>
-      <li class="lecture-item">
-        <a href="lectures/02.html" class="lecture-link">
+      <li class="lecture-item" data-date="2026-04-20">
+        <a href="lectures/02-what-is-ai.html" class="lecture-link">
           <span class="lecture-number">02</span>
-          <span class="lecture-title tbd">TBD</span>
-          <span class="lecture-date">20 Apr 2026</span>
+          <span class="lecture-title">What is Artificial Intelligence?</span>
+          <span class="lecture-date">20 Apr</span>
         </a>
       </li>
-      <li class="lecture-item">
-        <a href="lectures/03.html" class="lecture-link">
+      <li class="lecture-item" data-date="2026-04-27">
+        <a href="lectures/03-ml-deep-learning.html" class="lecture-link">
           <span class="lecture-number">03</span>
-          <span class="lecture-title tbd">TBD</span>
-          <span class="lecture-date">27 Apr 2026</span>
+          <span class="lecture-title">Machine Learning &amp; Deep Learning</span>
+          <span class="lecture-date">27 Apr</span>
         </a>
       </li>
-      <li class="lecture-item">
-        <a href="lectures/04.html" class="lecture-link">
+      <li class="lecture-item" data-date="2026-05-04">
+        <a href="lectures/04-nlp-fundamentals.html" class="lecture-link">
           <span class="lecture-number">04</span>
-          <span class="lecture-title tbd">TBD</span>
-          <span class="lecture-date">04 May 2026</span>
+          <span class="lecture-title">NLP Fundamentals</span>
+          <span class="lecture-date">04 May</span>
         </a>
       </li>
-      <li class="lecture-item">
-        <a href="lectures/05.html" class="lecture-link">
+      <li class="lecture-item cancelled">
+        <div class="lecture-link">
+          <span class="lecture-number"></span>
+          <span class="lecture-title cancelled-text">No lecture</span>
+          <span class="lecture-date">11 May</span>
+        </div>
+      </li>
+      <li class="lecture-item" data-date="2026-05-18">
+        <a href="lectures/05-word-embeddings.html" class="lecture-link">
           <span class="lecture-number">05</span>
-          <span class="lecture-title tbd">TBD</span>
-          <span class="lecture-date">11 May 2026</span>
+          <span class="lecture-title">Word Embeddings</span>
+          <span class="lecture-date">18 May</span>
         </a>
       </li>
-      <li class="lecture-item">
-        <a href="lectures/06.html" class="lecture-link">
+      <li class="lecture-item cancelled">
+        <div class="lecture-link">
+          <span class="lecture-number"></span>
+          <span class="lecture-title cancelled-text">Whit Monday</span>
+          <span class="lecture-date">25 May</span>
+        </div>
+      </li>
+      <li class="lecture-item" data-date="2026-06-01">
+        <a href="lectures/06-cnns-rnns.html" class="lecture-link">
           <span class="lecture-number">06</span>
-          <span class="lecture-title tbd">TBD</span>
-          <span class="lecture-date">18 May 2026</span>
+          <span class="lecture-title">CNNs &amp; RNNs</span>
+          <span class="lecture-date">01 Jun</span>
         </a>
       </li>
-      <li class="lecture-item">
-        <a href="lectures/07.html" class="lecture-link">
+      <li class="lecture-item" data-date="2026-06-08">
+        <a href="lectures/07-transformers.html" class="lecture-link">
           <span class="lecture-number">07</span>
-          <span class="lecture-title tbd">TBD</span>
-          <span class="lecture-date">25 May 2026</span>
+          <span class="lecture-title">Transformers &amp; Self-Attention</span>
+          <span class="lecture-date">08 Jun</span>
         </a>
       </li>
-      <li class="lecture-item">
-        <a href="lectures/08.html" class="lecture-link">
+      <li class="lecture-item" data-date="2026-06-15">
+        <a href="lectures/08-language-models.html" class="lecture-link">
           <span class="lecture-number">08</span>
-          <span class="lecture-title tbd">TBD</span>
-          <span class="lecture-date">01 Jun 2026</span>
+          <span class="lecture-title">Language Models &amp; LLMs</span>
+          <span class="lecture-date">15 Jun</span>
         </a>
       </li>
-      <li class="lecture-item">
-        <a href="lectures/09.html" class="lecture-link">
+      <li class="lecture-item" data-date="2026-06-22">
+        <a href="lectures/09-practical-lm.html" class="lecture-link">
           <span class="lecture-number">09</span>
-          <span class="lecture-title tbd">TBD</span>
-          <span class="lecture-date">08 Jun 2026</span>
+          <span class="lecture-title">Fine-Tuning, Prompting &amp; RAG</span>
+          <span class="lecture-date">22 Jun</span>
         </a>
       </li>
-      <li class="lecture-item">
-        <a href="lectures/10.html" class="lecture-link">
+      <li class="lecture-item" data-date="2026-06-29">
+        <a href="lectures/10-multimodal.html" class="lecture-link">
           <span class="lecture-number">10</span>
-          <span class="lecture-title tbd">TBD</span>
-          <span class="lecture-date">15 Jun 2026</span>
+          <span class="lecture-title">Multimodal Models</span>
+          <span class="lecture-date">29 Jun</span>
         </a>
       </li>
-      <li class="lecture-item">
-        <a href="lectures/11.html" class="lecture-link">
+      <li class="lecture-item" data-date="2026-07-06">
+        <a href="lectures/11-physical-ai.html" class="lecture-link">
           <span class="lecture-number">11</span>
-          <span class="lecture-title tbd">TBD</span>
-          <span class="lecture-date">22 Jun 2026</span>
+          <span class="lecture-title">Physical AI</span>
+          <span class="lecture-date">06 Jul</span>
         </a>
       </li>
-      <li class="lecture-item">
-        <a href="lectures/12.html" class="lecture-link">
+      <li class="lecture-item cancelled">
+        <div class="lecture-link">
+          <span class="lecture-number"></span>
+          <span class="lecture-title cancelled-text">No lecture</span>
+          <span class="lecture-date">13 Jul</span>
+        </div>
+      </li>
+      <li class="lecture-item" data-date="2026-07-20">
+        <a href="lectures/12-bci-ai.html" class="lecture-link">
           <span class="lecture-number">12</span>
-          <span class="lecture-title tbd">TBD</span>
-          <span class="lecture-date">29 Jun 2026</span>
-        </a>
-      </li>
-      <li class="lecture-item">
-        <a href="lectures/13.html" class="lecture-link">
-          <span class="lecture-number">13</span>
-          <span class="lecture-title tbd">TBD</span>
-          <span class="lecture-date">06 Jul 2026</span>
-        </a>
-      </li>
-      <li class="lecture-item">
-        <a href="lectures/14.html" class="lecture-link">
-          <span class="lecture-number">14</span>
-          <span class="lecture-title tbd">TBD</span>
-          <span class="lecture-date">13 Jul 2026</span>
-        </a>
-      </li>
-      <li class="lecture-item">
-        <a href="lectures/15.html" class="lecture-link">
-          <span class="lecture-number">15</span>
-          <span class="lecture-title tbd">TBD</span>
-          <span class="lecture-date">20 Jul 2026</span>
+          <span class="lecture-title">BCI &amp; AI</span>
+          <span class="lecture-date">20 Jul</span>
         </a>
       </li>
     </ul>
 
+    <!-- ======================== SEMINAR =========================
+         To edit seminar sessions, modify the <li> entries below.
+
+         Template:
+         <li class="schedule-item">
+           <span class="schedule-info">DD.MM.YYYY (Day), HH:MM – HH:MM Uhr</span>
+           <span class="schedule-location">Room</span>
+         </li>
+    ============================================================= -->
+    <h2 class="section-title">Seminar</h2>
+    <p class="section-meta">Sat &amp; Sun, 10:00 &ndash; 16:00 &mdash; PC-Pool 9.115</p>
+
+    <ul class="lecture-list">
+      <li class="lecture-item">
+        <div class="lecture-link">
+          <span class="lecture-number">01</span>
+          <span class="lecture-title">Weekend 1</span>
+          <span class="lecture-date">11. &amp; 12. Jul</span>
+        </div>
+      </li>
+      <li class="lecture-item">
+        <div class="lecture-link">
+          <span class="lecture-number">02</span>
+          <span class="lecture-title">Weekend 2</span>
+          <span class="lecture-date">18. &amp; 19. Jul</span>
+        </div>
+      </li>
+      <li class="lecture-item">
+        <div class="lecture-link">
+          <span class="lecture-number">03</span>
+          <span class="lecture-title">Weekend 3</span>
+          <span class="lecture-date">25. &amp; 26. Jul</span>
+        </div>
+      </li>
+    </ul>
+
+    <!-- ========================= EXAM =========================== -->
+    <h2 class="section-title">Exam</h2>
+    <p class="section-meta">H&ouml;rsaal 9.122</p>
+
+    <ul class="lecture-list">
+      <li class="lecture-item">
+        <div class="lecture-link">
+          <span class="lecture-number"></span>
+          <span class="lecture-title">Written Exam</span>
+          <span class="lecture-date">07 Aug, 11:00&ndash;13:00</span>
+        </div>
+      </li>
+    </ul>
+
     <footer class="footer">
-      <p>Language Models &mdash; BTU &mdash; Summer 2026</p>
       <p>&copy; 2026 Philipp Wicke. All rights reserved.</p>
     </footer>
   </div>
+
+  <script>
+    (function() {
+      var today = new Date();
+      today.setHours(0,0,0,0);
+      document.querySelectorAll('.lecture-item[data-date]').forEach(function(item) {
+        var date = new Date(item.getAttribute('data-date') + 'T00:00:00');
+        if (date > today) {
+          item.classList.add('upcoming');
+          var link = item.querySelector('a');
+          if (link) link.removeAttribute('href');
+        }
+      });
+    })();
+  </script>
 </body>
 </html>
