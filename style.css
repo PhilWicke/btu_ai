@@ -251,6 +251,27 @@ a.lecture-link:hover {
   border-radius: 50%;
 }
 
+/* Links in lecture detail */
+.lecture-detail a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-decoration-color: var(--gray-light);
+  text-underline-offset: 2px;
+  transition: text-decoration-color var(--transition);
+}
+
+.lecture-detail a:hover {
+  text-decoration-color: var(--accent);
+}
+
+/* Disclaimer */
+.disclaimer {
+  font-size: 12px;
+  color: var(--gray);
+  margin-top: 12px;
+  font-style: italic;
+}
+
 /* Footer */
 .footer {
   margin-top: 64px;
