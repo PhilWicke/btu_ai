@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Lora:wght@500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&family=Lora:wght@500;600&display=swap');
 
 * {
   margin: 0;
@@ -7,12 +7,12 @@
 }
 
 :root {
-  --black: #33302b;
-  --white: #f7f4ef;
-  --gray: #8e8578;
-  --gray-light: #e4dfd6;
-  --accent: #a0875a;
-  --accent-soft: rgba(160,135,90,0.08);
+  --black: #2b2826;
+  --white: #f5f2ed;
+  --gray: #8a8580;
+  --gray-light: #e0dcd6;
+  --accent: #c03000;
+  --accent-soft: rgba(192,48,0,0.06);
   --radius: 4px;
   --transition: 0.2s ease;
 }
@@ -21,7 +21,7 @@ body {
   font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   background: var(--white);
   color: var(--black);
-  font-size: 14px;
+  font-size: 13px;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
 }
@@ -67,6 +67,8 @@ body {
 .section-title {
   margin-top: 48px;
   margin-bottom: 12px;
+  padding-top: 24px;
+  border-top: 1px solid var(--gray-light);
 }
 
 .section-meta {
@@ -98,10 +100,11 @@ body {
 }
 
 .announcement-date {
+  font-family: "IBM Plex Mono", monospace;
   color: var(--gray);
   min-width: 80px;
   flex-shrink: 0;
-  font-size: 12px;
+  font-size: 11px;
 }
 
 .announcement-text {
@@ -120,7 +123,7 @@ body {
 .lecture-link {
   display: flex;
   align-items: baseline;
-  padding: 12px 8px;
+  padding: 10px 8px;
   margin: 0 -8px;
   text-decoration: none;
   color: var(--black);
@@ -134,19 +137,21 @@ a.lecture-link:hover {
 }
 
 .lecture-number {
-  font-size: 12px;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 11px;
   color: var(--gray);
   min-width: 28px;
 }
 
 .lecture-title {
   flex: 1;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 500;
 }
 
 .lecture-date {
-  font-size: 12px;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 11px;
   color: var(--gray);
   text-align: right;
   min-width: 56px;
@@ -223,7 +228,7 @@ a.lecture-link:hover {
 }
 
 .lecture-detail p {
-  font-size: 14px;
+  font-size: 13px;
   line-height: 1.7;
   margin-bottom: 12px;
 }
@@ -234,7 +239,7 @@ a.lecture-link:hover {
 }
 
 .lecture-detail ul li {
-  font-size: 14px;
+  font-size: 13px;
   padding: 3px 0;
   padding-left: 16px;
   position: relative;
