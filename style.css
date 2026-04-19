@@ -86,6 +86,23 @@ body {
   list-style: none;
   border-left: 2px solid var(--accent);
   padding-left: 16px;
+  max-height: calc(3 * 2.8em);
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--gray-light) transparent;
+}
+
+.announcement-list::-webkit-scrollbar {
+  width: 4px;
+}
+
+.announcement-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.announcement-list::-webkit-scrollbar-thumb {
+  background: var(--gray-light);
+  border-radius: 2px;
 }
 
 .announcement-item {
