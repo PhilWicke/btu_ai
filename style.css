@@ -86,23 +86,27 @@ body {
   list-style: none;
   border-left: 2px solid var(--accent);
   padding-left: 16px;
-  max-height: calc(3 * 2.8em);
-  overflow-y: auto;
-  scrollbar-width: thin;
-  scrollbar-color: var(--gray-light) transparent;
+  overflow: hidden;
 }
 
-.announcement-list::-webkit-scrollbar {
-  width: 4px;
+.announcement-item.hidden-announcement {
+  display: none;
 }
 
-.announcement-list::-webkit-scrollbar-track {
-  background: transparent;
+.announcement-toggle {
+  font-size: 12px;
+  color: var(--gray);
+  margin-top: 8px;
+  padding-left: 16px;
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+  transition: color var(--transition);
 }
 
-.announcement-list::-webkit-scrollbar-thumb {
-  background: var(--gray-light);
-  border-radius: 2px;
+.announcement-toggle:hover {
+  color: var(--accent);
 }
 
 .announcement-item {

@@ -49,6 +49,7 @@
           <span class="announcement-text">Course website is live. Welcome!</span>
         </li>
       </ul>
+      <button class="announcement-toggle" style="display:none;"></button>
     </div>
 
     <!-- ======================== LECTURES ========================
@@ -236,6 +237,7 @@
 
   <script>
     (function() {
+      // Grey out future lectures
       var today = new Date();
       today.setHours(0,0,0,0);
       document.querySelectorAll('.lecture-item[data-date]').forEach(function(item) {
@@ -246,6 +248,27 @@
           if (link) link.removeAttribute('href');
         }
       });
+
+      // Announcements: show max 3, hide rest with toggle
+      var MAX_VISIBLE = 3;
+      var items = document.querySelectorAll('.announcement-item');
+      var toggle = document.querySelector('.announcement-toggle');
+      if (items.length > MAX_VISIBLE) {
+        for (var i = MAX_VISIBLE; i < items.length; i++) {
+          items[i].classList.add('hidden-announcement');
+        }
+        var hidden = items.length - MAX_VISIBLE;
+        toggle.textContent = '+ ' + hidden + ' older';
+        toggle.style.display = 'block';
+        var expanded = false;
+        toggle.addEventListener('click', function() {
+          expanded = !expanded;
+          for (var i = MAX_VISIBLE; i < items.length; i++) {
+            items[i].classList.toggle('hidden-announcement', !expanded);
+          }
+          toggle.textContent = expanded ? 'Show less' : '+ ' + hidden + ' older';
+        });
+      }
     })();
   </script>
 </body>
