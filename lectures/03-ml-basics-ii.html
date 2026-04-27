@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>02 &mdash; Machine Learning Basics I &mdash; Language Models</title>
+  <title>03 &mdash; Machine Learning Basics II &mdash; Language Models</title>
   <link rel="stylesheet" href="../style.css">
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
 </head>
@@ -12,41 +12,41 @@
     <a href="../index.html" class="back-link">Lectures</a>
 
     <div class="lecture-detail">
-      <h2>02 &mdash; Machine Learning Basics I</h2>
-      <p class="lecture-meta">Monday, 20 April 2026 &mdash; H&ouml;rsaal 9.122</p>
+      <h2>03 &mdash; Machine Learning Basics II</h2>
+      <p class="lecture-meta">Monday, 27 April 2026 &mdash; H&ouml;rsaal 9.122</p>
 
       <section>
         <h3>Overview</h3>
         <p>
-          This lecture introduces the foundational concepts of machine learning.
-          Starting from Mitchell's definition of learning, we cover how data is
-          represented as design matrices and feature vectors, the distinction between
-          supervised and unsupervised learning, and how models are trained and evaluated.
-          The lecture concludes with the perceptron algorithm as a first concrete
-          example of a learning algorithm.
+          Continuing from ML Basics I, this lecture covers how to evaluate machine learning
+          models and introduces the perceptron as a first learning algorithm. We discuss
+          performance metrics beyond accuracy, the importance of proper data splits, and
+          how the perceptron iteratively learns decision boundaries through weight updates.
         </p>
       </section>
 
       <section>
         <h3>Topics</h3>
         <ul>
-          <li>What is machine learning? Experience, tasks, and performance (Mitchell, 1997)</li>
-          <li>Supervised vs. unsupervised learning</li>
-          <li>Datasets, instances, features, and the design matrix</li>
-          <li>Classification: spam filtering as a running example</li>
-          <li>Labels, one-hot encoding, binary vs. multiclass classification</li>
+          <li>Performance measures: accuracy, precision, recall, F1-score</li>
+          <li>Class imbalance and why accuracy can be misleading</li>
+          <li>Training, development, and test splits (60/20/20)</li>
+          <li>Training error vs. test error, overfitting, regularization</li>
+          <li>The perceptron algorithm: artificial neurons, weights, and the update rule</li>
+          <li>Dot products and prediction scores</li>
+          <li>Linear separability</li>
+          <li>Hyperparameters: feature selection, number of iterations, early stopping, step size</li>
         </ul>
       </section>
 
       <section>
         <h3>Slides</h3>
-        <p><a href="../slides/LEC02_Machine_Learning_Basics.pdf">LEC02_Machine_Learning_Basics.pdf</a> (password protected)</p>
+        <p><a href="../slides/LEC02_Machine_Learning_Basics.pdf">LEC02_Machine_Learning_Basics.pdf</a> (password protected &mdash; same slides as Lecture 02)</p>
       </section>
 
       <section>
         <h3>Reading</h3>
         <ul>
-          <li><a href="https://web.stanford.edu/~jurafsky/slp3/4.pdf" target="_blank" rel="noopener">Jurafsky &amp; Martin, Ch. 4: Naive Bayes, Text Classification, and Sentiment</a> (SLP 3rd ed. draft)</li>
           <li><a href="https://web.stanford.edu/~jurafsky/slp3/5.pdf" target="_blank" rel="noopener">Jurafsky &amp; Martin, Ch. 5: Logistic Regression</a> (SLP 3rd ed. draft &mdash; Sections 5.1&ndash;5.3)</li>
           <li><a href="https://www.deeplearningbook.org/contents/ml.html" target="_blank" rel="noopener">Goodfellow et al. &mdash; Deep Learning, Ch. 5: Machine Learning Basics</a> (Sections 5.1&ndash;5.3)</li>
         </ul>
