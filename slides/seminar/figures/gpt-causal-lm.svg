@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 540" font-family="Inter, -apple-system, sans-serif" preserveAspectRatio="xMidYMid meet">
+  <rect width="1100" height="540" fill="#f5f2ed"/>
+
+  <text x="550" y="34" font-size="14" font-weight="700" fill="#2b2826" text-anchor="middle">GPT pre-training: predict the next token from the left context only</text>
+  <text x="550" y="52" font-size="11" fill="#8a8580" text-anchor="middle">Every position is a training example. The label at position i is the token at position i+1.</text>
+
+  <!-- =========== INPUT ROW =========== -->
+  <text x="60" y="98" font-size="11" font-weight="700" fill="#8a8580" letter-spacing="1.2">INPUT (shifted right)</text>
+
+  <g font-size="13" font-weight="500" fill="#2b2826" text-anchor="middle">
+    <rect x="60" y="113" width="40" height="38" rx="4" fill="#fee0cf" stroke="#c03000" stroke-width="1.2"/>
+    <text x="80" y="137">I</text>
+    <rect x="115" y="113" width="140" height="38" rx="4" fill="#fee0cf" stroke="#c03000" stroke-width="1.2"/>
+    <text x="185" y="137">deposited</text>
+    <rect x="270" y="113" width="100" height="38" rx="4" fill="#fee0cf" stroke="#c03000" stroke-width="1.2"/>
+    <text x="320" y="137">money</text>
+    <rect x="385" y="113" width="50" height="38" rx="4" fill="#fee0cf" stroke="#c03000" stroke-width="1.2"/>
+    <text x="410" y="137">at</text>
+    <rect x="450" y="113" width="60" height="38" rx="4" fill="#fee0cf" stroke="#c03000" stroke-width="1.2"/>
+    <text x="480" y="137">the</text>
+    <rect x="525" y="113" width="70" height="38" rx="4" fill="#fee0cf" stroke="#c03000" stroke-width="1.2"/>
+    <text x="560" y="137">bank</text>
+  </g>
+
+  <!-- Causal mask grid -->
+  <text x="660" y="98" font-size="11" font-weight="700" fill="#8a8580" letter-spacing="1.2">CAUSAL MASK</text>
+  <g>
+    <!-- 6x6 grid -->
+    <g transform="translate(660 113)">
+      <g font-size="9" fill="#8a8580" text-anchor="middle">
+        <text x="20" y="-3">I</text>
+        <text x="50" y="-3">dep</text>
+        <text x="80" y="-3">m</text>
+        <text x="110" y="-3">at</text>
+        <text x="140" y="-3">the</text>
+        <text x="170" y="-3">bnk</text>
+      </g>
+      <g>
+        <!-- Row 1: only col 1 -->
+        <rect x="5" y="5" width="30" height="22" fill="#c03000" stroke="#2b2826" stroke-width="0.5"/>
+        <rect x="35" y="5" width="30" height="22" fill="#e0dcd6" stroke="#2b2826" stroke-width="0.5"/>
+        <rect x="65" y="5" width="30" height="22" fill="#e0dcd6" stroke="#2b2826" stroke-width="0.5"/>
+        <rect x="95" y="5" width="30" height="22" fill="#e0dcd6" stroke="#2b2826" stroke-width="0.5"/>
+        <rect x="125" y="5" width="30" height="22" fill="#e0dcd6" stroke="#2b2826" stroke-width="0.5"/>
+        <rect x="155" y="5" width="30" height="22" fill="#e0dcd6" stroke="#2b2826" stroke-width="0.5"/>
+        <!-- Row 2 -->
+        <rect x="5" y="29" width="30" height="22" fill="#c03000" stroke="#2b2826" stroke-width="0.5"/>
+        <rect x="35" y="29" width="30" height="22" fill="#c03000" stroke="#2b2826" stroke-width="0.5"/>
+        <rect x="65" y="29" width="30" height="22" fill="#e0dcd6" stroke="#2b2826" stroke-width="0.5"/>
+        <rect x="95" y="29" width="30" height="22" fill="#e0dcd6" stroke="#2b2826" stroke-width="0.5"/>
+        <rect x="125" y="29" width="30" height="22" fill="#e0dcd6" stroke="#2b2826" stroke-width="0.5"/>
+        <rect x="155" y="29" width="30" height="22" fill="#e0dcd6" stroke="#2b2826" stroke-width="0.5"/>
+        <!-- Row 3 -->
+        <rect x="5" y="53" width="30" height="22" fill="#c03000" stroke="#2b2826" stroke-width="0.5"/>
+        <rect x="35" y="53" width="30" height="22" fill="#c03000" stroke="#2b2826" stroke-width="0.5"/>
+        <rect x="65" y="53" width="30" height="22" fill="#c03000" stroke="#2b2826" stroke-width="0.5"/>
+        <rect x="95" y="53" width="30" height="22" fill="#e0dcd6" stroke="#2b2826" stroke-width="0.5"/>
+        <rect x="125" y="53" width="30" height="22" fill="#e0dcd6" stroke="#2b2826" stroke-width="0.5"/>
+        <rect x="155" y="53" width="30" height="22" fill="#e0dcd6" stroke="#2b2826" stroke-width="0.5"/>
+        <!-- Row 4 -->
+        <rect x="5" y="77" width="30" height="22" fill="#c03000" stroke="#2b2826" stroke-width="0.5"/>
+        <rect x="35" y="77" width="30" height="22" fill="#c03000" stroke="#2b2826" stroke-width="0.5"/>
+        <rect x="65" y="77" width="30" height="22" fill="#c03000" stroke="#2b2826" stroke-width="0.5"/>
+        <rect x="95" y="77" width="30" height="22" fill="#c03000" stroke="#2b2826" stroke-width="0.5"/>
+        <rect x="125" y="77" width="30" height="22" fill="#e0dcd6" stroke="#2b2826" stroke-width="0.5"/>
+        <rect x="155" y="77" width="30" height="22" fill="#e0dcd6" stroke="#2b2826" stroke-width="0.5"/>
+        <!-- Row 5 -->
+        <rect x="5" y="101" width="30" height="22" fill="#c03000" stroke="#2b2826" stroke-width="0.5"/>
+        <rect x="35" y="101" width="30" height="22" fill="#c03000" stroke="#2b2826" stroke-width="0.5"/>
+        <rect x="65" y="101" width="30" height="22" fill="#c03000" stroke="#2b2826" stroke-width="0.5"/>
+        <rect x="95" y="101" width="30" height="22" fill="#c03000" stroke="#2b2826" stroke-width="0.5"/>
+        <rect x="125" y="101" width="30" height="22" fill="#c03000" stroke="#2b2826" stroke-width="0.5"/>
+        <rect x="155" y="101" width="30" height="22" fill="#e0dcd6" stroke="#2b2826" stroke-width="0.5"/>
+        <!-- Row 6 -->
+        <rect x="5" y="125" width="30" height="22" fill="#c03000" stroke="#2b2826" stroke-width="0.5"/>
+        <rect x="35" y="125" width="30" height="22" fill="#c03000" stroke="#2b2826" stroke-width="0.5"/>
+        <rect x="65" y="125" width="30" height="22" fill="#c03000" stroke="#2b2826" stroke-width="0.5"/>
+        <rect x="95" y="125" width="30" height="22" fill="#c03000" stroke="#2b2826" stroke-width="0.5"/>
+        <rect x="125" y="125" width="30" height="22" fill="#c03000" stroke="#2b2826" stroke-width="0.5"/>
+        <rect x="155" y="125" width="30" height="22" fill="#c03000" stroke="#2b2826" stroke-width="0.5"/>
+        <!-- row labels -->
+        <g font-size="9" fill="#8a8580" text-anchor="end">
+          <text x="0" y="20">pos 1</text>
+          <text x="0" y="44">pos 2</text>
+          <text x="0" y="68">pos 3</text>
+          <text x="0" y="92">pos 4</text>
+          <text x="0" y="116">pos 5</text>
+          <text x="0" y="140">pos 6</text>
+        </g>
+      </g>
+    </g>
+    <text x="745" y="282" font-size="10" fill="#8a8580" text-anchor="middle" font-style="italic">attention is allowed only on the lower triangle</text>
+  </g>
+
+  <!-- =========== TRANSFORMER DECODER STACK =========== -->
+  <rect x="60" y="195" width="540" height="60" rx="8" fill="#fee0cf" stroke="#c03000" stroke-width="1.4"/>
+  <text x="330" y="222" font-size="13" font-weight="700" fill="#2b2826" text-anchor="middle">Transformer decoder (N layers)</text>
+  <text x="330" y="240" font-size="10" font-style="italic" fill="#2b2826" text-anchor="middle">masked self-attention. Each position uses only what came before.</text>
+
+  <!-- =========== OUTPUT ROW: shifted-right labels =========== -->
+  <text x="60" y="290" font-size="11" font-weight="700" fill="#8a8580" letter-spacing="1.2">TARGET (label = next token)</text>
+
+  <g font-size="13" font-weight="500" fill="#2b2826" text-anchor="middle">
+    <rect x="60" y="305" width="40" height="38" rx="4" fill="#e0dcd6" stroke="#2b2826" stroke-width="1"/>
+    <text x="80" y="329">dep</text>
+    <rect x="115" y="305" width="140" height="38" rx="4" fill="#e0dcd6" stroke="#2b2826" stroke-width="1"/>
+    <text x="185" y="329">money</text>
+    <rect x="270" y="305" width="100" height="38" rx="4" fill="#e0dcd6" stroke="#2b2826" stroke-width="1"/>
+    <text x="320" y="329">at</text>
+    <rect x="385" y="305" width="50" height="38" rx="4" fill="#e0dcd6" stroke="#2b2826" stroke-width="1"/>
+    <text x="410" y="329">the</text>
+    <rect x="450" y="305" width="60" height="38" rx="4" fill="#e0dcd6" stroke="#2b2826" stroke-width="1"/>
+    <text x="480" y="329">bank</text>
+    <rect x="525" y="305" width="70" height="38" rx="4" fill="#e0dcd6" stroke="#2b2826" stroke-width="1"/>
+    <text x="560" y="329">.</text>
+  </g>
+
+  <!-- shifted-right arrows -->
+  <g stroke="#c03000" stroke-width="1" fill="none">
+    <path d="M 80 153 L 80 188" marker-end="url(#dn)"/>
+    <path d="M 185 153 L 185 188" marker-end="url(#dn)"/>
+    <path d="M 320 153 L 320 188" marker-end="url(#dn)"/>
+    <path d="M 410 153 L 410 188" marker-end="url(#dn)"/>
+    <path d="M 480 153 L 480 188" marker-end="url(#dn)"/>
+    <path d="M 560 153 L 560 188" marker-end="url(#dn)"/>
+
+    <path d="M 80 262 L 80 300" marker-end="url(#dn)"/>
+    <path d="M 185 262 L 185 300" marker-end="url(#dn)"/>
+    <path d="M 320 262 L 320 300" marker-end="url(#dn)"/>
+    <path d="M 410 262 L 410 300" marker-end="url(#dn)"/>
+    <path d="M 480 262 L 480 300" marker-end="url(#dn)"/>
+    <path d="M 560 262 L 560 300" marker-end="url(#dn)"/>
+  </g>
+  <defs>
+    <marker id="dn" markerWidth="6" markerHeight="6" refX="3" refY="5" orient="auto">
+      <polygon points="0 0, 6 0, 3 6" fill="#c03000"/>
+    </marker>
+  </defs>
+
+  <!-- Annotation: many training examples per sentence -->
+  <g>
+    <rect x="60" y="375" width="980" height="80" rx="6" fill="#ffffff" stroke="#8a8580" stroke-width="0.8"/>
+    <text x="78" y="398" font-size="11" font-weight="700" fill="#2b2826" letter-spacing="1">EVERY POSITION IS A TRAINING EXAMPLE</text>
+    <text x="78" y="420" font-size="12" fill="#2b2826">From this one sentence the model gets six independent next-token losses, one at every position.</text>
+    <text x="78" y="438" font-size="12" fill="#2b2826">Across a corpus of trillions of tokens, free supervision compounds. No human labels, no annotation cost.</text>
+  </g>
+
+  <text x="550" y="495" font-size="11" font-style="italic" fill="#2b2826" text-anchor="middle">
+    "Predict the next word" sounds shallow. Driving down that loss requires syntax, world knowledge, and multi-step reasoning.
+  </text>
+</svg>

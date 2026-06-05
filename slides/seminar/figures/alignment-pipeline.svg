@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 480" font-family="Inter, -apple-system, sans-serif" preserveAspectRatio="xMidYMid meet">
+  <rect width="1100" height="480" fill="#f5f2ed"/>
+
+  <text x="550" y="30" font-size="14" font-weight="700" fill="#2b2826" text-anchor="middle">The full alignment pipeline</text>
+  <text x="550" y="48" font-size="11" fill="#8a8580" text-anchor="middle">Four training stages, three data sources, one aligned model. Each stage starts from the weights of the previous one.</text>
+
+  <defs>
+    <marker id="apArrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+      <polygon points="0 0, 8 4, 0 8" fill="#2b2826"/>
+    </marker>
+  </defs>
+
+  <!-- Stage 1: Pre-training -->
+  <g>
+    <text x="130" y="85" font-size="11" font-weight="700" fill="#8a8580" text-anchor="middle" letter-spacing="1.5">STAGE 1</text>
+    <text x="130" y="102" font-size="13" font-weight="700" fill="#2b2826" text-anchor="middle">Pre-training</text>
+
+    <!-- data source -->
+    <ellipse cx="130" cy="160" rx="110" ry="32" fill="#e0dcd6" stroke="#8a8580" stroke-width="1"/>
+    <text x="130" y="158" font-size="11" font-weight="700" fill="#2b2826" text-anchor="middle">Internet archive</text>
+    <text x="130" y="174" font-size="10" font-style="italic" fill="#8a8580" text-anchor="middle">raw, unlabelled text</text>
+
+    <path d="M 130 200 L 130 218" stroke="#2b2826" stroke-width="1.4" marker-end="url(#apArrow)"/>
+
+    <!-- training box -->
+    <rect x="65" y="225" width="130" height="56" rx="8" fill="#cfe1e0" stroke="#2b2826" stroke-width="1.4"/>
+    <text x="130" y="248" font-size="12" font-weight="700" fill="#2b2826" text-anchor="middle">Self-supervised</text>
+    <text x="130" y="263" font-size="10" font-style="italic" fill="#2b2826" text-anchor="middle">next-token loss</text>
+    <text x="130" y="275" font-size="10" font-style="italic" fill="#2b2826" text-anchor="middle">across trillions of tokens</text>
+
+    <!-- output model -->
+    <path d="M 130 285 L 130 300" stroke="#2b2826" stroke-width="1.4" marker-end="url(#apArrow)"/>
+    <circle cx="130" cy="328" r="32" fill="#ffffff" stroke="#2b2826" stroke-width="1.4"/>
+    <text x="130" y="324" font-size="11" font-weight="700" fill="#2b2826" text-anchor="middle">π</text>
+    <text x="143" y="332" font-size="9" fill="#2b2826">θ₀</text>
+    <text x="130" y="378" font-size="11" font-weight="600" fill="#2b2826" text-anchor="middle">Base model</text>
+  </g>
+
+  <!-- Stage 2: SFT -->
+  <g>
+    <text x="380" y="85" font-size="11" font-weight="700" fill="#8a8580" text-anchor="middle" letter-spacing="1.5">STAGE 2</text>
+    <text x="380" y="102" font-size="13" font-weight="700" fill="#2b2826" text-anchor="middle">Instruction tuning (SFT)</text>
+
+    <ellipse cx="380" cy="160" rx="110" ry="32" fill="#e0dcd6" stroke="#8a8580" stroke-width="1"/>
+    <text x="380" y="158" font-size="11" font-weight="700" fill="#2b2826" text-anchor="middle">Instruction data</text>
+    <text x="380" y="174" font-size="10" font-style="italic" fill="#8a8580" text-anchor="middle">~13K (prompt, response) pairs</text>
+
+    <path d="M 380 200 L 380 218" stroke="#2b2826" stroke-width="1.4" marker-end="url(#apArrow)"/>
+
+    <rect x="315" y="225" width="130" height="56" rx="8" fill="#f5e0c5" stroke="#2b2826" stroke-width="1.4"/>
+    <text x="380" y="248" font-size="12" font-weight="700" fill="#2b2826" text-anchor="middle">SFT</text>
+    <text x="380" y="263" font-size="10" font-style="italic" fill="#2b2826" text-anchor="middle">next-token loss on</text>
+    <text x="380" y="275" font-size="10" font-style="italic" fill="#2b2826" text-anchor="middle">demonstrations</text>
+
+    <path d="M 380 285 L 380 300" stroke="#2b2826" stroke-width="1.4" marker-end="url(#apArrow)"/>
+    <circle cx="380" cy="328" r="32" fill="#ffffff" stroke="#2b2826" stroke-width="1.4"/>
+    <text x="380" y="324" font-size="11" font-weight="700" fill="#2b2826" text-anchor="middle">π</text>
+    <text x="392" y="332" font-size="9" fill="#2b2826">SFT</text>
+    <text x="380" y="378" font-size="11" font-weight="600" fill="#2b2826" text-anchor="middle">Format-aware model</text>
+  </g>
+
+  <!-- Stage 3.1: Reward modelling -->
+  <g>
+    <text x="630" y="85" font-size="11" font-weight="700" fill="#8a8580" text-anchor="middle" letter-spacing="1.5">STAGE 3.1</text>
+    <text x="630" y="102" font-size="13" font-weight="700" fill="#2b2826" text-anchor="middle">Reward modelling</text>
+
+    <ellipse cx="630" cy="160" rx="110" ry="32" fill="#e0dcd6" stroke="#8a8580" stroke-width="1"/>
+    <text x="630" y="158" font-size="11" font-weight="700" fill="#2b2826" text-anchor="middle">Preference data</text>
+    <text x="630" y="174" font-size="10" font-style="italic" fill="#8a8580" text-anchor="middle">ranked response pairs</text>
+
+    <path d="M 630 200 L 630 218" stroke="#2b2826" stroke-width="1.4" marker-end="url(#apArrow)"/>
+
+    <rect x="565" y="225" width="130" height="56" rx="8" fill="#fee0cf" stroke="#c03000" stroke-width="1.4"/>
+    <text x="630" y="248" font-size="12" font-weight="700" fill="#2b2826" text-anchor="middle">RM training</text>
+    <text x="630" y="263" font-size="10" font-style="italic" fill="#2b2826" text-anchor="middle">pairwise preference loss</text>
+    <text x="630" y="275" font-size="10" font-style="italic" fill="#2b2826" text-anchor="middle">on (winner, loser) pairs</text>
+
+    <path d="M 630 285 L 630 300" stroke="#2b2826" stroke-width="1.4" marker-end="url(#apArrow)"/>
+    <circle cx="630" cy="328" r="32" fill="#ffffff" stroke="#2b2826" stroke-width="1.4"/>
+    <text x="630" y="333" font-size="13" font-weight="700" fill="#2b2826" text-anchor="middle">r<tspan baseline-shift="sub" font-size="9">φ</tspan></text>
+    <text x="630" y="378" font-size="11" font-weight="600" fill="#2b2826" text-anchor="middle">Reward model</text>
+  </g>
+
+  <!-- Stage 3.2: PPO -->
+  <g>
+    <text x="900" y="85" font-size="11" font-weight="700" fill="#8a8580" text-anchor="middle" letter-spacing="1.5">STAGE 3.2</text>
+    <text x="900" y="102" font-size="13" font-weight="700" fill="#2b2826" text-anchor="middle">Policy optimisation</text>
+
+    <ellipse cx="900" cy="160" rx="110" ry="32" fill="#e0dcd6" stroke="#8a8580" stroke-width="1"/>
+    <text x="900" y="158" font-size="11" font-weight="700" fill="#2b2826" text-anchor="middle">New prompts</text>
+    <text x="900" y="174" font-size="10" font-style="italic" fill="#8a8580" text-anchor="middle">unranked, fresh</text>
+
+    <path d="M 900 200 L 900 218" stroke="#2b2826" stroke-width="1.4" marker-end="url(#apArrow)"/>
+
+    <rect x="835" y="225" width="130" height="56" rx="8" fill="#fee0cf" stroke="#c03000" stroke-width="1.4"/>
+    <text x="900" y="248" font-size="12" font-weight="700" fill="#2b2826" text-anchor="middle">PPO</text>
+    <text x="900" y="263" font-size="10" font-style="italic" fill="#2b2826" text-anchor="middle">maximise reward,</text>
+    <text x="900" y="275" font-size="10" font-style="italic" fill="#2b2826" text-anchor="middle">KL leash to π<tspan baseline-shift="sub" font-size="8">SFT</tspan></text>
+
+    <path d="M 900 285 L 900 300" stroke="#2b2826" stroke-width="1.4" marker-end="url(#apArrow)"/>
+    <circle cx="900" cy="328" r="32" fill="#c03000" stroke="#2b2826" stroke-width="1.6"/>
+    <text x="900" y="324" font-size="11" font-weight="700" fill="#f5f2ed" text-anchor="middle">π</text>
+    <text x="912" y="332" font-size="9" fill="#f5f2ed">θ*</text>
+    <text x="900" y="378" font-size="11" font-weight="700" fill="#c03000" text-anchor="middle">Aligned model</text>
+  </g>
+
+  <!-- Inter-stage horizontal arrows showing weight reuse -->
+  <g stroke="#c03000" stroke-width="2" fill="none">
+    <path d="M 162 328 L 348 328" marker-end="url(#redArr)"/>
+    <path d="M 412 328 L 590 328" marker-end="url(#redArr)" stroke-dasharray="4,3"/>
+    <path d="M 662 328 L 868 328" marker-end="url(#redArr)"/>
+  </g>
+  <defs>
+    <marker id="redArr" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+      <polygon points="0 0, 8 4, 0 8" fill="#c03000"/>
+    </marker>
+  </defs>
+  <text x="255" y="320" font-size="10" font-style="italic" fill="#c03000" text-anchor="middle">copy weights</text>
+  <text x="501" y="320" font-size="10" font-style="italic" fill="#c03000" text-anchor="middle">init RM from π<tspan baseline-shift="sub" font-size="8">SFT</tspan></text>
+  <text x="765" y="320" font-size="10" font-style="italic" fill="#c03000" text-anchor="middle">init policy from π<tspan baseline-shift="sub" font-size="8">SFT</tspan></text>
+
+  <!-- Bottom: objective formula -->
+  <g>
+    <rect x="60" y="410" width="980" height="50" rx="6" fill="#ffffff" stroke="#c03000" stroke-width="1.2"/>
+    <text x="78" y="432" font-size="11" font-weight="700" fill="#c03000" letter-spacing="1">PPO OBJECTIVE</text>
+    <text x="78" y="450" font-family="IBM Plex Mono, monospace" font-size="13" fill="#2b2826">
+      π* = arg max  𝔼<tspan baseline-shift="sub" font-size="9">x ∼ 𝒟, y ∼ π</tspan>[ r<tspan baseline-shift="sub" font-size="9">φ</tspan>(x, y) − β · KL( π<tspan baseline-shift="sub" font-size="9">θ</tspan>(y|x) ‖ π<tspan baseline-shift="sub" font-size="9">SFT</tspan>(y|x) ) ]
+    </text>
+  </g>
+</svg>

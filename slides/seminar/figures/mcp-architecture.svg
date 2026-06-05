@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 540" font-family="Inter, -apple-system, sans-serif" preserveAspectRatio="xMidYMid meet">
+  <rect width="600" height="540" fill="#f5f2ed"/>
+
+  <text x="300" y="32" font-size="14" font-weight="700" fill="#2b2826" text-anchor="middle">MCP architecture: host, client, servers</text>
+  <text x="300" y="50" font-size="11" fill="#8a8580" text-anchor="middle">A host application contains an MCP client. The client speaks to many MCP servers, each exposing a tool or data source.</text>
+
+  <defs>
+    <marker id="mcArrow" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto">
+      <polygon points="0 0, 7 3.5, 0 7" fill="#2b2826"/>
+    </marker>
+  </defs>
+
+  <!-- HOST container -->
+  <g>
+    <rect x="40" y="82" width="240" height="280" rx="10" fill="#fee0cf" stroke="#c03000" stroke-width="2"/>
+    <text x="160" y="106" font-size="12" font-weight="700" fill="#c03000" text-anchor="middle" letter-spacing="1">MCP HOST</text>
+    <text x="160" y="121" font-size="10" font-style="italic" fill="#8a8580" text-anchor="middle">the AI application the user opens</text>
+
+    <!-- LLM brain -->
+    <rect x="65" y="140" width="190" height="50" rx="8" fill="#cfe1e0" stroke="#2b2826" stroke-width="1.4"/>
+    <text x="160" y="162" font-size="13" font-weight="700" fill="#2b2826" text-anchor="middle">LLM brain</text>
+    <text x="160" y="178" font-size="10" font-style="italic" fill="#8a8580" text-anchor="middle">decides which tools to call</text>
+
+    <!-- MCP client -->
+    <rect x="65" y="208" width="190" height="50" rx="8" fill="#f5e0c5" stroke="#2b2826" stroke-width="1.4"/>
+    <text x="160" y="230" font-size="13" font-weight="700" fill="#2b2826" text-anchor="middle">MCP client</text>
+    <text x="160" y="246" font-size="10" font-style="italic" fill="#8a8580" text-anchor="middle">connection manager</text>
+
+    <!-- conversation history -->
+    <rect x="65" y="276" width="190" height="50" rx="8" fill="#e0dcd6" stroke="#2b2826" stroke-width="1"/>
+    <text x="160" y="298" font-size="13" font-weight="700" fill="#2b2826" text-anchor="middle">User + chat</text>
+    <text x="160" y="314" font-size="10" font-style="italic" fill="#8a8580" text-anchor="middle">UI, message history</text>
+
+    <text x="160" y="350" font-size="10" font-style="italic" fill="#c03000" text-anchor="middle">e.g. Claude Desktop, Claude Code, an IDE</text>
+  </g>
+
+  <!-- Servers -->
+  <g>
+    <text x="450" y="106" font-size="12" font-weight="700" fill="#2b8a4a" text-anchor="middle" letter-spacing="1">MCP SERVERS</text>
+    <text x="450" y="121" font-size="10" font-style="italic" fill="#8a8580" text-anchor="middle">each exposes one capability</text>
+
+    <g>
+      <rect x="370" y="140" width="180" height="40" rx="6" fill="#ffffff" stroke="#2b8a4a" stroke-width="1.4"/>
+      <text x="385" y="158" font-size="11" font-weight="700" fill="#2b2826">📁 filesystem</text>
+      <text x="385" y="172" font-size="9" font-style="italic" fill="#8a8580">read / write local files</text>
+    </g>
+
+    <g>
+      <rect x="370" y="190" width="180" height="40" rx="6" fill="#ffffff" stroke="#2b8a4a" stroke-width="1.4"/>
+      <text x="385" y="208" font-size="11" font-weight="700" fill="#2b2826">🔍 brave-search</text>
+      <text x="385" y="222" font-size="9" font-style="italic" fill="#8a8580">web search</text>
+    </g>
+
+    <g>
+      <rect x="370" y="240" width="180" height="40" rx="6" fill="#ffffff" stroke="#2b8a4a" stroke-width="1.4"/>
+      <text x="385" y="258" font-size="11" font-weight="700" fill="#2b2826">🗄 postgres</text>
+      <text x="385" y="272" font-size="9" font-style="italic" fill="#8a8580">SQL queries against your DB</text>
+    </g>
+
+    <g>
+      <rect x="370" y="290" width="180" height="40" rx="6" fill="#ffffff" stroke="#2b8a4a" stroke-width="1.4"/>
+      <text x="385" y="308" font-size="11" font-weight="700" fill="#2b2826">💬 slack</text>
+      <text x="385" y="322" font-size="9" font-style="italic" fill="#8a8580">messages, channels</text>
+    </g>
+
+    <g>
+      <rect x="370" y="340" width="180" height="40" rx="6" fill="#ffffff" stroke="#2b8a4a" stroke-width="1.4"/>
+      <text x="385" y="358" font-size="11" font-weight="700" fill="#2b2826">🌐 puppeteer</text>
+      <text x="385" y="372" font-size="9" font-style="italic" fill="#8a8580">browser automation</text>
+    </g>
+  </g>
+
+  <!-- Wires from client to each server -->
+  <g stroke="#2b8a4a" stroke-width="1.6" fill="none">
+    <path d="M 255 232 Q 320 160 370 160" marker-end="url(#mcpArr)"/>
+    <path d="M 255 232 Q 320 210 370 210" marker-end="url(#mcpArr)"/>
+    <path d="M 255 232 Q 320 260 370 260" marker-end="url(#mcpArr)"/>
+    <path d="M 255 232 Q 320 310 370 310" marker-end="url(#mcpArr)"/>
+    <path d="M 255 232 Q 320 360 370 360" marker-end="url(#mcpArr)"/>
+  </g>
+  <defs>
+    <marker id="mcpArr" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto">
+      <polygon points="0 0, 7 3.5, 0 7" fill="#2b8a4a"/>
+    </marker>
+  </defs>
+
+  <!-- Bottom callout -->
+  <g>
+    <rect x="40" y="405" width="520" height="105" rx="6" fill="#ffffff" stroke="#c03000" stroke-width="1.2"/>
+    <text x="60" y="427" font-size="11" font-weight="700" fill="#c03000" letter-spacing="1">THE WIRE PROTOCOL</text>
+    <text x="60" y="445" font-size="12" fill="#2b2826">JSON-RPC over stdio or HTTP. Every server lists its tools, schemas, and prompts at startup.</text>
+    <text x="60" y="463" font-size="12" fill="#2b2826">The client passes the schemas to the LLM. When the model emits a tool call, the client routes it to the right server.</text>
+    <text x="60" y="481" font-size="12" fill="#2b2826">Build a server in any language. Use it from any compatible host. The protocol is the only contract.</text>
+    <text x="60" y="500" font-size="10" font-style="italic" fill="#8a8580">USB-C for AI: one port, many devices, no per-vendor adapter.</text>
+  </g>
+</svg>

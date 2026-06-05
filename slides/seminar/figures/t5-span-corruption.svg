@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 540" font-family="Inter, -apple-system, sans-serif" preserveAspectRatio="xMidYMid meet">
+  <rect width="1100" height="540" fill="#f5f2ed"/>
+
+  <text x="550" y="34" font-size="14" font-weight="700" fill="#2b2826" text-anchor="middle">T5 pre-training: corrupt spans, regenerate them</text>
+  <text x="550" y="52" font-size="11" fill="#8a8580" text-anchor="middle">Replace contiguous spans with sentinels. The encoder reads the corrupted text. The decoder writes the missing spans back.</text>
+
+  <!-- =========== ORIGINAL =========== -->
+  <text x="60" y="98" font-size="11" font-weight="700" fill="#8a8580" letter-spacing="1.2">ORIGINAL SENTENCE</text>
+  <g font-size="14" font-weight="500" fill="#2b2826" text-anchor="middle">
+    <rect x="60" y="112" width="40" height="38" rx="4" fill="#e0dcd6" stroke="#2b2826" stroke-width="1"/>
+    <text x="80" y="136">I</text>
+    <rect x="115" y="112" width="160" height="38" rx="4" fill="#e0dcd6" stroke="#2b2826" stroke-width="1"/>
+    <text x="195" y="136">deposited</text>
+    <rect x="290" y="112" width="110" height="38" rx="4" fill="#e0dcd6" stroke="#2b2826" stroke-width="1"/>
+    <text x="345" y="136">money</text>
+    <rect x="415" y="112" width="50" height="38" rx="4" fill="#e0dcd6" stroke="#2b2826" stroke-width="1"/>
+    <text x="440" y="136">at</text>
+    <rect x="480" y="112" width="70" height="38" rx="4" fill="#e0dcd6" stroke="#2b2826" stroke-width="1"/>
+    <text x="515" y="136">the</text>
+    <rect x="565" y="112" width="80" height="38" rx="4" fill="#e0dcd6" stroke="#2b2826" stroke-width="1"/>
+    <text x="605" y="136">bank</text>
+    <rect x="660" y="112" width="40" height="38" rx="4" fill="#e0dcd6" stroke="#2b2826" stroke-width="1"/>
+    <text x="680" y="136">.</text>
+  </g>
+
+  <!-- Bracket over span 1 -->
+  <g stroke="#c03000" stroke-width="1.2" fill="none">
+    <path d="M 115 159 L 115 165 L 400 165 L 400 159"/>
+  </g>
+  <text x="257" y="180" font-size="10" fill="#c03000" font-weight="700" text-anchor="middle">span 1 → &lt;X&gt;</text>
+
+  <g stroke="#c03000" stroke-width="1.2" fill="none">
+    <path d="M 480 159 L 480 165 L 645 165 L 645 159"/>
+  </g>
+  <text x="562" y="180" font-size="10" fill="#c03000" font-weight="700" text-anchor="middle">span 2 → &lt;Y&gt;</text>
+
+  <!-- =========== CORRUPTED INPUT =========== -->
+  <text x="60" y="218" font-size="11" font-weight="700" fill="#8a8580" letter-spacing="1.2">ENCODER INPUT (corrupted)</text>
+  <g font-size="14" font-weight="500" fill="#2b2826" text-anchor="middle">
+    <rect x="60" y="232" width="40" height="38" rx="4" fill="#cfe1e0" stroke="#2b2826" stroke-width="1"/>
+    <text x="80" y="256">I</text>
+    <rect x="115" y="230" width="80" height="42" rx="4" fill="#fee0cf" stroke="#c03000" stroke-width="1.6"/>
+    <text x="155" y="256" font-weight="700" fill="#c03000">&lt;X&gt;</text>
+    <rect x="210" y="232" width="50" height="38" rx="4" fill="#cfe1e0" stroke="#2b2826" stroke-width="1"/>
+    <text x="235" y="256">at</text>
+    <rect x="275" y="232" width="70" height="38" rx="4" fill="#cfe1e0" stroke="#2b2826" stroke-width="1"/>
+    <text x="310" y="256">the</text>
+    <rect x="360" y="230" width="80" height="42" rx="4" fill="#fee0cf" stroke="#c03000" stroke-width="1.6"/>
+    <text x="400" y="256" font-weight="700" fill="#c03000">&lt;Y&gt;</text>
+    <rect x="455" y="232" width="40" height="38" rx="4" fill="#cfe1e0" stroke="#2b2826" stroke-width="1"/>
+    <text x="475" y="256">.</text>
+  </g>
+
+  <!-- arrow down to encoder -->
+  <path d="M 277 280 L 277 295" stroke="#8a8580" stroke-width="1.2" fill="none" marker-end="url(#dn2)"/>
+
+  <!-- encoder -->
+  <rect x="60" y="298" width="440" height="44" rx="6" fill="#f5e0c5" stroke="#2b2826" stroke-width="1.4"/>
+  <text x="280" y="316" font-size="12" font-weight="700" fill="#2b2826" text-anchor="middle">Encoder (bidirectional)</text>
+  <text x="280" y="332" font-size="10" font-style="italic" fill="#2b2826" text-anchor="middle">builds a representation of the corrupted source</text>
+
+  <!-- cross-attention arrow from encoder to decoder -->
+  <path d="M 500 320 L 580 320" stroke="#8a8580" stroke-width="1.2" stroke-dasharray="3,2" fill="none" marker-end="url(#dn2)"/>
+  <text x="540" y="312" font-size="9" fill="#8a8580" text-anchor="middle" font-style="italic">cross-attn</text>
+
+  <!-- decoder -->
+  <rect x="580" y="298" width="440" height="44" rx="6" fill="#fee0cf" stroke="#c03000" stroke-width="1.4"/>
+  <text x="800" y="316" font-size="12" font-weight="700" fill="#2b2826" text-anchor="middle">Decoder (autoregressive)</text>
+  <text x="800" y="332" font-size="10" font-style="italic" fill="#2b2826" text-anchor="middle">emits sentinels and the spans they stood in for</text>
+
+  <path d="M 800 345 L 800 365" stroke="#c03000" stroke-width="1.2" fill="none" marker-end="url(#dn2)"/>
+
+  <defs>
+    <marker id="dn2" markerWidth="6" markerHeight="6" refX="3" refY="5" orient="auto">
+      <polygon points="0 0, 6 0, 3 6" fill="#8a8580"/>
+    </marker>
+  </defs>
+
+  <!-- =========== DECODER OUTPUT =========== -->
+  <text x="580" y="218" font-size="11" font-weight="700" fill="#8a8580" letter-spacing="1.2">DECODER OUTPUT (target)</text>
+  <g font-size="13" font-weight="500" fill="#2b2826" text-anchor="middle">
+    <rect x="585" y="232" width="56" height="38" rx="4" fill="#fee0cf" stroke="#c03000" stroke-width="1.6"/>
+    <text x="613" y="256" font-weight="700" fill="#c03000">&lt;X&gt;</text>
+    <rect x="649" y="232" width="120" height="38" rx="4" fill="#e0dcd6" stroke="#2b2826" stroke-width="1"/>
+    <text x="709" y="256">deposited</text>
+    <rect x="777" y="232" width="80" height="38" rx="4" fill="#e0dcd6" stroke="#2b2826" stroke-width="1"/>
+    <text x="817" y="256">money</text>
+    <rect x="865" y="232" width="56" height="38" rx="4" fill="#fee0cf" stroke="#c03000" stroke-width="1.6"/>
+    <text x="893" y="256" font-weight="700" fill="#c03000">&lt;Y&gt;</text>
+    <rect x="929" y="232" width="60" height="38" rx="4" fill="#e0dcd6" stroke="#2b2826" stroke-width="1"/>
+    <text x="959" y="256">bank</text>
+  </g>
+
+  <!-- Output box below decoder -->
+  <g font-family="IBM Plex Mono, monospace" font-size="13">
+    <rect x="640" y="370" width="320" height="46" rx="4" fill="#ffffff" stroke="#c03000" stroke-width="1.2"/>
+    <text x="800" y="398" fill="#2b2826" text-anchor="middle">&lt;X&gt; deposited money &lt;Y&gt; bank</text>
+  </g>
+
+  <!-- =========== KEY IDEA BOX =========== -->
+  <g>
+    <rect x="60" y="370" width="540" height="120" rx="6" fill="#ffffff" stroke="#8a8580" stroke-width="0.8"/>
+    <text x="78" y="392" font-size="11" font-weight="700" fill="#2b2826" letter-spacing="1">THE T5 BET: EVERYTHING IS TEXT-TO-TEXT</text>
+    <text x="78" y="416" font-size="12" fill="#2b2826">Pre-training: corrupted text in, missing spans out.</text>
+    <text x="78" y="436" font-size="12" fill="#2b2826">Fine-tuning: any task is framed as text in, text out. Translation, classification,</text>
+    <text x="78" y="452" font-size="12" fill="#2b2826">summarisation, question answering. The format and the loss never change.</text>
+    <text x="78" y="478" font-size="10" font-style="italic" fill="#8a8580">One architecture, one loss, one format. The whole NLP zoo collapses into a single recipe.</text>
+  </g>
+
+  <text x="550" y="518" font-size="11" font-style="italic" fill="#2b2826" text-anchor="middle">
+    Span corruption is roughly “masked LM with longer holes and an autoregressive decoder to fill them.”
+  </text>
+</svg>

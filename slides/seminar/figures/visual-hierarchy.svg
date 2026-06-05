@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 460" font-family="Inter, -apple-system, sans-serif" preserveAspectRatio="xMidYMid meet">
+  <rect width="1000" height="460" fill="#f5f2ed"/>
+
+  <text x="40" y="38" font-size="14" font-weight="700" fill="#2b2826">Hierarchy in the primate visual stream</text>
+  <text x="40" y="56" font-size="11" fill="#8a8580">Eye → LGN → V1 → V2 → V4 → IT. Receptive fields grow; features become more abstract; invariance accumulates.</text>
+
+  <!-- Column dividers -->
+  <line x1="360" y1="100" x2="360" y2="400" stroke="#e0dcd6" stroke-width="1"/>
+  <line x1="660" y1="100" x2="660" y2="400" stroke="#e0dcd6" stroke-width="1"/>
+
+  <g font-size="11" font-weight="600" fill="#8a8580" letter-spacing="1.5">
+    <text x="180" y="118" text-anchor="middle">VISUAL PATHWAY</text>
+    <text x="510" y="118" text-anchor="middle">RECEPTIVE FIELD</text>
+    <text x="830" y="118" text-anchor="middle">FEATURES</text>
+  </g>
+
+  <!-- ============ Column 1: Brain profile ============ -->
+  <!-- Stylised head outline (line art, right-facing) -->
+  <path d="M 270 160 Q 290 145 312 152 Q 332 145 340 175 Q 348 215 340 255 Q 332 300 305 315 Q 280 320 268 305 Q 250 290 235 270 Q 215 250 220 220 Q 225 185 245 165 Q 258 158 270 160 Z"
+        fill="none" stroke="#2b2826" stroke-width="1.5"/>
+  <!-- Eye -->
+  <circle cx="328" cy="225" r="6" fill="#f5f2ed" stroke="#2b2826" stroke-width="1.4"/>
+  <circle cx="330" cy="225" r="2" fill="#2b2826"/>
+  <text x="350" y="228" font-size="10" fill="#8a8580">eye</text>
+
+  <!-- Region blobs along path: eye → LGN → V1 → V2 → V4 → IT -->
+  <g>
+    <ellipse cx="295" cy="235" rx="10" ry="8" fill="#e0dcd6" stroke="#2b2826" stroke-width="1"/>
+    <text x="295" y="238" font-size="9" text-anchor="middle" fill="#2b2826" font-weight="700">LGN</text>
+
+    <ellipse cx="270" cy="220" rx="11" ry="8" fill="#e0dcd6" stroke="#2b2826" stroke-width="1"/>
+    <text x="270" y="223" font-size="9" text-anchor="middle" fill="#2b2826" font-weight="700">V1</text>
+
+    <ellipse cx="252" cy="208" rx="11" ry="8" fill="#e0dcd6" stroke="#2b2826" stroke-width="1"/>
+    <text x="252" y="211" font-size="9" text-anchor="middle" fill="#2b2826" font-weight="700">V2</text>
+
+    <ellipse cx="252" cy="245" rx="11" ry="8" fill="#e0dcd6" stroke="#2b2826" stroke-width="1"/>
+    <text x="252" y="248" font-size="9" text-anchor="middle" fill="#2b2826" font-weight="700">V4</text>
+
+    <ellipse cx="248" cy="280" rx="11" ry="8" fill="#fee0cf" stroke="#c03000" stroke-width="1.4"/>
+    <text x="248" y="283" font-size="9" text-anchor="middle" fill="#c03000" font-weight="700">IT</text>
+  </g>
+
+  <!-- Arrows along the pathway -->
+  <g stroke="#2b2826" stroke-width="1" fill="none" marker-end="url(#tinyArrow)" opacity="0.6">
+    <path d="M 320 226 Q 308 232 305 234" stroke-dasharray="2,2"/>
+    <path d="M 285 234 Q 277 228 273 224" stroke-dasharray="2,2"/>
+    <path d="M 262 216 Q 256 213 254 211" stroke-dasharray="2,2"/>
+    <path d="M 250 217 Q 248 230 251 240" stroke-dasharray="2,2"/>
+    <path d="M 250 254 Q 248 268 248 273" stroke-dasharray="2,2"/>
+  </g>
+
+  <!-- Abstraction arrow (up) -->
+  <line x1="170" y1="370" x2="170" y2="150" stroke="#c03000" stroke-width="2.2"/>
+  <polygon points="170,142 165,156 175,156" fill="#c03000"/>
+  <text x="155" y="260" font-size="11" font-style="italic" fill="#c03000" text-anchor="middle" transform="rotate(-90, 155, 260)">abstraction</text>
+
+  <!-- ============ Column 2: Receptive field sizes (concentric, growing) ============ -->
+  <g fill="#e0dcd6" stroke="#2b2826" stroke-width="1.2">
+    <ellipse cx="510" cy="340" rx="14" ry="11"/>
+    <ellipse cx="510" cy="285" rx="26" ry="19"/>
+    <ellipse cx="510" cy="220" rx="42" ry="29"/>
+    <ellipse cx="510" cy="150" rx="62" ry="38" fill="#fee0cf" stroke="#c03000" stroke-width="1.4"/>
+  </g>
+  <g font-size="11" font-weight="700" fill="#2b2826">
+    <text x="510" y="344" text-anchor="middle">V1</text>
+    <text x="510" y="289" text-anchor="middle">V2</text>
+    <text x="510" y="224" text-anchor="middle">V4</text>
+    <text x="510" y="155" text-anchor="middle" fill="#c03000">IT</text>
+  </g>
+
+  <!-- Tick labels for sizes -->
+  <g font-size="10" font-style="italic" fill="#8a8580" text-anchor="start">
+    <text x="585" y="345">~1°</text>
+    <text x="585" y="290">~3°</text>
+    <text x="585" y="225">~7°</text>
+    <text x="585" y="155">~20°+</text>
+  </g>
+
+  <!-- ============ Column 3: Feature icons (edges → shapes → objects → faces) ============ -->
+  <!-- V1: oriented edges -->
+  <g stroke="#2b2826" stroke-width="2" fill="none">
+    <line x1="790" y1="345" x2="820" y2="335"/>
+    <line x1="800" y1="355" x2="830" y2="345"/>
+  </g>
+  <text x="790" y="380" font-size="10" font-style="italic" fill="#8a8580">edges / lines</text>
+
+  <!-- V2: textures / contours -->
+  <g stroke="#2b2826" stroke-width="1.6" fill="none">
+    <path d="M 795 280 Q 810 270 825 280 Q 835 290 825 300 Q 810 308 795 300 Q 783 290 795 280 Z"/>
+  </g>
+  <text x="790" y="325" font-size="10" font-style="italic" fill="#8a8580">contours</text>
+
+  <!-- V4: shapes / colour -->
+  <g>
+    <rect x="795" y="200" width="32" height="22" fill="none" stroke="#2b2826" stroke-width="1.6"/>
+    <line x1="795" y1="200" x2="810" y2="186"/>
+    <line x1="827" y1="200" x2="842" y2="186"/>
+    <line x1="827" y1="222" x2="842" y2="208"/>
+    <line x1="810" y1="186" x2="842" y2="186"/>
+    <line x1="842" y1="186" x2="842" y2="208"/>
+    <g stroke="#2b2826" stroke-width="1.6" fill="none">
+      <line x1="795" y1="200" x2="810" y2="186"/>
+      <line x1="827" y1="200" x2="842" y2="186"/>
+      <line x1="827" y1="222" x2="842" y2="208"/>
+    </g>
+  </g>
+  <text x="790" y="250" font-size="10" font-style="italic" fill="#8a8580">shapes / objects</text>
+
+  <!-- IT: face -->
+  <g stroke="#c03000" stroke-width="1.8" fill="none">
+    <circle cx="815" cy="142" r="22"/>
+    <circle cx="807" cy="138" r="2.5" fill="#c03000"/>
+    <circle cx="823" cy="138" r="2.5" fill="#c03000"/>
+    <path d="M 805 150 Q 815 158 825 150" fill="none"/>
+  </g>
+  <text x="790" y="180" font-size="10" font-style="italic" fill="#c03000" font-weight="700">faces / category</text>
+
+  <!-- Bottom caption -->
+  <text x="500" y="435" font-size="11" fill="#8a8580" text-anchor="middle" font-style="italic">Roughly the same pattern reappears in convolutional and transformer vision models trained from scratch.</text>
+</svg>

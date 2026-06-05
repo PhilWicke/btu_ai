@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 540" font-family="Inter, -apple-system, sans-serif" preserveAspectRatio="xMidYMid meet">
+  <rect width="600" height="540" fill="#f5f2ed"/>
+
+  <text x="300" y="34" font-size="14" font-weight="700" fill="#2b2826" text-anchor="middle">Retrieval-augmented generation</text>
+  <text x="300" y="52" font-size="11" fill="#8a8580" text-anchor="middle">Closed-book exam becomes an open-book exam. The model retrieves first, then answers from the retrieved text.</text>
+
+  <defs>
+    <marker id="rgArrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+      <polygon points="0 0, 8 4, 0 8" fill="#2b2826"/>
+    </marker>
+  </defs>
+
+  <!-- TOP ROW: build the index (offline) -->
+  <text x="40" y="92" font-size="10" font-weight="700" fill="#8a8580" letter-spacing="1.5">OFFLINE — BUILD THE INDEX</text>
+
+  <g>
+    <rect x="40" y="105" width="130" height="60" rx="6" fill="#e0dcd6" stroke="#2b2826" stroke-width="1"/>
+    <text x="105" y="129" font-size="12" font-weight="700" fill="#2b2826" text-anchor="middle">Your documents</text>
+    <text x="105" y="146" font-size="10" font-style="italic" fill="#8a8580" text-anchor="middle">PDFs, manuals, wiki,</text>
+    <text x="105" y="158" font-size="10" font-style="italic" fill="#8a8580" text-anchor="middle">tickets, emails</text>
+  </g>
+
+  <path d="M 175 135 L 212 135" stroke="#2b2826" stroke-width="1.4" marker-end="url(#rgArrow)"/>
+  <text x="195" y="125" font-size="10" font-style="italic" fill="#8a8580" text-anchor="middle">chunk + embed</text>
+
+  <g>
+    <rect x="215" y="105" width="130" height="60" rx="6" fill="#cfe1e0" stroke="#2b2826" stroke-width="1"/>
+    <text x="280" y="129" font-size="12" font-weight="700" fill="#2b2826" text-anchor="middle">Embedding model</text>
+    <text x="280" y="146" font-size="10" font-style="italic" fill="#8a8580" text-anchor="middle">turns each chunk</text>
+    <text x="280" y="158" font-size="10" font-style="italic" fill="#8a8580" text-anchor="middle">into a vector</text>
+  </g>
+
+  <path d="M 350 135 L 387 135" stroke="#2b2826" stroke-width="1.4" marker-end="url(#rgArrow)"/>
+
+  <g>
+    <rect x="390" y="105" width="170" height="60" rx="6" fill="#f5e0c5" stroke="#2b2826" stroke-width="1.4"/>
+    <text x="475" y="129" font-size="12" font-weight="700" fill="#2b2826" text-anchor="middle">Vector database</text>
+    <text x="475" y="146" font-size="10" font-style="italic" fill="#8a8580" text-anchor="middle">searchable by</text>
+    <text x="475" y="158" font-size="10" font-style="italic" fill="#8a8580" text-anchor="middle">semantic similarity</text>
+  </g>
+
+  <!-- Separator -->
+  <line x1="40" y1="195" x2="560" y2="195" stroke="#e0dcd6" stroke-width="1"/>
+
+  <!-- BOTTOM: answer a query (live) -->
+  <text x="40" y="222" font-size="10" font-weight="700" fill="#c03000" letter-spacing="1.5">LIVE — ANSWER A QUERY</text>
+
+  <!-- Query -->
+  <g>
+    <rect x="40" y="240" width="170" height="50" rx="6" fill="#fee0cf" stroke="#c03000" stroke-width="1.4"/>
+    <text x="125" y="262" font-size="12" font-weight="700" fill="#2b2826" text-anchor="middle">User query</text>
+    <text x="125" y="278" font-size="10" font-style="italic" fill="#2b2826" text-anchor="middle">“What is our refund policy?”</text>
+  </g>
+
+  <path d="M 215 265 L 250 265" stroke="#c03000" stroke-width="1.6" marker-end="url(#rgArrow)"/>
+  <text x="232" y="255" font-size="10" font-style="italic" fill="#c03000" text-anchor="middle">embed</text>
+
+  <!-- Vector search -->
+  <g>
+    <rect x="255" y="240" width="125" height="50" rx="6" fill="#f5e0c5" stroke="#2b2826" stroke-width="1.4"/>
+    <text x="317" y="262" font-size="12" font-weight="700" fill="#2b2826" text-anchor="middle">Vector DB</text>
+    <text x="317" y="278" font-size="10" font-style="italic" fill="#8a8580" text-anchor="middle">top-K nearest chunks</text>
+  </g>
+
+  <path d="M 385 265 L 420 265" stroke="#c03000" stroke-width="1.6" marker-end="url(#rgArrow)"/>
+
+  <!-- Retrieved chunks -->
+  <g font-size="10" fill="#2b2826">
+    <rect x="425" y="232" width="135" height="20" rx="3" fill="#ffffff" stroke="#8a8580" stroke-width="0.6"/>
+    <text x="432" y="246">chunk #14: “refunds within 30...”</text>
+    <rect x="425" y="256" width="135" height="20" rx="3" fill="#ffffff" stroke="#8a8580" stroke-width="0.6"/>
+    <text x="432" y="270">chunk #92: “exceptions apply…”</text>
+    <rect x="425" y="280" width="135" height="20" rx="3" fill="#ffffff" stroke="#8a8580" stroke-width="0.6"/>
+    <text x="432" y="294">chunk #57: “contact support…”</text>
+  </g>
+
+  <!-- LLM stage -->
+  <g>
+    <path d="M 300 305 L 300 340" stroke="#c03000" stroke-width="1.6" marker-end="url(#rgArrow)"/>
+    <text x="318" y="328" font-size="10" font-style="italic" fill="#c03000">stuffed into prompt as context</text>
+  </g>
+
+  <g>
+    <rect x="135" y="345" width="330" height="68" rx="8" fill="#cfe1e0" stroke="#2b2826" stroke-width="1.4"/>
+    <text x="300" y="372" font-size="13" font-weight="700" fill="#2b2826" text-anchor="middle">LLM</text>
+    <text x="300" y="392" font-size="11" font-style="italic" fill="#2b2826" text-anchor="middle">prompt = system + retrieved chunks + user query</text>
+    <text x="300" y="406" font-size="11" font-style="italic" fill="#2b2826" text-anchor="middle">generates grounded answer</text>
+  </g>
+
+  <path d="M 300 418 L 300 444" stroke="#c03000" stroke-width="1.6" marker-end="url(#rgArrow)"/>
+
+  <g>
+    <rect x="135" y="450" width="330" height="40" rx="6" fill="#fee0cf" stroke="#c03000" stroke-width="1.6"/>
+    <text x="300" y="476" font-size="12" font-weight="700" fill="#c03000" text-anchor="middle">Answer grounded in your text</text>
+  </g>
+
+  <text x="300" y="515" font-size="11" font-style="italic" fill="#2b2826" text-anchor="middle">RAG is the bridge from prompting-only assistants to tool-using agents.</text>
+</svg>

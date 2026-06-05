@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 460" font-family="Inter, -apple-system, sans-serif" preserveAspectRatio="xMidYMid meet">
+  <rect width="1000" height="460" fill="#f5f2ed"/>
+
+  <text x="60" y="38" font-size="11" font-weight="600" fill="#8a8580" letter-spacing="2.5">BIOLOGICAL NEURON</text>
+  <text x="540" y="38" font-size="11" font-weight="600" fill="#8a8580" letter-spacing="2.5">ARTIFICIAL NEURON</text>
+
+  <!-- Bridge arrow -->
+  <line x1="470" y1="230" x2="528" y2="230" stroke="#c03000" stroke-width="2"/>
+  <polygon points="530,230 519,224 519,236" fill="#c03000"/>
+
+  <!-- ============ BIOLOGICAL NEURON ============ -->
+  <!-- Dendrite tree -->
+  <g stroke="#2b2826" stroke-width="1.6" fill="none" stroke-linecap="round">
+    <path d="M70 110 Q105 135 145 168"/>
+    <path d="M55 145 Q95 162 142 180"/>
+    <path d="M60 185 Q95 196 140 202"/>
+    <path d="M50 225 Q90 223 138 224"/>
+    <path d="M60 270 Q90 252 140 240"/>
+    <path d="M70 310 Q105 280 145 258"/>
+    <path d="M85 345 Q115 305 145 274"/>
+    <path d="M105 360 Q125 320 150 290"/>
+  </g>
+
+  <!-- Soma (animated pulse) -->
+  <ellipse cx="190" cy="230" rx="50" ry="42" fill="#e0dcd6" stroke="#2b2826" stroke-width="1.8">
+    <animate attributeName="fill"
+             values="#e0dcd6;#e0dcd6;#fee0cf;#e0dcd6;#e0dcd6"
+             keyTimes="0;0.25;0.40;0.55;1"
+             dur="3.5s"
+             repeatCount="indefinite"/>
+  </ellipse>
+  <circle cx="190" cy="230" r="14" fill="#f5f2ed" stroke="#2b2826" stroke-width="1.4"/>
+
+  <!-- Axon -->
+  <line x1="240" y1="230" x2="395" y2="230" stroke="#2b2826" stroke-width="2"/>
+
+  <!-- Axon terminals -->
+  <g stroke="#c03000" stroke-width="1.6" fill="none" stroke-linecap="round">
+    <path d="M395 230 L425 200"/>
+    <path d="M395 230 L432 220"/>
+    <path d="M395 230 L432 240"/>
+    <path d="M395 230 L425 260"/>
+  </g>
+  <g fill="#c03000">
+    <circle cx="428" cy="198" r="4">
+      <animate attributeName="r"
+               values="4;4;7;4;4"
+               keyTimes="0;0.70;0.80;0.90;1"
+               dur="3.5s"
+               repeatCount="indefinite"/>
+    </circle>
+    <circle cx="435" cy="219" r="4">
+      <animate attributeName="r"
+               values="4;4;7;4;4"
+               keyTimes="0;0.70;0.80;0.90;1"
+               dur="3.5s"
+               repeatCount="indefinite"/>
+    </circle>
+    <circle cx="435" cy="241" r="4">
+      <animate attributeName="r"
+               values="4;4;7;4;4"
+               keyTimes="0;0.70;0.80;0.90;1"
+               dur="3.5s"
+               repeatCount="indefinite"/>
+    </circle>
+    <circle cx="428" cy="262" r="4">
+      <animate attributeName="r"
+               values="4;4;7;4;4"
+               keyTimes="0;0.70;0.80;0.90;1"
+               dur="3.5s"
+               repeatCount="indefinite"/>
+    </circle>
+  </g>
+
+  <!-- ⚡ Activation spark traveling along the neuron -->
+  <circle r="6" fill="#c03000" opacity="0">
+    <animate attributeName="opacity"
+             values="0;1;1;1;0"
+             keyTimes="0;0.10;0.55;0.78;0.82"
+             dur="3.5s"
+             repeatCount="indefinite"/>
+    <animateMotion dur="3.5s" repeatCount="indefinite"
+                   path="M 60 220 Q 105 220 145 226 Q 175 232 190 230 L 395 230 L 428 235"/>
+  </circle>
+
+  <text x="60" y="395" font-size="12" fill="#8a8580">Dendrites</text>
+  <text x="190" y="295" font-size="12" fill="#8a8580" text-anchor="middle">Cell body</text>
+  <text x="315" y="220" font-size="12" fill="#8a8580">Axon</text>
+  <text x="445" y="285" font-size="12" fill="#8a8580" text-anchor="middle">Synapses</text>
+
+  <line x1="50" y1="420" x2="460" y2="420" stroke="#e0dcd6" stroke-width="1"/>
+  <text x="255" y="442" font-size="11" fill="#8a8580" text-anchor="middle" font-style="italic">dendrites · cell body · axon · synapses</text>
+
+  <!-- ============ ARTIFICIAL NEURON ============ -->
+  <!-- Inputs with cascading flash -->
+  <circle cx="585" cy="140" r="16" fill="#f5f2ed" stroke="#2b2826" stroke-width="1.5">
+    <animate attributeName="fill"
+             values="#f5f2ed;#f5f2ed;#c03000;#f5f2ed;#f5f2ed"
+             keyTimes="0;0.10;0.20;0.35;1"
+             dur="3.5s"
+             repeatCount="indefinite"/>
+  </circle>
+  <circle cx="585" cy="200" r="16" fill="#f5f2ed" stroke="#2b2826" stroke-width="1.5">
+    <animate attributeName="fill"
+             values="#f5f2ed;#f5f2ed;#c03000;#f5f2ed;#f5f2ed"
+             keyTimes="0;0.13;0.23;0.38;1"
+             dur="3.5s"
+             repeatCount="indefinite"/>
+  </circle>
+  <circle cx="585" cy="260" r="16" fill="#f5f2ed" stroke="#2b2826" stroke-width="1.5">
+    <animate attributeName="fill"
+             values="#f5f2ed;#f5f2ed;#c03000;#f5f2ed;#f5f2ed"
+             keyTimes="0;0.16;0.26;0.41;1"
+             dur="3.5s"
+             repeatCount="indefinite"/>
+  </circle>
+  <circle cx="585" cy="320" r="16" fill="#f5f2ed" stroke="#2b2826" stroke-width="1.5">
+    <animate attributeName="fill"
+             values="#f5f2ed;#f5f2ed;#c03000;#f5f2ed;#f5f2ed"
+             keyTimes="0;0.19;0.29;0.44;1"
+             dur="3.5s"
+             repeatCount="indefinite"/>
+  </circle>
+
+  <g font-size="13" fill="#2b2826" text-anchor="middle">
+    <text x="585" y="145">x₁</text>
+    <text x="585" y="205">x₂</text>
+    <text x="585" y="265">x₃</text>
+    <text x="585" y="325">x₄</text>
+  </g>
+
+  <!-- Connection lines pulse -->
+  <line x1="601" y1="140" x2="738" y2="220" stroke="#2b2826" stroke-width="1.2">
+    <animate attributeName="stroke"
+             values="#2b2826;#2b2826;#c03000;#2b2826;#2b2826"
+             keyTimes="0;0.25;0.40;0.55;1"
+             dur="3.5s"
+             repeatCount="indefinite"/>
+    <animate attributeName="stroke-width"
+             values="1.2;1.2;2.4;1.2;1.2"
+             keyTimes="0;0.25;0.40;0.55;1"
+             dur="3.5s"
+             repeatCount="indefinite"/>
+  </line>
+  <line x1="601" y1="200" x2="738" y2="226" stroke="#2b2826" stroke-width="1.2">
+    <animate attributeName="stroke"
+             values="#2b2826;#2b2826;#c03000;#2b2826;#2b2826"
+             keyTimes="0;0.25;0.40;0.55;1"
+             dur="3.5s"
+             repeatCount="indefinite"/>
+    <animate attributeName="stroke-width"
+             values="1.2;1.2;2.4;1.2;1.2"
+             keyTimes="0;0.25;0.40;0.55;1"
+             dur="3.5s"
+             repeatCount="indefinite"/>
+  </line>
+  <line x1="601" y1="260" x2="738" y2="234" stroke="#2b2826" stroke-width="1.2">
+    <animate attributeName="stroke"
+             values="#2b2826;#2b2826;#c03000;#2b2826;#2b2826"
+             keyTimes="0;0.25;0.40;0.55;1"
+             dur="3.5s"
+             repeatCount="indefinite"/>
+    <animate attributeName="stroke-width"
+             values="1.2;1.2;2.4;1.2;1.2"
+             keyTimes="0;0.25;0.40;0.55;1"
+             dur="3.5s"
+             repeatCount="indefinite"/>
+  </line>
+  <line x1="601" y1="320" x2="738" y2="240" stroke="#2b2826" stroke-width="1.2">
+    <animate attributeName="stroke"
+             values="#2b2826;#2b2826;#c03000;#2b2826;#2b2826"
+             keyTimes="0;0.25;0.40;0.55;1"
+             dur="3.5s"
+             repeatCount="indefinite"/>
+    <animate attributeName="stroke-width"
+             values="1.2;1.2;2.4;1.2;1.2"
+             keyTimes="0;0.25;0.40;0.55;1"
+             dur="3.5s"
+             repeatCount="indefinite"/>
+  </line>
+
+  <g font-size="11" fill="#8a8580">
+    <text x="655" y="166">w₁</text>
+    <text x="655" y="207">w₂</text>
+    <text x="655" y="248">w₃</text>
+    <text x="655" y="287">w₄</text>
+  </g>
+
+  <!-- Σ node pulses when activation arrives -->
+  <circle cx="760" cy="230" r="27" fill="#c03000">
+    <animate attributeName="r"
+             values="27;27;34;27;27"
+             keyTimes="0;0.45;0.55;0.68;1"
+             dur="3.5s"
+             repeatCount="indefinite"/>
+  </circle>
+  <text x="760" y="240" font-size="22" fill="#f5f2ed" text-anchor="middle" font-weight="700">Σ</text>
+
+  <line x1="788" y1="230" x2="828" y2="230" stroke="#2b2826" stroke-width="1.5"/>
+  <polygon points="830,230 821,226 821,234" fill="#2b2826"/>
+
+  <circle cx="855" cy="230" r="22" fill="#f5f2ed" stroke="#2b2826" stroke-width="1.5">
+    <animate attributeName="fill"
+             values="#f5f2ed;#f5f2ed;#fee0cf;#f5f2ed;#f5f2ed"
+             keyTimes="0;0.60;0.72;0.85;1"
+             dur="3.5s"
+             repeatCount="indefinite"/>
+  </circle>
+  <text x="855" y="236" font-size="18" fill="#2b2826" text-anchor="middle" font-style="italic" font-weight="600">σ</text>
+
+  <!-- Output arrow flashes -->
+  <line x1="877" y1="230" x2="918" y2="230" stroke="#c03000" stroke-width="2" opacity="0.35">
+    <animate attributeName="opacity"
+             values="0.35;0.35;1;0.35;0.35"
+             keyTimes="0;0.72;0.80;0.92;1"
+             dur="3.5s"
+             repeatCount="indefinite"/>
+    <animate attributeName="stroke-width"
+             values="2;2;4;2;2"
+             keyTimes="0;0.72;0.80;0.92;1"
+             dur="3.5s"
+             repeatCount="indefinite"/>
+  </line>
+  <polygon points="920,230 911,226 911,234" fill="#c03000" opacity="0.35">
+    <animate attributeName="opacity"
+             values="0.35;0.35;1;0.35;0.35"
+             keyTimes="0;0.72;0.80;0.92;1"
+             dur="3.5s"
+             repeatCount="indefinite"/>
+  </polygon>
+  <text x="932" y="234" font-size="14" fill="#c03000" font-weight="700">y</text>
+
+  <text x="585" y="105" font-size="12" fill="#8a8580" text-anchor="middle">Inputs</text>
+  <text x="760" y="190" font-size="12" fill="#8a8580" text-anchor="middle">Weighted sum</text>
+  <text x="855" y="195" font-size="12" fill="#8a8580" text-anchor="middle">Activation</text>
+  <text x="918" y="208" font-size="12" fill="#8a8580" text-anchor="end">Output</text>
+
+  <line x1="540" y1="420" x2="950" y2="420" stroke="#e0dcd6" stroke-width="1"/>
+  <text x="745" y="442" font-size="11" fill="#8a8580" text-anchor="middle" font-style="italic">inputs · weighted sum · activation · output</text>
+</svg>

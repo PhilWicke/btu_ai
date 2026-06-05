@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 540" font-family="Inter, -apple-system, sans-serif" preserveAspectRatio="xMidYMid meet">
+  <rect width="540" height="540" fill="#f5f2ed"/>
+
+  <text x="270" y="32" font-size="14" font-weight="700" fill="#2b2826" text-anchor="middle">The 3H alignment target</text>
+  <text x="270" y="50" font-size="11" fill="#8a8580" text-anchor="middle">An aligned assistant has to satisfy all three at once. The intersection is the goal.</text>
+
+  <!-- Three overlapping circles. Per-circle fill-opacity so overlaps composite -->
+  <!-- properly; stroke stays at full opacity so the boundaries remain crisp. -->
+  <circle cx="220" cy="220" r="120" fill="#fee0cf" fill-opacity="0.55" stroke="#c03000" stroke-width="2"/>
+  <circle cx="320" cy="220" r="120" fill="#cfe1e0" fill-opacity="0.55" stroke="#2b8a82" stroke-width="2"/>
+  <circle cx="270" cy="320" r="120" fill="#f5e0c5" fill-opacity="0.55" stroke="#a06a00" stroke-width="2"/>
+
+  <!-- Labels -->
+  <text x="170" y="170" font-size="14" font-weight="700" fill="#c03000" text-anchor="middle">Helpful</text>
+  <text x="170" y="188" font-size="10" fill="#2b2826" text-anchor="middle" font-style="italic">answers,</text>
+  <text x="170" y="200" font-size="10" fill="#2b2826" text-anchor="middle" font-style="italic">follows instructions</text>
+
+  <text x="370" y="170" font-size="14" font-weight="700" fill="#2b8a82" text-anchor="middle">Harmless</text>
+  <text x="370" y="188" font-size="10" fill="#2b2826" text-anchor="middle" font-style="italic">refuses dangerous</text>
+  <text x="370" y="200" font-size="10" fill="#2b2826" text-anchor="middle" font-style="italic">or harmful requests</text>
+
+  <text x="270" y="395" font-size="14" font-weight="700" fill="#a06a00" text-anchor="middle">Honest</text>
+  <text x="270" y="413" font-size="10" fill="#2b2826" text-anchor="middle" font-style="italic">acknowledges uncertainty,</text>
+  <text x="270" y="425" font-size="10" fill="#2b2826" text-anchor="middle" font-style="italic">does not fabricate</text>
+
+  <!-- Centre star -->
+  <circle cx="270" cy="260" r="20" fill="#2b2826" stroke="#f5f2ed" stroke-width="2"/>
+  <text x="270" y="266" font-size="11" font-weight="700" fill="#f5f2ed" text-anchor="middle">3H</text>
+
+  <!-- Tension example call-outs around the edges -->
+  <g font-size="10" fill="#2b2826">
+    <line x1="110" y1="260" x2="155" y2="245" stroke="#8a8580" stroke-width="0.8"/>
+    <text x="105" y="263" text-anchor="end" font-weight="700" fill="#c03000">tension:</text>
+    <text x="105" y="277" text-anchor="end" font-style="italic">medication-dosage Q.</text>
+    <text x="105" y="290" text-anchor="end" font-style="italic">helpful or cautious?</text>
+
+    <line x1="430" y1="260" x2="385" y2="245" stroke="#8a8580" stroke-width="0.8"/>
+    <text x="435" y="263" font-weight="700" fill="#2b8a82">tension:</text>
+    <text x="435" y="277" font-style="italic">over-refusing makes</text>
+    <text x="435" y="290" font-style="italic">the model less useful</text>
+
+    <line x1="270" y1="455" x2="270" y2="408" stroke="#8a8580" stroke-width="0.8"/>
+    <text x="270" y="475" text-anchor="middle" font-weight="700" fill="#a06a00">tension:</text>
+    <text x="270" y="490" text-anchor="middle" font-style="italic">“I don’t know” is honest but rarely helpful</text>
+  </g>
+
+  <text x="270" y="525" font-size="11" font-style="italic" fill="#2b2826" text-anchor="middle">Anthropic&apos;s HHH framework. The whole hard part of alignment lives in those overlap regions.</text>
+</svg>

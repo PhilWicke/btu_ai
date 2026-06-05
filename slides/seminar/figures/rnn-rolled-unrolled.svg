@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 440" font-family="Inter, -apple-system, sans-serif" preserveAspectRatio="xMidYMid meet">
+  <rect width="1000" height="440" fill="#f5f2ed"/>
+
+  <text x="40" y="38" font-size="14" font-weight="700" fill="#2b2826">Recurrent neural network: rolled and unrolled</text>
+  <text x="40" y="56" font-size="11" fill="#8a8580">A single recurrence (left) repeated at every position in time (right). Shared weights apply at each step.</text>
+
+  <line x1="370" y1="90" x2="370" y2="400" stroke="#e0dcd6" stroke-width="1"/>
+
+  <text x="200" y="95" font-size="11" font-weight="600" fill="#8a8580" letter-spacing="1.5" text-anchor="middle">ROLLED</text>
+  <text x="690" y="95" font-size="11" font-weight="600" fill="#8a8580" letter-spacing="1.5" text-anchor="middle">UNROLLED IN TIME</text>
+
+  <!-- ============ ROLLED ============ -->
+  <circle cx="200" cy="160" r="24" fill="#fee0cf" stroke="#2b2826" stroke-width="1.5"/>
+  <text x="200" y="166" font-size="14" text-anchor="middle">yₜ</text>
+
+  <circle cx="200" cy="250" r="24" fill="#cfe1e0" stroke="#2b2826" stroke-width="1.5"/>
+  <text x="200" y="256" font-size="14" text-anchor="middle">hₜ</text>
+
+  <circle cx="200" cy="340" r="24" fill="#cfe1d0" stroke="#2b2826" stroke-width="1.5"/>
+  <text x="200" y="346" font-size="14" text-anchor="middle">xₜ</text>
+
+  <line x1="200" y1="316" x2="200" y2="276" stroke="#2b2826" stroke-width="1.5"/>
+  <polygon points="200,274 197,280 203,280" fill="#2b2826"/>
+
+  <line x1="200" y1="226" x2="200" y2="186" stroke="#2b2826" stroke-width="1.5"/>
+  <polygon points="200,184 197,190 203,190" fill="#2b2826"/>
+
+  <!-- Self-loop arrow on hidden -->
+  <path d="M 222 244 C 290 220, 290 280, 224 256" fill="none" stroke="#c03000" stroke-width="1.8"/>
+  <polygon points="222,256 230,255 226,261" fill="#c03000"/>
+  <text x="298" y="247" font-size="11" fill="#c03000" font-style="italic">recurrence</text>
+  <text x="298" y="261" font-size="11" fill="#c03000" font-style="italic">W_hh</text>
+
+  <!-- Side annotations -->
+  <text x="156" y="206" font-size="10" fill="#8a8580" font-style="italic" text-anchor="end">W_hy</text>
+  <text x="156" y="296" font-size="10" fill="#8a8580" font-style="italic" text-anchor="end">W_xh</text>
+
+  <!-- ============ UNROLLED ============ -->
+  <g font-size="11" fill="#8a8580" text-anchor="end" font-style="italic">
+    <text x="425" y="166">output</text>
+    <text x="425" y="256">hidden</text>
+    <text x="425" y="346">input</text>
+  </g>
+
+  <g font-size="11" font-weight="600" fill="#8a8580" text-anchor="middle">
+    <text x="490" y="400">t = 1</text>
+    <text x="610" y="400">t = 2</text>
+    <text x="730" y="400">t = 3</text>
+    <text x="850" y="400">t = 4</text>
+  </g>
+
+  <!-- nodes -->
+  <g stroke="#2b2826" stroke-width="1.5">
+    <circle cx="490" cy="160" r="22" fill="#fee0cf"/>
+    <circle cx="610" cy="160" r="22" fill="#fee0cf"/>
+    <circle cx="730" cy="160" r="22" fill="#fee0cf"/>
+    <circle cx="850" cy="160" r="22" fill="#fee0cf"/>
+
+    <circle cx="490" cy="250" r="22" fill="#cfe1e0"/>
+    <circle cx="610" cy="250" r="22" fill="#cfe1e0"/>
+    <circle cx="730" cy="250" r="22" fill="#cfe1e0"/>
+    <circle cx="850" cy="250" r="22" fill="#cfe1e0"/>
+
+    <circle cx="490" cy="340" r="22" fill="#cfe1d0"/>
+    <circle cx="610" cy="340" r="22" fill="#cfe1d0"/>
+    <circle cx="730" cy="340" r="22" fill="#cfe1d0"/>
+    <circle cx="850" cy="340" r="22" fill="#cfe1d0"/>
+  </g>
+  <g font-size="12" text-anchor="middle">
+    <text x="490" y="166">y₁</text><text x="610" y="166">y₂</text><text x="730" y="166">y₃</text><text x="850" y="166">y₄</text>
+    <text x="490" y="256">h₁</text><text x="610" y="256">h₂</text><text x="730" y="256">h₃</text><text x="850" y="256">h₄</text>
+    <text x="490" y="346">x₁</text><text x="610" y="346">x₂</text><text x="730" y="346">x₃</text><text x="850" y="346">x₄</text>
+  </g>
+
+  <!-- vertical arrows x → h → y for each t -->
+  <g stroke="#2b2826" stroke-width="1.5">
+    <line x1="490" y1="318" x2="490" y2="276"/>
+    <line x1="490" y1="226" x2="490" y2="186"/>
+    <line x1="610" y1="318" x2="610" y2="276"/>
+    <line x1="610" y1="226" x2="610" y2="186"/>
+    <line x1="730" y1="318" x2="730" y2="276"/>
+    <line x1="730" y1="226" x2="730" y2="186"/>
+    <line x1="850" y1="318" x2="850" y2="276"/>
+    <line x1="850" y1="226" x2="850" y2="186"/>
+  </g>
+  <g fill="#2b2826">
+    <polygon points="490,274 487,280 493,280"/>
+    <polygon points="490,184 487,190 493,190"/>
+    <polygon points="610,274 607,280 613,280"/>
+    <polygon points="610,184 607,190 613,190"/>
+    <polygon points="730,274 727,280 733,280"/>
+    <polygon points="730,184 727,190 733,190"/>
+    <polygon points="850,274 847,280 853,280"/>
+    <polygon points="850,184 847,190 853,190"/>
+  </g>
+
+  <!-- horizontal: hidden state passed forward -->
+  <g stroke="#c03000" stroke-width="1.8">
+    <line x1="512" y1="250" x2="586" y2="250"/>
+    <line x1="632" y1="250" x2="706" y2="250"/>
+    <line x1="752" y1="250" x2="826" y2="250"/>
+  </g>
+  <g fill="#c03000">
+    <polygon points="589,250 581,247 581,253"/>
+    <polygon points="709,250 701,247 701,253"/>
+    <polygon points="829,250 821,247 821,253"/>
+  </g>
+  <g font-size="9" fill="#c03000" font-style="italic" text-anchor="middle">
+    <text x="549" y="244">W_hh</text>
+    <text x="669" y="244">W_hh</text>
+    <text x="789" y="244">W_hh</text>
+  </g>
+</svg>

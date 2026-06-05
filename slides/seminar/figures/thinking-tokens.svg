@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 540" font-family="Inter, -apple-system, sans-serif" preserveAspectRatio="xMidYMid meet">
+  <rect width="600" height="540" fill="#f5f2ed"/>
+
+  <text x="300" y="34" font-size="14" font-weight="700" fill="#2b2826" text-anchor="middle">Reasoning models: thinking, backtracking, then answering</text>
+  <text x="300" y="52" font-size="11" fill="#8a8580" text-anchor="middle">A long internal monologue is generated, hidden, before the visible response.</text>
+
+  <!-- User prompt -->
+  <g>
+    <rect x="40" y="80" width="520" height="42" rx="6" fill="#cfe1e0" stroke="#2b2826" stroke-width="1.2"/>
+    <text x="56" y="100" font-size="10" font-weight="700" fill="#8a8580" letter-spacing="1.2">USER</text>
+    <text x="56" y="116" font-family="IBM Plex Mono, monospace" font-size="12" fill="#2b2826">Factor x² + 2x − 5.</text>
+  </g>
+
+  <!-- Hidden monologue panel -->
+  <g>
+    <rect x="40" y="142" width="520" height="280" rx="6" fill="#2b2826"/>
+    <text x="56" y="164" font-size="10" font-weight="700" fill="#fee0cf" letter-spacing="1.2">HIDDEN THINKING TOKENS  ·  not shown to user</text>
+    <g font-family="IBM Plex Mono, monospace" font-size="12" fill="#e0dcd6">
+      <text x="56" y="190">Hmm, let me think about this.</text>
+      <text x="56" y="208">If I try (x + 5)(x − 1) → x² + 4x − 5.</text>
+      <text x="56" y="226"><tspan fill="#fee0cf" font-weight="700">No, that&apos;s wrong, the middle term is 4x not 2x.</tspan></text>
+      <text x="56" y="252">Wait, this doesn&apos;t factor nicely over the integers.</text>
+      <text x="56" y="270">Let me try the quadratic formula instead.</text>
+      <text x="56" y="296">x = (−2 ± √(4 + 20)) / 2</text>
+      <text x="56" y="314">  = (−2 ± √24) / 2</text>
+      <text x="56" y="332">  = −1 ± √6</text>
+      <text x="56" y="358"><tspan fill="#fee0cf" font-weight="700">So the roots are −1 + √6 and −1 − √6. Check:</tspan></text>
+      <text x="56" y="376">x² + 2x − 5 = (x − (−1 + √6))(x − (−1 − √6)) ✓</text>
+      <text x="56" y="402">Good, that&apos;s the factorisation. Now write it cleanly.</text>
+    </g>
+
+    <!-- backtrack callouts, inside the dark panel right edge -->
+    <rect x="430" y="214" width="120" height="26" rx="4" fill="#c03000" opacity="0.85"/>
+    <text x="436" y="226" font-size="10" font-weight="700" fill="#f5f2ed">⤺ backtrack</text>
+    <text x="436" y="237" font-size="9" font-style="italic" fill="#f5f2ed">noticed error</text>
+
+    <rect x="430" y="346" width="120" height="26" rx="4" fill="#2b8a4a" opacity="0.85"/>
+    <text x="436" y="358" font-size="10" font-weight="700" fill="#f5f2ed">✓ self-check</text>
+    <text x="436" y="369" font-size="9" font-style="italic" fill="#f5f2ed">verify the result</text>
+  </g>
+
+  <!-- Visible response -->
+  <g>
+    <rect x="40" y="438" width="520" height="46" rx="6" fill="#fee0cf" stroke="#c03000" stroke-width="1.4"/>
+    <text x="56" y="458" font-size="10" font-weight="700" fill="#c03000" letter-spacing="1.2">ASSISTANT (visible)</text>
+    <text x="56" y="476" font-family="IBM Plex Mono, monospace" font-size="12" fill="#2b2826">x² + 2x − 5 = (x − (−1 + √6))(x − (−1 − √6))</text>
+  </g>
+
+  <text x="300" y="510" font-size="11" font-style="italic" fill="#2b2826" text-anchor="middle">Test-time compute scaling: spend more at inference. Hard problems get more thinking tokens automatically.</text>
+</svg>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" font-family="Inter, -apple-system, sans-serif" preserveAspectRatio="xMidYMid meet">
+  <rect width="800" height="500" fill="#f5f2ed"/>
+  <text x="40" y="38" font-size="14" font-weight="700" fill="#2b2826">Two runs of gradient descent on a non-convex landscape</text>
+  <text x="40" y="56" font-size="11" fill="#8a8580">Same algorithm, different start. The gray run settles in a local minimum; the red run reaches the global minimum.</text>
+  <defs>
+    <path id="pathA" d="M 461.0,310.3 L 466.4,322.7 L 473.4,334.1 L 481.8,344.9 L 490.9,354.8 L 500.0,363.2 L 507.9,369.5 L 513.9,373.7 L 517.9,376.4 L 520.1,378.2 L 521.2,379.4 L 521.6,380.4 L 521.7,381.2 L 521.6,381.9 L 521.4,382.4 L 521.2,382.9 L 521.1,383.3 L 520.9,383.6 L 520.8,383.8 L 520.6,384.1 L 520.5,384.2 L 520.4,384.4 L 520.3,384.5 L 520.3,384.6"/>
+    <path id="pathB" d="M 407.0,307.6 L 397.9,319.3 L 387.1,330.7 L 374.3,343.1 L 358.9,358.0 L 341.0,376.1 L 321.4,395.8 L 302.3,413.1 L 286.8,423.8 L 276.9,428.4 L 272.0,430.2 L 269.9,431.3 L 269.0,432.1 L 268.5,432.7 L 268.1,433.3 L 267.8,433.7 L 267.6,434.1 L 267.5,434.4 L 267.3,434.7 L 267.2,434.9 L 267.1,435.1 L 267.0,435.2 L 266.9,435.4 L 266.8,435.5"/>
+    <filter id="glowR" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="2.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="glowG" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <g stroke="#2b2826" stroke-width="0.9" fill="none" opacity="0.45" stroke-linejoin="round">
+    <polyline points="190.0,366.5 235.0,416.6 280.0,393.5 325.0,353.6 370.0,330.5 415.0,335.6 460.0,357.5 496.0,365.3 550.0,294.5"/>
+    <polyline points="205.0,393.1 250.0,443.2 295.0,420.1 340.0,380.2 385.0,357.1 430.0,362.2 475.0,384.1 511.0,391.9 565.0,321.1"/>
+    <polyline points="220.0,386.0 265.0,436.1 310.0,413.0 355.0,373.1 400.0,350.0 445.0,355.1 490.0,377.0 526.0,384.8 580.0,314.0"/>
+    <polyline points="235.0,345.1 280.0,395.2 325.0,372.1 370.0,332.2 415.0,309.1 460.0,314.2 505.0,336.1 541.0,343.9 595.0,273.1"/>
+    <polyline points="250.0,270.5 295.0,320.6 340.0,297.5 385.0,257.6 430.0,234.5 475.0,239.6 520.0,261.5 556.0,269.3 610.0,198.5"/>
+    <polyline points="190.0,366.5 205.0,393.1 220.0,386.0 235.0,345.1 250.0,270.5"/>
+    <polyline points="235.0,416.6 250.0,443.2 265.0,436.1 280.0,395.2 295.0,320.6"/>
+    <polyline points="280.0,393.5 295.0,420.1 310.0,413.0 325.0,372.1 340.0,297.5"/>
+    <polyline points="325.0,353.6 340.0,380.2 355.0,373.1 370.0,332.2 385.0,257.6"/>
+    <polyline points="370.0,330.5 385.0,357.1 400.0,350.0 415.0,309.1 430.0,234.5"/>
+    <polyline points="415.0,335.6 430.0,362.2 445.0,355.1 460.0,314.2 475.0,239.6"/>
+    <polyline points="460.0,357.5 475.0,384.1 490.0,377.0 505.0,336.1 520.0,261.5"/>
+    <polyline points="496.0,365.3 511.0,391.9 526.0,384.8 541.0,343.9 556.0,269.3"/>
+    <polyline points="550.0,294.5 565.0,321.1 580.0,314.0 595.0,273.1 610.0,198.5"/>
+  </g>
+  <polyline points="190.0,366.5 235.0,416.6 280.0,393.5 325.0,353.6 370.0,330.5 415.0,335.6 460.0,357.5 496.0,365.3 550.0,294.5" fill="none" stroke="#2b2826" stroke-width="1.4" opacity="0.85" stroke-linejoin="round"/>
+  <polyline points="250.0,270.5 295.0,320.6 340.0,297.5 385.0,257.6 430.0,234.5 475.0,239.6 520.0,261.5 556.0,269.3 610.0,198.5" fill="none" stroke="#2b2826" stroke-width="1.4" opacity="0.85" stroke-linejoin="round"/>
+  <circle cx="264.1" cy="436.0" r="5" fill="#c03000"/>
+  <text x="234.1" y="458.0" font-size="11" fill="#c03000" font-weight="700">global min</text>
+  <circle cx="523.3" cy="385.1" r="4" fill="#8a8580"/>
+  <text x="531.3" y="390.1" font-size="11" fill="#8a8580" font-weight="600">local min</text>
+  <use href="#pathA" stroke="#8a8580" stroke-width="1.6" fill="none" opacity="0.40" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="3,3"/>
+  <use href="#pathB" stroke="#c03000" stroke-width="1.6" fill="none" opacity="0.40" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="3,3"/>
+  <circle cx="461.0" cy="310.3" r="5" fill="none" stroke="#2b2826" stroke-width="1.5"/>
+  <text x="469.0" y="304.3" font-size="10" font-weight="700" fill="#2b2826">A</text>
+  <circle cx="407.0" cy="307.6" r="5" fill="none" stroke="#2b2826" stroke-width="1.5"/>
+  <text x="391.0" y="301.6" font-size="10" font-weight="700" fill="#2b2826">B</text>
+  <circle r="7" fill="#8a8580" filter="url(#glowG)">
+    <animateMotion dur="4.5s" repeatCount="indefinite" calcMode="spline" keyTimes="0;1" keySplines="0.4 0 0.6 1">
+      <mpath href="#pathA"/>
+    </animateMotion>
+  </circle>
+  <circle r="7" fill="#c03000" filter="url(#glowR)">
+    <animateMotion dur="4.5s" repeatCount="indefinite" calcMode="spline" keyTimes="0;1" keySplines="0.4 0 0.6 1">
+      <mpath href="#pathB"/>
+    </animateMotion>
+  </circle>
+  <text x="600" y="385" font-size="11" font-style="italic" fill="#8a8580">w₁</text>
+  <text x="430" y="225" font-size="11" font-style="italic" fill="#8a8580">w₂</text>
+  <text x="408" y="174" font-size="11" font-style="italic" fill="#8a8580">L(w)</text>
+  <text x="400" y="450" font-size="13" font-family="Lora, Georgia, serif" font-style="italic" fill="#2b2826" text-anchor="middle">w ← w − η · ∇L(w)</text>
+  <text x="400" y="468" font-size="11" fill="#8a8580" text-anchor="middle" font-style="italic">Both runs use the same algorithm. Only the starting point differs.</text>
+</svg>

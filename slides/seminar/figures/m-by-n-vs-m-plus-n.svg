@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 540" font-family="Inter, -apple-system, sans-serif" preserveAspectRatio="xMidYMid meet">
+  <rect width="600" height="540" fill="#f5f2ed"/>
+
+  <text x="300" y="32" font-size="14" font-weight="700" fill="#2b2826" text-anchor="middle">Why a protocol layer changes the economics</text>
+  <text x="300" y="50" font-size="11" fill="#8a8580" text-anchor="middle">The same three apps and four tools either need twelve custom integrations or seven protocol connections.</text>
+
+  <!-- LEFT: spaghetti -->
+  <g>
+    <text x="150" y="86" font-size="12" font-weight="700" fill="#c03000" text-anchor="middle" letter-spacing="1">BEFORE — M × N CUSTOM INTEGRATIONS</text>
+
+    <!-- 3 apps on left -->
+    <g>
+      <rect x="40" y="110" width="80" height="34" rx="6" fill="#fee0cf" stroke="#c03000" stroke-width="1.2"/>
+      <text x="80" y="132" font-size="11" font-weight="700" fill="#2b2826" text-anchor="middle">App A</text>
+
+      <rect x="40" y="200" width="80" height="34" rx="6" fill="#fee0cf" stroke="#c03000" stroke-width="1.2"/>
+      <text x="80" y="222" font-size="11" font-weight="700" fill="#2b2826" text-anchor="middle">App B</text>
+
+      <rect x="40" y="290" width="80" height="34" rx="6" fill="#fee0cf" stroke="#c03000" stroke-width="1.2"/>
+      <text x="80" y="312" font-size="11" font-weight="700" fill="#2b2826" text-anchor="middle">App C</text>
+    </g>
+
+    <!-- 4 tools on right -->
+    <g>
+      <rect x="240" y="100" width="40" height="26" rx="4" fill="#cfe1e0" stroke="#2b2826" stroke-width="1"/>
+      <text x="260" y="118" font-size="10" font-weight="600" fill="#2b2826" text-anchor="middle">DB</text>
+
+      <rect x="240" y="160" width="40" height="26" rx="4" fill="#cfe1e0" stroke="#2b2826" stroke-width="1"/>
+      <text x="260" y="178" font-size="10" font-weight="600" fill="#2b2826" text-anchor="middle">Web</text>
+
+      <rect x="240" y="220" width="40" height="26" rx="4" fill="#cfe1e0" stroke="#2b2826" stroke-width="1"/>
+      <text x="260" y="238" font-size="10" font-weight="600" fill="#2b2826" text-anchor="middle">FS</text>
+
+      <rect x="240" y="280" width="40" height="26" rx="4" fill="#cfe1e0" stroke="#2b2826" stroke-width="1"/>
+      <text x="260" y="298" font-size="10" font-weight="600" fill="#2b2826" text-anchor="middle">Cal</text>
+    </g>
+
+    <!-- 12 connections (spaghetti) -->
+    <g stroke="#c03000" stroke-width="1" fill="none" opacity="0.55">
+      <line x1="120" y1="127" x2="240" y2="113"/>
+      <line x1="120" y1="127" x2="240" y2="173"/>
+      <line x1="120" y1="127" x2="240" y2="233"/>
+      <line x1="120" y1="127" x2="240" y2="293"/>
+      <line x1="120" y1="217" x2="240" y2="113"/>
+      <line x1="120" y1="217" x2="240" y2="173"/>
+      <line x1="120" y1="217" x2="240" y2="233"/>
+      <line x1="120" y1="217" x2="240" y2="293"/>
+      <line x1="120" y1="307" x2="240" y2="113"/>
+      <line x1="120" y1="307" x2="240" y2="173"/>
+      <line x1="120" y1="307" x2="240" y2="233"/>
+      <line x1="120" y1="307" x2="240" y2="293"/>
+    </g>
+
+    <!-- count -->
+    <rect x="40" y="360" width="240" height="42" rx="4" fill="#ffffff" stroke="#c03000" stroke-width="1"/>
+    <text x="160" y="380" font-size="12" fill="#2b2826" text-anchor="middle">3 apps × 4 tools =</text>
+    <text x="160" y="396" font-size="16" font-weight="700" fill="#c03000" text-anchor="middle">12 custom integrations</text>
+    <text x="160" y="424" font-size="10" font-style="italic" fill="#8a8580" text-anchor="middle">each one carries its own bugs.</text>
+    <text x="160" y="438" font-size="10" font-style="italic" fill="#8a8580" text-anchor="middle">new model → rebuild everything.</text>
+  </g>
+
+  <!-- Divider -->
+  <line x1="305" y1="80" x2="305" y2="490" stroke="#e0dcd6" stroke-width="1"/>
+
+  <!-- RIGHT: protocol star -->
+  <g>
+    <text x="450" y="86" font-size="12" font-weight="700" fill="#2b8a4a" text-anchor="middle" letter-spacing="1">AFTER — M + N MCP CONNECTIONS</text>
+
+    <!-- 3 apps on left -->
+    <g>
+      <rect x="320" y="110" width="80" height="34" rx="6" fill="#fee0cf" stroke="#c03000" stroke-width="1.2"/>
+      <text x="360" y="132" font-size="11" font-weight="700" fill="#2b2826" text-anchor="middle">App A</text>
+
+      <rect x="320" y="200" width="80" height="34" rx="6" fill="#fee0cf" stroke="#c03000" stroke-width="1.2"/>
+      <text x="360" y="222" font-size="11" font-weight="700" fill="#2b2826" text-anchor="middle">App B</text>
+
+      <rect x="320" y="290" width="80" height="34" rx="6" fill="#fee0cf" stroke="#c03000" stroke-width="1.2"/>
+      <text x="360" y="312" font-size="11" font-weight="700" fill="#2b2826" text-anchor="middle">App C</text>
+    </g>
+
+    <!-- MCP hub -->
+    <g>
+      <circle cx="475" cy="217" r="42" fill="#f5e0c5" stroke="#2b2826" stroke-width="1.6"/>
+      <text x="475" y="214" font-size="13" font-weight="700" fill="#2b2826" text-anchor="middle">MCP</text>
+      <text x="475" y="230" font-size="9" font-style="italic" fill="#8a8580" text-anchor="middle">protocol</text>
+    </g>
+
+    <!-- 4 tools right -->
+    <g>
+      <rect x="540" y="100" width="40" height="26" rx="4" fill="#cfe1e0" stroke="#2b2826" stroke-width="1"/>
+      <text x="560" y="118" font-size="10" font-weight="600" fill="#2b2826" text-anchor="middle">DB</text>
+
+      <rect x="540" y="160" width="40" height="26" rx="4" fill="#cfe1e0" stroke="#2b2826" stroke-width="1"/>
+      <text x="560" y="178" font-size="10" font-weight="600" fill="#2b2826" text-anchor="middle">Web</text>
+
+      <rect x="540" y="220" width="40" height="26" rx="4" fill="#cfe1e0" stroke="#2b2826" stroke-width="1"/>
+      <text x="560" y="238" font-size="10" font-weight="600" fill="#2b2826" text-anchor="middle">FS</text>
+
+      <rect x="540" y="280" width="40" height="26" rx="4" fill="#cfe1e0" stroke="#2b2826" stroke-width="1"/>
+      <text x="560" y="298" font-size="10" font-weight="600" fill="#2b2826" text-anchor="middle">Cal</text>
+    </g>
+
+    <!-- 3 + 4 = 7 connections through hub -->
+    <g stroke="#2b8a4a" stroke-width="1.4" fill="none">
+      <line x1="400" y1="127" x2="438" y2="200"/>
+      <line x1="400" y1="217" x2="433" y2="217"/>
+      <line x1="400" y1="307" x2="438" y2="240"/>
+      <line x1="517" y1="217" x2="540" y2="113"/>
+      <line x1="517" y1="217" x2="540" y2="173"/>
+      <line x1="517" y1="217" x2="540" y2="233"/>
+      <line x1="517" y1="217" x2="540" y2="293"/>
+    </g>
+
+    <!-- count -->
+    <rect x="320" y="360" width="260" height="42" rx="4" fill="#ffffff" stroke="#2b8a4a" stroke-width="1"/>
+    <text x="450" y="380" font-size="12" fill="#2b2826" text-anchor="middle">3 apps + 4 tools =</text>
+    <text x="450" y="396" font-size="16" font-weight="700" fill="#2b8a4a" text-anchor="middle">7 protocol connections</text>
+    <text x="450" y="424" font-size="10" font-style="italic" fill="#8a8580" text-anchor="middle">build a tool once. use it everywhere.</text>
+    <text x="450" y="438" font-size="10" font-style="italic" fill="#8a8580" text-anchor="middle">switch models without rewiring.</text>
+  </g>
+
+  <!-- Bottom: scaling note -->
+  <g>
+    <rect x="40" y="465" width="540" height="46" rx="6" fill="#ffffff" stroke="#8a8580" stroke-width="0.8"/>
+    <text x="60" y="486" font-size="11" font-weight="700" fill="#2b2826" letter-spacing="1">SCALING</text>
+    <text x="60" y="502" font-size="12" fill="#2b2826">10 apps and 30 tools: 300 custom integrations becomes 40 protocol connections. The asymmetry only grows.</text>
+  </g>
+</svg>

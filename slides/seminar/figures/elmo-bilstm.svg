@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 480" font-family="Inter, -apple-system, sans-serif" preserveAspectRatio="xMidYMid meet">
+  <rect width="1000" height="480" fill="#f5f2ed"/>
+
+  <text x="40" y="38" font-size="14" font-weight="700" fill="#2b2826">ELMo: bidirectional language modelling</text>
+  <text x="40" y="56" font-size="11" fill="#8a8580">Two LSTMs read the sentence in opposite directions. Their hidden states are concatenated per token to form a contextual embedding.</text>
+
+  <!-- Token positions (5 tokens for "the cat sat on mat") -->
+  <!-- x positions: 170, 320, 470, 620, 770 -->
+
+  <!-- ============ Token boxes at top (the concatenated contextual embedding output) ============ -->
+  <g>
+    <rect x="140" y="80" width="60" height="32" rx="4" fill="#fee0cf" stroke="#c03000" stroke-width="1.4"/>
+    <text x="170" y="100" font-size="12" text-anchor="middle" fill="#c03000" font-weight="700">e₁</text>
+    <rect x="290" y="80" width="60" height="32" rx="4" fill="#fee0cf" stroke="#c03000" stroke-width="1.4"/>
+    <text x="320" y="100" font-size="12" text-anchor="middle" fill="#c03000" font-weight="700">e₂</text>
+    <rect x="440" y="80" width="60" height="32" rx="4" fill="#fee0cf" stroke="#c03000" stroke-width="1.4"/>
+    <text x="470" y="100" font-size="12" text-anchor="middle" fill="#c03000" font-weight="700">e₃</text>
+    <rect x="590" y="80" width="60" height="32" rx="4" fill="#fee0cf" stroke="#c03000" stroke-width="1.4"/>
+    <text x="620" y="100" font-size="12" text-anchor="middle" fill="#c03000" font-weight="700">e₄</text>
+    <rect x="740" y="80" width="60" height="32" rx="4" fill="#fee0cf" stroke="#c03000" stroke-width="1.4"/>
+    <text x="770" y="100" font-size="12" text-anchor="middle" fill="#c03000" font-weight="700">e₅</text>
+  </g>
+  <text x="80" y="100" font-size="11" font-weight="600" fill="#8a8580" text-anchor="end" letter-spacing="1.5">CONTEXTUAL</text>
+
+  <!-- ============ Forward LSTM row ============ -->
+  <text x="80" y="180" font-size="11" font-weight="600" fill="#8a8580" text-anchor="end" letter-spacing="1.5">FORWARD →</text>
+  <g>
+    <rect x="140" y="160" width="60" height="36" rx="4" fill="#cfe1e0" stroke="#2b2826" stroke-width="1"/>
+    <text x="170" y="182" font-size="11" text-anchor="middle">LSTM</text>
+    <rect x="290" y="160" width="60" height="36" rx="4" fill="#cfe1e0" stroke="#2b2826" stroke-width="1"/>
+    <text x="320" y="182" font-size="11" text-anchor="middle">LSTM</text>
+    <rect x="440" y="160" width="60" height="36" rx="4" fill="#cfe1e0" stroke="#2b2826" stroke-width="1"/>
+    <text x="470" y="182" font-size="11" text-anchor="middle">LSTM</text>
+    <rect x="590" y="160" width="60" height="36" rx="4" fill="#cfe1e0" stroke="#2b2826" stroke-width="1"/>
+    <text x="620" y="182" font-size="11" text-anchor="middle">LSTM</text>
+    <rect x="740" y="160" width="60" height="36" rx="4" fill="#cfe1e0" stroke="#2b2826" stroke-width="1"/>
+    <text x="770" y="182" font-size="11" text-anchor="middle">LSTM</text>
+  </g>
+  <!-- Forward hidden-state passes (left to right) -->
+  <g stroke="#2b2826" stroke-width="1.6">
+    <line x1="200" y1="178" x2="290" y2="178"/><polygon points="290,178 282,174 282,182" fill="#2b2826"/>
+    <line x1="350" y1="178" x2="440" y2="178"/><polygon points="440,178 432,174 432,182" fill="#2b2826"/>
+    <line x1="500" y1="178" x2="590" y2="178"/><polygon points="590,178 582,174 582,182" fill="#2b2826"/>
+    <line x1="650" y1="178" x2="740" y2="178"/><polygon points="740,178 732,174 732,182" fill="#2b2826"/>
+  </g>
+  <!-- Forward output → concat -->
+  <g stroke="#2b2826" stroke-width="1">
+    <line x1="170" y1="160" x2="170" y2="112"/>
+    <line x1="320" y1="160" x2="320" y2="112"/>
+    <line x1="470" y1="160" x2="470" y2="112"/>
+    <line x1="620" y1="160" x2="620" y2="112"/>
+    <line x1="770" y1="160" x2="770" y2="112"/>
+  </g>
+
+  <!-- ============ Backward LSTM row ============ -->
+  <text x="80" y="262" font-size="11" font-weight="600" fill="#8a8580" text-anchor="end" letter-spacing="1.5">← BACKWARD</text>
+  <g>
+    <rect x="140" y="242" width="60" height="36" rx="4" fill="#f5e0c5" stroke="#2b2826" stroke-width="1"/>
+    <text x="170" y="264" font-size="11" text-anchor="middle">LSTM</text>
+    <rect x="290" y="242" width="60" height="36" rx="4" fill="#f5e0c5" stroke="#2b2826" stroke-width="1"/>
+    <text x="320" y="264" font-size="11" text-anchor="middle">LSTM</text>
+    <rect x="440" y="242" width="60" height="36" rx="4" fill="#f5e0c5" stroke="#2b2826" stroke-width="1"/>
+    <text x="470" y="264" font-size="11" text-anchor="middle">LSTM</text>
+    <rect x="590" y="242" width="60" height="36" rx="4" fill="#f5e0c5" stroke="#2b2826" stroke-width="1"/>
+    <text x="620" y="264" font-size="11" text-anchor="middle">LSTM</text>
+    <rect x="740" y="242" width="60" height="36" rx="4" fill="#f5e0c5" stroke="#2b2826" stroke-width="1"/>
+    <text x="770" y="264" font-size="11" text-anchor="middle">LSTM</text>
+  </g>
+  <!-- Backward hidden-state passes (right to left) -->
+  <g stroke="#c03000" stroke-width="1.6">
+    <line x1="740" y1="260" x2="650" y2="260"/><polygon points="650,260 658,256 658,264" fill="#c03000"/>
+    <line x1="590" y1="260" x2="500" y2="260"/><polygon points="500,260 508,256 508,264" fill="#c03000"/>
+    <line x1="440" y1="260" x2="350" y2="260"/><polygon points="350,260 358,256 358,264" fill="#c03000"/>
+    <line x1="290" y1="260" x2="200" y2="260"/><polygon points="200,260 208,256 208,264" fill="#c03000"/>
+  </g>
+  <!-- Backward output → concat -->
+  <g stroke="#c03000" stroke-width="1" stroke-dasharray="2,2">
+    <line x1="170" y1="242" x2="170" y2="112"/>
+    <line x1="320" y1="242" x2="320" y2="112"/>
+    <line x1="470" y1="242" x2="470" y2="112"/>
+    <line x1="620" y1="242" x2="620" y2="112"/>
+    <line x1="770" y1="242" x2="770" y2="112"/>
+  </g>
+
+  <!-- ============ Token embeddings (input row) ============ -->
+  <text x="80" y="344" font-size="11" font-weight="600" fill="#8a8580" text-anchor="end" letter-spacing="1.5">EMBED</text>
+  <g>
+    <rect x="140" y="324" width="60" height="32" rx="4" fill="#cfe1d0" stroke="#2b2826" stroke-width="1"/>
+    <text x="170" y="344" font-size="12" text-anchor="middle" fill="#2b2826">x₁</text>
+    <rect x="290" y="324" width="60" height="32" rx="4" fill="#cfe1d0" stroke="#2b2826" stroke-width="1"/>
+    <text x="320" y="344" font-size="12" text-anchor="middle" fill="#2b2826">x₂</text>
+    <rect x="440" y="324" width="60" height="32" rx="4" fill="#cfe1d0" stroke="#2b2826" stroke-width="1"/>
+    <text x="470" y="344" font-size="12" text-anchor="middle" fill="#2b2826">x₃</text>
+    <rect x="590" y="324" width="60" height="32" rx="4" fill="#cfe1d0" stroke="#2b2826" stroke-width="1"/>
+    <text x="620" y="344" font-size="12" text-anchor="middle" fill="#2b2826">x₄</text>
+    <rect x="740" y="324" width="60" height="32" rx="4" fill="#cfe1d0" stroke="#2b2826" stroke-width="1"/>
+    <text x="770" y="344" font-size="12" text-anchor="middle" fill="#2b2826">x₅</text>
+  </g>
+  <!-- inputs feed both LSTMs -->
+  <g stroke="#2b2826" stroke-width="1">
+    <line x1="170" y1="324" x2="170" y2="278"/>
+    <line x1="320" y1="324" x2="320" y2="278"/>
+    <line x1="470" y1="324" x2="470" y2="278"/>
+    <line x1="620" y1="324" x2="620" y2="278"/>
+    <line x1="770" y1="324" x2="770" y2="278"/>
+  </g>
+
+  <!-- Token labels at bottom -->
+  <g font-size="13" fill="#2b2826" text-anchor="middle" font-style="italic">
+    <text x="170" y="382">"the"</text>
+    <text x="320" y="382">"savings"</text>
+    <text x="470" y="382">"bank"</text>
+    <text x="620" y="382">"closed"</text>
+    <text x="770" y="382">"early"</text>
+  </g>
+
+  <!-- Highlight on bank (e3) -->
+  <text x="470" y="74" font-size="10" font-style="italic" fill="#c03000" text-anchor="middle" font-weight="700">contextual "bank" ≠ contextual "river bank"</text>
+
+  <!-- Caption -->
+  <text x="500" y="425" font-size="11" fill="#8a8580" text-anchor="middle" font-style="italic">Peters et al. (2018). Each contextual embedding eᵢ = [→hᵢ ; ←hᵢ] depends on the entire surrounding sentence.</text>
+  <text x="500" y="443" font-size="11" fill="#8a8580" text-anchor="middle" font-style="italic">A direct precursor to BERT's bidirectional transformer pre-training.</text>
+</svg>

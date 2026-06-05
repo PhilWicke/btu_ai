@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 540" font-family="Inter, -apple-system, sans-serif" preserveAspectRatio="xMidYMid meet">
+  <rect width="1100" height="540" fill="#f5f2ed"/>
+
+  <text x="40" y="38" font-size="14" font-weight="700" fill="#2b2826">The dot product is commutative; the attention matrix is not</text>
+  <text x="40" y="56" font-size="11" fill="#8a8580">Same word pair, two directions, two different scores. That asymmetry is only possible because Q comes from W_Q and K from W_K.</text>
+
+  <!-- Vertical divider between the two directions -->
+  <line x1="550" y1="80" x2="550" y2="420" stroke="#e0dcd6" stroke-width="1"/>
+
+  <!-- ============ LEFT panel: bank queries → deposited ============ -->
+  <text x="275" y="98" font-size="12" font-weight="700" fill="#c03000" text-anchor="middle" letter-spacing="1">"BANK" QUERIES "DEPOSITED"</text>
+
+  <!-- bank as querier -->
+  <rect x="80" y="120" width="80" height="34" rx="4" fill="#c03000" stroke="#2b2826" stroke-width="1.4"/>
+  <text x="120" y="142" font-size="13" font-weight="700" fill="#f5f2ed" text-anchor="middle">bank</text>
+  <text x="120" y="172" font-size="10" font-style="italic" fill="#8a8580" text-anchor="middle">i = querier</text>
+
+  <!-- Arrow → q -->
+  <line x1="162" y1="137" x2="190" y2="137" stroke="#2b2826" stroke-width="1.2"/>
+  <polygon points="194,137 184,133 184,141" fill="#2b2826"/>
+
+  <!-- q_bank vector (purple) -->
+  <text x="225" y="115" font-size="11" font-weight="700" fill="#c03000" font-style="italic" text-anchor="middle">q_bank</text>
+  <g>
+    <rect x="200" y="122" width="14" height="28" fill="#e0d4ec" stroke="#c03000" stroke-width="1.2"/>
+    <rect x="214" y="122" width="14" height="28" fill="#e0d4ec" stroke="#c03000" stroke-width="1.2"/>
+    <rect x="228" y="122" width="14" height="28" fill="#e0d4ec" stroke="#c03000" stroke-width="1.2"/>
+    <rect x="242" y="122" width="14" height="28" fill="#e0d4ec" stroke="#c03000" stroke-width="1.2"/>
+  </g>
+
+  <text x="272" y="142" font-size="18" fill="#2b2826" text-anchor="middle">·</text>
+
+  <!-- k_deposited vector (orange) -->
+  <text x="310" y="115" font-size="11" font-weight="700" fill="#c03000" font-style="italic" text-anchor="middle">k_deposited</text>
+  <g>
+    <rect x="285" y="122" width="14" height="28" fill="#f5e0c5" stroke="#c03000" stroke-width="1.2"/>
+    <rect x="299" y="122" width="14" height="28" fill="#f5e0c5" stroke="#c03000" stroke-width="1.2"/>
+    <rect x="313" y="122" width="14" height="28" fill="#f5e0c5" stroke="#c03000" stroke-width="1.2"/>
+    <rect x="327" y="122" width="14" height="28" fill="#f5e0c5" stroke="#c03000" stroke-width="1.2"/>
+  </g>
+
+  <text x="358" y="142" font-size="18" fill="#2b2826" text-anchor="middle">=</text>
+
+  <!-- Score (big number) -->
+  <text x="400" y="115" font-size="11" fill="#8a8580" text-anchor="middle" font-style="italic">score</text>
+  <text x="400" y="148" font-size="22" font-weight="700" fill="#c03000" text-anchor="middle">5.4</text>
+
+  <!-- softmax → α -->
+  <line x1="430" y1="142" x2="455" y2="142" stroke="#2b2826" stroke-width="1.2"/>
+  <polygon points="459,142 449,138 449,146" fill="#2b2826"/>
+  <text x="445" y="125" font-size="10" font-style="italic" fill="#8a8580" text-anchor="middle">softmax</text>
+
+  <!-- alpha result -->
+  <rect x="465" y="120" width="68" height="34" rx="4" fill="#fee0cf" stroke="#c03000" stroke-width="1.8"/>
+  <text x="499" y="143" font-size="14" font-weight="700" fill="#c03000" text-anchor="middle">α = 0.42</text>
+
+  <!-- conclusion under panel -->
+  <text x="275" y="220" font-size="12" fill="#2b2826" text-anchor="middle"><tspan font-weight="700">bank</tspan> needs <tspan font-weight="700" font-style="italic">deposited</tspan> for disambiguation</text>
+  <text x="275" y="240" font-size="12" fill="#2b2826" text-anchor="middle">→ heavy attention</text>
+
+  <!-- big arrow visual -->
+  <line x1="170" y1="290" x2="360" y2="290" stroke="#c03000" stroke-width="9"/>
+  <polygon points="370,290 350,283 350,297" fill="#c03000"/>
+  <text x="100" y="295" font-size="13" font-weight="700" fill="#2b2826">bank</text>
+  <text x="395" y="295" font-size="13" font-weight="700" fill="#2b2826">deposited</text>
+
+  <!-- ============ RIGHT panel: deposited queries → bank ============ -->
+  <text x="825" y="98" font-size="12" font-weight="700" fill="#8a8580" text-anchor="middle" letter-spacing="1">"DEPOSITED" QUERIES "BANK"</text>
+
+  <!-- deposited as querier -->
+  <rect x="580" y="120" width="100" height="34" rx="4" fill="#8a8580" stroke="#2b2826" stroke-width="1.2"/>
+  <text x="630" y="142" font-size="13" font-weight="700" fill="#f5f2ed" text-anchor="middle">deposited</text>
+  <text x="630" y="172" font-size="10" font-style="italic" fill="#8a8580" text-anchor="middle">i = querier</text>
+
+  <line x1="682" y1="137" x2="710" y2="137" stroke="#2b2826" stroke-width="1.2"/>
+  <polygon points="714,137 704,133 704,141" fill="#2b2826"/>
+
+  <!-- q_deposited vector -->
+  <text x="750" y="115" font-size="11" font-weight="700" fill="#8a8580" font-style="italic" text-anchor="middle">q_deposited</text>
+  <g>
+    <rect x="725" y="122" width="14" height="28" fill="#e0d4ec" stroke="#8a8580" stroke-width="1.2"/>
+    <rect x="739" y="122" width="14" height="28" fill="#e0d4ec" stroke="#8a8580" stroke-width="1.2"/>
+    <rect x="753" y="122" width="14" height="28" fill="#e0d4ec" stroke="#8a8580" stroke-width="1.2"/>
+    <rect x="767" y="122" width="14" height="28" fill="#e0d4ec" stroke="#8a8580" stroke-width="1.2"/>
+  </g>
+
+  <text x="796" y="142" font-size="18" fill="#2b2826" text-anchor="middle">·</text>
+
+  <!-- k_bank vector -->
+  <text x="835" y="115" font-size="11" font-weight="700" fill="#8a8580" font-style="italic" text-anchor="middle">k_bank</text>
+  <g>
+    <rect x="810" y="122" width="14" height="28" fill="#f5e0c5" stroke="#8a8580" stroke-width="1.2"/>
+    <rect x="824" y="122" width="14" height="28" fill="#f5e0c5" stroke="#8a8580" stroke-width="1.2"/>
+    <rect x="838" y="122" width="14" height="28" fill="#f5e0c5" stroke="#8a8580" stroke-width="1.2"/>
+    <rect x="852" y="122" width="14" height="28" fill="#f5e0c5" stroke="#8a8580" stroke-width="1.2"/>
+  </g>
+
+  <text x="880" y="142" font-size="18" fill="#2b2826" text-anchor="middle">=</text>
+
+  <text x="920" y="115" font-size="11" fill="#8a8580" text-anchor="middle" font-style="italic">score</text>
+  <text x="920" y="148" font-size="22" font-weight="700" fill="#8a8580" text-anchor="middle">1.1</text>
+
+  <line x1="952" y1="142" x2="977" y2="142" stroke="#2b2826" stroke-width="1.2"/>
+  <polygon points="981,142 971,138 971,146" fill="#2b2826"/>
+  <text x="967" y="125" font-size="10" font-style="italic" fill="#8a8580" text-anchor="middle">softmax</text>
+
+  <rect x="990" y="120" width="68" height="34" rx="4" fill="#e0dcd6" stroke="#8a8580" stroke-width="1.4"/>
+  <text x="1024" y="143" font-size="14" font-weight="700" fill="#8a8580" text-anchor="middle">α = 0.04</text>
+
+  <text x="825" y="220" font-size="12" fill="#2b2826" text-anchor="middle"><tspan font-weight="700" font-style="italic">deposited</tspan>'s meaning is already pinned down</text>
+  <text x="825" y="240" font-size="12" fill="#2b2826" text-anchor="middle">→ barely needs to look at <tspan font-weight="700">bank</tspan></text>
+
+  <line x1="640" y1="290" x2="920" y2="290" stroke="#8a8580" stroke-width="1.6"/>
+  <polygon points="924,290 916,287 916,293" fill="#8a8580"/>
+  <text x="595" y="295" font-size="13" font-weight="700" fill="#8a8580">deposited</text>
+  <text x="950" y="295" font-size="13" font-weight="700" fill="#8a8580">bank</text>
+
+  <!-- ============ Bottom insight ============ -->
+  <line x1="40" y1="370" x2="1060" y2="370" stroke="#e0dcd6" stroke-width="1"/>
+
+  <text x="60" y="396" font-size="11" font-weight="700" fill="#8a8580" letter-spacing="1.5">WHY THE TWO SCORES DIFFER</text>
+
+  <text x="60" y="420" font-size="12" fill="#2b2826">For the same word, <tspan font-style="italic" font-weight="700">q_bank ≠ k_bank</tspan>. W_Q and W_K are different matrices, so they produce different projections of the same input x_bank.</text>
+  <text x="60" y="440" font-size="12" fill="#2b2826">Therefore <tspan font-style="italic" font-weight="700">q_bank · k_deposited</tspan> and <tspan font-style="italic" font-weight="700">q_deposited · k_bank</tspan> can take any two values. The attention matrix is asymmetric.</text>
+  <text x="60" y="463" font-size="12" font-style="italic" fill="#c03000">Tying W_Q = W_K would force these products equal, which is more symmetry than real sentences need.</text>
+
+  <!-- analogy at very bottom -->
+  <text x="550" y="510" font-size="11" font-style="italic" fill="#2b2826" text-anchor="middle">
+    On a dating app, <tspan font-weight="700">K</tspan> is your profile (what others see) and <tspan font-weight="700">Q</tspan> is your filter (who you search for). Both derive from the same person but play different roles; a match in one direction does not imply a match in the other.
+  </text>
+</svg>

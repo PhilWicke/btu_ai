@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 480" font-family="Inter, -apple-system, sans-serif" preserveAspectRatio="xMidYMid meet">
+  <rect width="1000" height="480" fill="#f5f2ed"/>
+
+  <text x="40" y="38" font-size="14" font-weight="700" fill="#2b2826">Word2Vec skip-gram architecture</text>
+  <text x="40" y="56" font-size="11" fill="#8a8580">Given a target word, predict its context. The hidden layer activations are the learned embedding.</text>
+
+  <g font-size="11" font-weight="600" fill="#8a8580" letter-spacing="1.5">
+    <text x="120" y="100" text-anchor="middle">INPUT (1-hot)</text>
+    <text x="420" y="100" text-anchor="middle">HIDDEN (embedding)</text>
+    <text x="810" y="100" text-anchor="middle">OUTPUT (softmax)</text>
+  </g>
+
+  <!-- Input column: 1-hot for "cat" -->
+  <g font-family="IBM Plex Mono, monospace" font-size="12">
+    <text x="76" y="145" text-anchor="end" fill="#8a8580">"the"</text>
+    <rect x="100" y="130" width="40" height="22" fill="#cfe1d0" stroke="#2b2826" stroke-width="1"/>
+    <text x="120" y="145" text-anchor="middle" fill="#2b2826">0</text>
+
+    <text x="76" y="173" text-anchor="end" fill="#c03000" font-weight="700">"cat"</text>
+    <rect x="100" y="158" width="40" height="22" fill="#c03000" stroke="#2b2826" stroke-width="1"/>
+    <text x="120" y="173" text-anchor="middle" fill="#f5f2ed" font-weight="700">1</text>
+
+    <text x="76" y="201" text-anchor="end" fill="#8a8580">"sat"</text>
+    <rect x="100" y="186" width="40" height="22" fill="#cfe1d0" stroke="#2b2826" stroke-width="1"/>
+    <text x="120" y="201" text-anchor="middle" fill="#2b2826">0</text>
+
+    <text x="120" y="230" text-anchor="middle" fill="#8a8580" font-size="14">⋮</text>
+
+    <text x="76" y="255" text-anchor="end" fill="#8a8580">"…"</text>
+    <rect x="100" y="240" width="40" height="22" fill="#cfe1d0" stroke="#2b2826" stroke-width="1"/>
+    <text x="120" y="255" text-anchor="middle" fill="#2b2826">0</text>
+  </g>
+  <text x="120" y="290" font-size="10" font-style="italic" fill="#8a8580" text-anchor="middle">V dimensions</text>
+
+  <!-- Embedding matrix W -->
+  <rect x="200" y="125" width="100" height="155" rx="4" fill="#f5e0c5" stroke="#2b2826" stroke-width="1"/>
+  <text x="250" y="200" text-anchor="middle" font-size="18" font-style="italic" font-weight="700" fill="#2b2826">W</text>
+  <text x="250" y="225" text-anchor="middle" font-size="10" fill="#8a8580" font-style="italic">V × N</text>
+
+  <line x1="305" y1="200" x2="365" y2="200" stroke="#2b2826" stroke-width="1.5"/>
+  <polygon points="368,200 359,196 359,204" fill="#2b2826"/>
+
+  <!-- Hidden layer -->
+  <g font-family="IBM Plex Mono, monospace" font-size="11">
+    <rect x="380" y="135" width="80" height="22" fill="#cfe1e0" stroke="#2b2826" stroke-width="1"/>
+    <text x="420" y="150" text-anchor="middle">0.42</text>
+    <rect x="380" y="160" width="80" height="22" fill="#cfe1e0" stroke="#2b2826" stroke-width="1"/>
+    <text x="420" y="175" text-anchor="middle">−0.17</text>
+    <rect x="380" y="185" width="80" height="22" fill="#cfe1e0" stroke="#2b2826" stroke-width="1"/>
+    <text x="420" y="200" text-anchor="middle">0.85</text>
+    <text x="420" y="223" text-anchor="middle" fill="#8a8580" font-size="14">⋮</text>
+    <rect x="380" y="235" width="80" height="22" fill="#cfe1e0" stroke="#2b2826" stroke-width="1"/>
+    <text x="420" y="250" text-anchor="middle">0.03</text>
+  </g>
+  <text x="420" y="290" font-size="10" font-style="italic" fill="#8a8580" text-anchor="middle">N dimensions = embedding for "cat"</text>
+
+  <!-- Output matrix W' -->
+  <rect x="500" y="125" width="100" height="155" rx="4" fill="#f5e0c5" stroke="#2b2826" stroke-width="1"/>
+  <text x="550" y="200" text-anchor="middle" font-size="18" font-style="italic" font-weight="700" fill="#2b2826">W′</text>
+  <text x="550" y="225" text-anchor="middle" font-size="10" fill="#8a8580" font-style="italic">N × V</text>
+
+  <line x1="605" y1="200" x2="665" y2="200" stroke="#2b2826" stroke-width="1.5"/>
+  <polygon points="668,200 659,196 659,204" fill="#2b2826"/>
+  <text x="635" y="190" font-size="10" fill="#8a8580" font-style="italic" text-anchor="middle">softmax</text>
+
+  <!-- Output: context probabilities -->
+  <g font-family="IBM Plex Mono, monospace" font-size="11">
+    <text x="700" y="148" text-anchor="end" fill="#c03000" font-weight="700">"sat"</text>
+    <rect x="710" y="133" width="200" height="20" fill="#e0dcd6"/>
+    <rect x="710" y="133" width="140" height="20" fill="#c03000"/>
+    <text x="925" y="148" fill="#c03000" font-weight="700">0.42</text>
+
+    <text x="700" y="174" text-anchor="end" fill="#8a8580">"mat"</text>
+    <rect x="710" y="159" width="200" height="20" fill="#e0dcd6"/>
+    <rect x="710" y="159" width="92" height="20" fill="#2b2826"/>
+    <text x="925" y="174" fill="#8a8580">0.27</text>
+
+    <text x="700" y="200" text-anchor="end" fill="#8a8580">"the"</text>
+    <rect x="710" y="185" width="200" height="20" fill="#e0dcd6"/>
+    <rect x="710" y="185" width="60" height="20" fill="#2b2826"/>
+    <text x="925" y="200" fill="#8a8580">0.18</text>
+
+    <text x="700" y="226" text-anchor="end" fill="#8a8580">"sun"</text>
+    <rect x="710" y="211" width="200" height="20" fill="#e0dcd6"/>
+    <rect x="710" y="211" width="14" height="20" fill="#2b2826"/>
+    <text x="925" y="226" fill="#8a8580">0.04</text>
+
+    <text x="700" y="252" text-anchor="end" fill="#8a8580">"galaxy"</text>
+    <rect x="710" y="237" width="200" height="20" fill="#e0dcd6"/>
+    <rect x="710" y="237" width="3" height="20" fill="#2b2826"/>
+    <text x="925" y="252" fill="#8a8580">0.001</text>
+  </g>
+  <text x="810" y="290" font-size="10" font-style="italic" fill="#8a8580" text-anchor="middle">probability over the vocabulary</text>
+
+  <!-- Bottom caption -->
+  <text x="500" y="370" font-size="12" font-style="italic" fill="#2b2826" text-anchor="middle">After training, the row of W indexed by a word is its embedding vector.</text>
+  <text x="500" y="392" font-size="11" fill="#8a8580" text-anchor="middle">CBOW (Mikolov et al., 2013) reverses the diagram: predict the target from its context.</text>
+</svg>

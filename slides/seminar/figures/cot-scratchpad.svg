@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 480" font-family="Inter, -apple-system, sans-serif" preserveAspectRatio="xMidYMid meet">
+  <rect width="1100" height="480" fill="#f5f2ed"/>
+
+  <text x="550" y="30" font-size="14" font-weight="700" fill="#2b2826" text-anchor="middle">Why “let’s think step by step” helps</text>
+  <text x="550" y="48" font-size="11" fill="#8a8580" text-anchor="middle">The same model, the same problem, two different prompting strategies. The chain externalises reasoning as tokens.</text>
+
+  <!-- LEFT: without CoT -->
+  <g>
+    <rect x="40" y="80" width="490" height="370" rx="8" fill="#ffffff" stroke="#8a8580" stroke-width="1"/>
+    <text x="56" y="106" font-size="11" font-weight="700" fill="#8a8580" letter-spacing="1.5">WITHOUT CHAIN-OF-THOUGHT</text>
+
+    <!-- prompt (matched height with the right panel for symmetry) -->
+    <rect x="60" y="120" width="450" height="60" rx="4" fill="#cfe1e0" stroke="#2b2826" stroke-width="1"/>
+    <text x="74" y="138" font-size="10" font-weight="700" fill="#8a8580">PROMPT</text>
+    <text x="74" y="156" font-family="IBM Plex Mono, monospace" font-size="11" fill="#2b2826">A bat and a ball cost $1.10. The bat costs $1 more.</text>
+    <text x="74" y="172" font-family="IBM Plex Mono, monospace" font-size="11" fill="#2b2826">How much is the ball?</text>
+
+    <!-- single arrow downward to box -->
+    <path d="M 285 190 L 285 220" stroke="#c03000" stroke-width="2" marker-end="url(#cotArrow)"/>
+    <text x="295" y="205" font-size="10" font-style="italic" fill="#c03000">single forward pass</text>
+
+    <!-- model black box -->
+    <rect x="170" y="225" width="230" height="56" rx="8" fill="#fee0cf" stroke="#c03000" stroke-width="1.4"/>
+    <text x="285" y="248" font-size="12" font-weight="700" fill="#2b2826" text-anchor="middle">LLM (one forward pass)</text>
+    <text x="285" y="266" font-size="10" font-style="italic" fill="#2b2826" text-anchor="middle">pattern-matches to a likely number</text>
+
+    <path d="M 285 285 L 285 320" stroke="#c03000" stroke-width="2" marker-end="url(#cotArrow)"/>
+
+    <!-- answer -->
+    <rect x="170" y="325" width="230" height="46" rx="4" fill="#f5e0c5" stroke="#c03000" stroke-width="1.6"/>
+    <text x="285" y="354" font-size="20" font-weight="700" fill="#c03000" text-anchor="middle">$0.10</text>
+
+    <text x="285" y="404" font-size="11" font-weight="700" fill="#c03000" text-anchor="middle">✗ Wrong</text>
+    <text x="285" y="420" font-size="10" font-style="italic" fill="#8a8580" text-anchor="middle">surface intuition: $1.00 + $0.10</text>
+    <text x="285" y="434" font-size="10" font-style="italic" fill="#8a8580" text-anchor="middle">misses the constraint that the bat is $1 MORE than the ball</text>
+  </g>
+
+  <!-- RIGHT: with CoT -->
+  <g>
+    <rect x="570" y="80" width="490" height="370" rx="8" fill="#ffffff" stroke="#c03000" stroke-width="1.6"/>
+    <text x="586" y="106" font-size="11" font-weight="700" fill="#c03000" letter-spacing="1.5">WITH CHAIN-OF-THOUGHT</text>
+
+    <!-- prompt with appended trigger -->
+    <rect x="590" y="120" width="450" height="60" rx="4" fill="#cfe1e0" stroke="#2b2826" stroke-width="1"/>
+    <text x="604" y="138" font-size="10" font-weight="700" fill="#8a8580">PROMPT</text>
+    <text x="604" y="156" font-family="IBM Plex Mono, monospace" font-size="11" fill="#2b2826">A bat and a ball cost $1.10. The bat costs $1 more.</text>
+    <text x="604" y="170" font-family="IBM Plex Mono, monospace" font-size="11" fill="#2b2826">How much is the ball? <tspan font-weight="700" fill="#c03000">Let&apos;s think step by step.</tspan></text>
+
+    <!-- chain of token boxes -->
+    <g font-family="IBM Plex Mono, monospace" font-size="11" fill="#2b2826">
+      <rect x="600" y="195" width="430" height="22" rx="3" fill="#f9f6f0" stroke="#8a8580" stroke-width="0.6"/>
+      <text x="612" y="210">Let cost of ball = x dollars.</text>
+
+      <rect x="600" y="220" width="430" height="22" rx="3" fill="#f9f6f0" stroke="#8a8580" stroke-width="0.6"/>
+      <text x="612" y="235">Bat costs $1 more, so bat = x + 1.</text>
+
+      <rect x="600" y="245" width="430" height="22" rx="3" fill="#f9f6f0" stroke="#8a8580" stroke-width="0.6"/>
+      <text x="612" y="260">Total: x + (x + 1) = 1.10</text>
+
+      <rect x="600" y="270" width="430" height="22" rx="3" fill="#f9f6f0" stroke="#8a8580" stroke-width="0.6"/>
+      <text x="612" y="285">2x + 1 = 1.10  →  2x = 0.10</text>
+
+      <rect x="600" y="295" width="430" height="22" rx="3" fill="#f9f6f0" stroke="#8a8580" stroke-width="0.6"/>
+      <text x="612" y="310">x = 0.05</text>
+    </g>
+
+    <!-- annotation: each step feeds the next (placed cleanly between the chain and the answer) -->
+    <text x="815" y="333" font-size="10" font-style="italic" fill="#c03000" text-anchor="middle">each step becomes context for the next</text>
+
+    <!-- final answer (centred on the right panel: panel centre is x=815) -->
+    <rect x="755" y="343" width="120" height="40" rx="4" fill="#f5e0c5" stroke="#c03000" stroke-width="1.6"/>
+    <text x="815" y="369" font-size="20" font-weight="700" fill="#c03000" text-anchor="middle">$0.05</text>
+
+    <text x="815" y="405" font-size="11" font-weight="700" fill="#2b8a4a" text-anchor="middle">✓ Correct</text>
+    <text x="815" y="420" font-size="10" font-style="italic" fill="#8a8580" text-anchor="middle">extra forward passes through the tokens</text>
+    <text x="815" y="434" font-size="10" font-style="italic" fill="#8a8580" text-anchor="middle">give the model the compute it needs to reason</text>
+  </g>
+
+  <defs>
+    <marker id="cotArrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+      <polygon points="0 0, 8 4, 0 8" fill="#c03000"/>
+    </marker>
+  </defs>
+</svg>

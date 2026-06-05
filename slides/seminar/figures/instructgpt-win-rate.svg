@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 540" font-family="Inter, -apple-system, sans-serif" preserveAspectRatio="xMidYMid meet">
+  <rect width="600" height="540" fill="#f5f2ed"/>
+
+  <text x="300" y="34" font-size="14" font-weight="700" fill="#2b2826" text-anchor="middle">Win rate against the 175B SFT baseline</text>
+  <text x="300" y="52" font-size="11" fill="#8a8580" text-anchor="middle">A 1.3B instruction-tuned model beats raw 175B GPT-3 on human preference (InstructGPT, 2022).</text>
+
+  <!-- Axes -->
+  <g transform="translate(80 90)">
+    <line x1="0" y1="0" x2="0" y2="340" stroke="#2b2826" stroke-width="1.4"/>
+    <line x1="0" y1="340" x2="400" y2="340" stroke="#2b2826" stroke-width="1.4"/>
+
+    <text x="-55" y="170" font-size="12" font-weight="700" fill="#2b2826" text-anchor="middle" transform="rotate(-90 -55 170)">Win rate vs 175B SFT</text>
+
+    <!-- y ticks -->
+    <g font-size="9" fill="#8a8580" text-anchor="end">
+      <line x1="0" y1="340" x2="-4" y2="340" stroke="#8a8580"/>
+      <text x="-8" y="343">0.0</text>
+      <line x1="0" y1="272" x2="-4" y2="272" stroke="#8a8580"/>
+      <text x="-8" y="275">0.2</text>
+      <line x1="0" y1="204" x2="-4" y2="204" stroke="#8a8580"/>
+      <text x="-8" y="207">0.4</text>
+      <line x1="0" y1="136" x2="-4" y2="136" stroke="#8a8580"/>
+      <text x="-8" y="139">0.6</text>
+      <line x1="0" y1="68" x2="-4" y2="68" stroke="#8a8580"/>
+      <text x="-8" y="71">0.8</text>
+    </g>
+
+    <!-- horizontal gridlines -->
+    <g stroke="#e0dcd6" stroke-width="0.6" stroke-dasharray="3,3">
+      <line x1="0" y1="272" x2="400" y2="272"/>
+      <line x1="0" y1="204" x2="400" y2="204"/>
+      <line x1="0" y1="136" x2="400" y2="136"/>
+      <line x1="0" y1="68" x2="400" y2="68"/>
+    </g>
+
+    <!-- baseline line at 0.5 (vs self) -->
+    <line x1="0" y1="170" x2="400" y2="170" stroke="#8a8580" stroke-width="1.2" stroke-dasharray="4,3"/>
+    <text x="395" y="166" font-size="9" fill="#8a8580" text-anchor="end" font-style="italic">0.5 baseline (vs 175B SFT)</text>
+
+    <!-- x axis: 1.3B, 6B, 175B -->
+    <g font-size="11" fill="#2b2826" text-anchor="middle">
+      <line x1="60" y1="340" x2="60" y2="345" stroke="#2b2826"/>
+      <text x="60" y="360" font-weight="600">1.3B</text>
+      <line x1="200" y1="340" x2="200" y2="345" stroke="#2b2826"/>
+      <text x="200" y="360" font-weight="600">6B</text>
+      <line x1="380" y1="340" x2="380" y2="345" stroke="#2b2826"/>
+      <text x="380" y="360" font-weight="600">175B</text>
+    </g>
+    <text x="200" y="385" font-size="12" font-weight="700" fill="#2b2826" text-anchor="middle">Model size</text>
+
+    <!-- Five lines. Y values come from value v = (340 - y) / 340. -->
+    <!-- PPO-ptx (top, coral): 0.50 → 0.61 → 0.71  (Ouyang et al., 2022, Fig. 1) -->
+    <polyline points="60,170 200,133 380,99" stroke="#c03000" stroke-width="2.4" fill="none"/>
+    <g fill="#c03000">
+      <circle cx="60" cy="170" r="4"/>
+      <circle cx="200" cy="133" r="4"/>
+      <circle cx="380" cy="99" r="4"/>
+    </g>
+
+    <!-- PPO (orange): 0.47 → 0.58 → 0.66 -->
+    <polyline points="60,180 200,143 380,116" stroke="#e08020" stroke-width="2.2" fill="none"/>
+    <g fill="#e08020">
+      <circle cx="60" cy="180" r="3.5"/>
+      <circle cx="200" cy="143" r="3.5"/>
+      <circle cx="380" cy="116" r="3.5"/>
+    </g>
+
+    <!-- SFT (green) -->
+    <polyline points="60,228 200,210 380,170" stroke="#2b8a4a" stroke-width="2" fill="none"/>
+    <g fill="#2b8a4a">
+      <circle cx="60" cy="228" r="3.5"/>
+      <circle cx="200" cy="210" r="3.5"/>
+      <circle cx="380" cy="170" r="3.5"/>
+    </g>
+
+    <!-- GPT prompted (light blue) -->
+    <polyline points="60,300 200,265 380,200" stroke="#5b9fd5" stroke-width="2" fill="none"/>
+    <g fill="#5b9fd5">
+      <circle cx="60" cy="300" r="3.5"/>
+      <circle cx="200" cy="265" r="3.5"/>
+      <circle cx="380" cy="200" r="3.5"/>
+    </g>
+
+    <!-- GPT raw (dark blue) -->
+    <polyline points="60,318 200,290 380,265" stroke="#284d70" stroke-width="2" fill="none"/>
+    <g fill="#284d70">
+      <circle cx="60" cy="318" r="3.5"/>
+      <circle cx="200" cy="290" r="3.5"/>
+      <circle cx="380" cy="265" r="3.5"/>
+    </g>
+
+    <!-- crossover annotation: 1.3B PPO-ptx already at 0.5 -->
+    <circle cx="60" cy="170" r="9" fill="none" stroke="#c03000" stroke-width="2"/>
+    <line x1="60" y1="160" x2="60" y2="100" stroke="#c03000" stroke-width="1"/>
+    <text x="60" y="92" font-size="10" font-weight="700" fill="#c03000" text-anchor="middle">1.3B aligned</text>
+    <text x="60" y="80" font-size="10" font-weight="700" fill="#c03000" text-anchor="middle">matches 175B SFT</text>
+  </g>
+
+  <!-- Legend -->
+  <g transform="translate(495 100)" font-size="11">
+    <text x="0" y="0" font-weight="700" fill="#2b2826" letter-spacing="1">MODEL</text>
+    <rect x="0" y="8" width="80" height="2" fill="#c03000"/>
+
+    <g transform="translate(0 22)">
+      <line x1="0" y1="6" x2="18" y2="6" stroke="#c03000" stroke-width="2.4"/>
+      <circle cx="9" cy="6" r="3" fill="#c03000"/>
+      <text x="22" y="9" fill="#2b2826" font-weight="600">PPO-ptx</text>
+    </g>
+    <g transform="translate(0 38)">
+      <line x1="0" y1="6" x2="18" y2="6" stroke="#e08020" stroke-width="2.2"/>
+      <circle cx="9" cy="6" r="3" fill="#e08020"/>
+      <text x="22" y="9" fill="#2b2826">PPO</text>
+    </g>
+    <g transform="translate(0 54)">
+      <line x1="0" y1="6" x2="18" y2="6" stroke="#2b8a4a" stroke-width="2"/>
+      <circle cx="9" cy="6" r="3" fill="#2b8a4a"/>
+      <text x="22" y="9" fill="#2b2826">SFT</text>
+    </g>
+    <g transform="translate(0 70)">
+      <line x1="0" y1="6" x2="18" y2="6" stroke="#5b9fd5" stroke-width="2"/>
+      <circle cx="9" cy="6" r="3" fill="#5b9fd5"/>
+      <text x="22" y="9" fill="#2b2826">GPT prompted</text>
+    </g>
+    <g transform="translate(0 86)">
+      <line x1="0" y1="6" x2="18" y2="6" stroke="#284d70" stroke-width="2"/>
+      <circle cx="9" cy="6" r="3" fill="#284d70"/>
+      <text x="22" y="9" fill="#2b2826">GPT (raw)</text>
+    </g>
+
+    <text x="0" y="118" font-size="10" font-style="italic" fill="#8a8580">A 1.3B PPO-ptx model</text>
+    <text x="0" y="132" font-size="10" font-style="italic" fill="#8a8580">already wins ≈50% of</text>
+    <text x="0" y="146" font-size="10" font-style="italic" fill="#8a8580">comparisons against</text>
+    <text x="0" y="160" font-size="10" font-style="italic" fill="#8a8580">175B SFT.</text>
+  </g>
+
+  <text x="300" y="510" font-size="11" font-style="italic" fill="#2b2826" text-anchor="middle">Alignment matters more than raw scale. 13K well-written examples beat 300B undirected ones.</text>
+</svg>

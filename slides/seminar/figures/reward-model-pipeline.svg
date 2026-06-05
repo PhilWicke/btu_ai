@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 540" font-family="Inter, -apple-system, sans-serif" preserveAspectRatio="xMidYMid meet">
+  <rect width="720" height="540" fill="#f5f2ed"/>
+
+  <text x="360" y="30" font-size="14" font-weight="700" fill="#2b2826" text-anchor="middle">Training a reward model from human rankings</text>
+  <text x="360" y="50" font-size="11" fill="#8a8580" text-anchor="middle">Sample several responses to the same prompt. Have humans rank them. Fit a scalar that mimics those rankings.</text>
+
+  <defs>
+    <marker id="rmArr" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">
+      <polygon points="0 0, 7 3.5, 0 7" fill="#2b2826"/>
+    </marker>
+    <marker id="rmArrGray" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+      <polygon points="0 0, 6 3, 0 6" fill="#8a8580"/>
+    </marker>
+  </defs>
+
+  <!-- ============================================================== -->
+  <!--                  STEP 1 — SAMPLE K RESPONSES                   -->
+  <!-- ============================================================== -->
+  <text x="40" y="88" font-size="10" font-weight="700" fill="#8a8580" letter-spacing="1.5">STEP 1 — SAMPLE K RESPONSES</text>
+
+  <!-- Prompt (centred vertically at y=120) -->
+  <rect x="50" y="100" width="120" height="40" rx="6" fill="#e0dcd6" stroke="#2b2826" stroke-width="1"/>
+  <text x="110" y="125" font-size="12" font-weight="600" fill="#2b2826" text-anchor="middle">Prompt x</text>
+
+  <!-- Prompt → LLM (horizontal) -->
+  <line x1="170" y1="120" x2="197" y2="120" stroke="#2b2826" stroke-width="1.2" marker-end="url(#rmArr)"/>
+
+  <!-- LLM (centred vertically at y=120) -->
+  <rect x="200" y="90" width="140" height="60" rx="8" fill="#cfe1e0" stroke="#2b2826" stroke-width="1.4"/>
+  <text x="270" y="113" font-size="12" font-weight="700" fill="#2b2826" text-anchor="middle">LLM</text>
+  <text x="270" y="129" font-size="10" font-style="italic" fill="#2b2826" text-anchor="middle">sample K</text>
+  <text x="270" y="142" font-size="10" font-style="italic" fill="#2b2826" text-anchor="middle">responses</text>
+
+  <!-- LLM → A, B, C: clean fan from a single anchor point -->
+  <line x1="340" y1="120" x2="370" y2="100" stroke="#8a8580" stroke-width="1" marker-end="url(#rmArrGray)"/>
+  <line x1="340" y1="120" x2="370" y2="135" stroke="#8a8580" stroke-width="1" marker-end="url(#rmArrGray)"/>
+  <line x1="340" y1="120" x2="370" y2="170" stroke="#8a8580" stroke-width="1" marker-end="url(#rmArrGray)"/>
+
+  <!-- Response A -->
+  <rect x="375" y="85" width="270" height="30" rx="4" fill="#ffffff" stroke="#2b2826" stroke-width="1"/>
+  <text x="392" y="104" font-size="11" font-weight="700" fill="#2b2826">A</text>
+  <text x="412" y="104" font-size="11" fill="#2b2826">a thorough, vivid answer</text>
+
+  <!-- Response B -->
+  <rect x="375" y="120" width="270" height="30" rx="4" fill="#ffffff" stroke="#2b2826" stroke-width="1"/>
+  <text x="392" y="139" font-size="11" font-weight="700" fill="#2b2826">B</text>
+  <text x="412" y="139" font-size="11" fill="#2b2826">a short but accurate one</text>
+
+  <!-- Response C -->
+  <rect x="375" y="155" width="270" height="30" rx="4" fill="#ffffff" stroke="#2b2826" stroke-width="1"/>
+  <text x="392" y="174" font-size="11" font-weight="700" fill="#2b2826">C</text>
+  <text x="412" y="174" font-size="11" fill="#2b2826">off-topic, missed the point</text>
+
+
+  <!-- ============================================================== -->
+  <!--                       STEP 2 — HUMANS RANK                     -->
+  <!-- ============================================================== -->
+  <text x="40" y="225" font-size="10" font-weight="700" fill="#8a8580" letter-spacing="1.5">STEP 2 — HUMANS RANK</text>
+
+  <!-- Human evaluator icon (centre y=263) -->
+  <circle cx="100" cy="263" r="22" fill="#fee0cf" stroke="#c03000" stroke-width="1.4"/>
+  <text x="100" y="270" font-size="20" fill="#c03000" text-anchor="middle">☺</text>
+  <text x="100" y="305" font-size="11" font-weight="600" fill="#2b2826" text-anchor="middle">Human evaluator</text>
+
+  <!-- Human → RANKING, horizontal -->
+  <line x1="124" y1="263" x2="217" y2="263" stroke="#2b2826" stroke-width="1.2" marker-end="url(#rmArr)"/>
+  <text x="180" y="255" font-size="10" font-style="italic" fill="#2b2826" text-anchor="middle">orders the responses</text>
+
+  <!-- RANKING box -->
+  <rect x="220" y="235" width="220" height="60" rx="6" fill="#fee0cf" stroke="#c03000" stroke-width="1.4"/>
+  <text x="232" y="254" font-size="11" font-weight="700" fill="#c03000" letter-spacing="1">RANKING</text>
+  <text x="232" y="277" font-family="IBM Plex Mono, monospace" font-size="14" fill="#2b2826">A &gt; B &gt; C</text>
+  <text x="232" y="290" font-size="9" font-style="italic" fill="#8a8580">pairwise preferences extracted</text>
+
+  <!-- Decorative arrow from RANKING down-right to Step 3 Preference data -->
+  <path d="M 330 297 Q 330 325 220 355" stroke="#8a8580" stroke-width="1" fill="none" stroke-dasharray="3,3" marker-end="url(#rmArrGray)"/>
+
+
+  <!-- ============================================================== -->
+  <!--                  STEP 3 — FIT A SCALAR PREDICTOR                -->
+  <!-- ============================================================== -->
+  <text x="40" y="340" font-size="10" font-weight="700" fill="#8a8580" letter-spacing="1.5">STEP 3 — FIT A SCALAR PREDICTOR</text>
+
+  <!-- Preference data box -->
+  <rect x="50" y="355" width="180" height="80" rx="6" fill="#ffffff" stroke="#8a8580" stroke-width="0.8"/>
+  <text x="60" y="374" font-size="11" font-weight="700" fill="#2b2826">Preference data</text>
+  <g font-family="IBM Plex Mono, monospace" font-size="11" fill="#2b2826">
+    <text x="60" y="394">(x, A) &gt; (x, B)</text>
+    <text x="60" y="410">(x, A) &gt; (x, C)</text>
+    <text x="60" y="426">(x, B) &gt; (x, C)</text>
+  </g>
+
+  <!-- Preference data → Reward model -->
+  <line x1="230" y1="395" x2="277" y2="395" stroke="#2b2826" stroke-width="1.4" marker-end="url(#rmArr)"/>
+
+  <!-- Reward model -->
+  <rect x="280" y="355" width="180" height="80" rx="8" fill="#f5e0c5" stroke="#2b2826" stroke-width="1.6"/>
+  <text x="370" y="380" font-size="14" font-weight="700" fill="#2b2826" text-anchor="middle">Reward model</text>
+  <text x="370" y="399" font-size="12" font-style="italic" fill="#2b2826" text-anchor="middle">r(x, y) ∈ ℝ</text>
+  <text x="370" y="418" font-size="10" font-style="italic" fill="#8a8580" text-anchor="middle">smaller transformer trained</text>
+  <text x="370" y="430" font-size="10" font-style="italic" fill="#8a8580" text-anchor="middle">with a pairwise loss</text>
+
+  <!-- Reward model → scalar score -->
+  <line x1="460" y1="395" x2="507" y2="395" stroke="#2b2826" stroke-width="1.4" marker-end="url(#rmArr)"/>
+
+  <!-- Scalar score -->
+  <rect x="510" y="370" width="170" height="50" rx="6" fill="#cfe1e0" stroke="#2b2826" stroke-width="1"/>
+  <text x="595" y="391" font-size="12" font-weight="700" fill="#2b2826" text-anchor="middle">scalar score</text>
+  <text x="595" y="407" font-size="10" font-style="italic" fill="#8a8580" text-anchor="middle">per (prompt, response)</text>
+
+
+  <!-- ============================================================== -->
+  <!--                       BOTTOM TAKEAWAY                          -->
+  <!-- ============================================================== -->
+  <rect x="50" y="450" width="620" height="55" rx="6" fill="#ffffff" stroke="#c03000" stroke-width="1.2"/>
+  <text x="68" y="470" font-size="11" font-weight="700" fill="#c03000" letter-spacing="1">WHY THIS WORKS</text>
+  <text x="68" y="487" font-size="12" fill="#2b2826">Comparisons are easier and more reliable for humans than absolute scores.</text>
+  <text x="68" y="502" font-size="12" fill="#2b2826">Once trained, the reward model grades millions of new responses with no human in the loop.</text>
+
+  <text x="360" y="528" font-size="11" font-style="italic" fill="#2b2826" text-anchor="middle">The reward model is a fast, approximate stand-in for a human rater. RLHF needs that stand-in to scale.</text>
+</svg>

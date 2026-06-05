@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 540" font-family="Inter, -apple-system, sans-serif" preserveAspectRatio="xMidYMid meet">
+  <rect width="1100" height="540" fill="#f5f2ed"/>
+
+  <text x="550" y="34" font-size="14" font-weight="700" fill="#2b2826" text-anchor="middle">BERT pre-training: predict the masked token using both sides</text>
+  <text x="550" y="52" font-size="11" fill="#8a8580" text-anchor="middle">Mask roughly 15% of tokens at random. The model must reconstruct each from its bidirectional context.</text>
+
+  <!-- =========== INPUT ROW =========== -->
+  <text x="60" y="100" font-size="11" font-weight="700" fill="#8a8580" letter-spacing="1.2">INPUT (15% masked)</text>
+
+  <g font-size="14" font-weight="500" fill="#2b2826" text-anchor="middle">
+    <rect x="60" y="115" width="40" height="40" rx="4" fill="#e0dcd6" stroke="#2b2826" stroke-width="1"/>
+    <text x="80" y="140">I</text>
+
+    <rect x="115" y="115" width="160" height="40" rx="4" fill="#e0dcd6" stroke="#2b2826" stroke-width="1"/>
+    <text x="195" y="140">deposited</text>
+
+    <rect x="290" y="115" width="110" height="40" rx="4" fill="#e0dcd6" stroke="#2b2826" stroke-width="1"/>
+    <text x="345" y="140">money</text>
+
+    <rect x="415" y="115" width="55" height="40" rx="4" fill="#e0dcd6" stroke="#2b2826" stroke-width="1"/>
+    <text x="442" y="140">at</text>
+
+    <rect x="485" y="115" width="70" height="40" rx="4" fill="#e0dcd6" stroke="#2b2826" stroke-width="1"/>
+    <text x="520" y="140">the</text>
+
+    <!-- masked focal token -->
+    <rect x="570" y="111" width="120" height="48" rx="4" fill="#c03000" stroke="#2b2826" stroke-width="2"/>
+    <text x="630" y="140" fill="#f5f2ed" font-weight="700">[MASK]</text>
+
+    <rect x="705" y="115" width="40" height="40" rx="4" fill="#e0dcd6" stroke="#2b2826" stroke-width="1"/>
+    <text x="725" y="140">.</text>
+  </g>
+
+  <text x="630" y="180" font-size="11" fill="#c03000" font-weight="700" text-anchor="middle">↑ originally "bank"</text>
+
+  <!-- =========== TRANSFORMER ENCODER STACK =========== -->
+  <rect x="60" y="215" width="685" height="80" rx="8" fill="#f5e0c5" stroke="#2b2826" stroke-width="1.4"/>
+  <text x="402" y="247" font-size="14" font-weight="700" fill="#2b2826" text-anchor="middle">Transformer encoder (N layers)</text>
+  <text x="402" y="268" font-size="11" font-style="italic" fill="#2b2826" text-anchor="middle">every position attends to every other, including past the [MASK]</text>
+  <text x="402" y="285" font-size="10" fill="#8a8580" text-anchor="middle">"deposited" and "money" pull the model toward the financial reading</text>
+
+  <!-- =========== OUTPUT: logits over vocab at MASK position =========== -->
+  <text x="60" y="335" font-size="11" font-weight="700" fill="#8a8580" letter-spacing="1.2">PREDICTION AT THE [MASK] POSITION</text>
+
+  <g font-family="Inter" font-size="13">
+    <text x="200" y="368" fill="#2b2826" text-anchor="end" font-weight="600">bank</text>
+    <rect x="210" y="356" width="350" height="16" fill="#e0dcd6"/>
+    <rect x="210" y="356" width="0" height="16" fill="#c03000">
+      <animate attributeName="width" from="0" to="298" dur="1.2s" fill="freeze" begin="0.3s"/>
+    </rect>
+    <text x="570" y="368" font-family="IBM Plex Mono, monospace" fill="#c03000" font-weight="700">0.85</text>
+
+    <text x="200" y="392" fill="#8a8580" text-anchor="end">vault</text>
+    <rect x="210" y="380" width="350" height="16" fill="#e0dcd6"/>
+    <rect x="210" y="380" width="0" height="16" fill="#8a8580">
+      <animate attributeName="width" from="0" to="35" dur="0.7s" fill="freeze" begin="0.5s"/>
+    </rect>
+    <text x="570" y="392" font-family="IBM Plex Mono, monospace" fill="#8a8580">0.07</text>
+
+    <text x="200" y="416" fill="#8a8580" text-anchor="end">window</text>
+    <rect x="210" y="404" width="350" height="16" fill="#e0dcd6"/>
+    <rect x="210" y="404" width="0" height="16" fill="#8a8580">
+      <animate attributeName="width" from="0" to="14" dur="0.6s" fill="freeze" begin="0.7s"/>
+    </rect>
+    <text x="570" y="416" font-family="IBM Plex Mono, monospace" fill="#8a8580">0.04</text>
+
+    <text x="200" y="440" fill="#8a8580" text-anchor="end">river</text>
+    <rect x="210" y="428" width="350" height="16" fill="#e0dcd6"/>
+    <rect x="210" y="428" width="0" height="16" fill="#8a8580">
+      <animate attributeName="width" from="0" to="7" dur="0.5s" fill="freeze" begin="0.9s"/>
+    </rect>
+    <text x="570" y="440" font-family="IBM Plex Mono, monospace" fill="#8a8580">0.02</text>
+  </g>
+
+  <!-- Side: the 80/10/10 rule -->
+  <g>
+    <rect x="640" y="335" width="420" height="135" rx="6" fill="#ffffff" stroke="#8a8580" stroke-width="0.8"/>
+    <text x="660" y="358" font-size="11" font-weight="700" fill="#2b2826" letter-spacing="1">THE 80 / 10 / 10 SUBSTITUTION RULE</text>
+    <text x="660" y="382" font-size="12" fill="#2b2826"><tspan font-weight="700">80%</tspan> replace with [MASK]</text>
+    <text x="660" y="402" font-size="12" fill="#2b2826"><tspan font-weight="700">10%</tspan> replace with a random token</text>
+    <text x="660" y="422" font-size="12" fill="#2b2826"><tspan font-weight="700">10%</tspan> leave the original token unchanged</text>
+    <text x="660" y="450" font-size="10" font-style="italic" fill="#8a8580">A pure [MASK] pretrain/inference gap is avoided</text>
+    <text x="660" y="463" font-size="10" font-style="italic" fill="#8a8580">because the model cannot trust what it sees.</text>
+  </g>
+
+  <text x="550" y="510" font-size="11" font-style="italic" fill="#2b2826" text-anchor="middle">
+    The pre-training task is self-supervised. The label was already in the text. We just hid it.
+  </text>
+</svg>

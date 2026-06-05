@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 540" font-family="Inter, -apple-system, sans-serif" preserveAspectRatio="xMidYMid meet">
+  <rect width="1100" height="540" fill="#f5f2ed"/>
+
+  <text x="550" y="34" font-size="14" font-weight="700" fill="#2b2826" text-anchor="middle">One block, three masking choices, three families</text>
+  <text x="550" y="52" font-size="11" fill="#8a8580" text-anchor="middle">The transformer block is the same. The connections between positions change.</text>
+
+  <!-- =========== ENCODER (left) =========== -->
+  <g>
+    <text x="180" y="92" font-size="13" font-weight="700" fill="#2b2826" text-anchor="middle" letter-spacing="1.2">ENCODER</text>
+    <text x="180" y="110" font-size="10" fill="#8a8580" text-anchor="middle" font-style="italic">BERT, RoBERTa</text>
+
+    <!-- 4 tokens in a row -->
+    <g font-size="12" font-weight="600" fill="#2b2826" text-anchor="middle">
+      <rect x="70" y="135" width="50" height="30" rx="4" fill="#cfe1e0" stroke="#2b2826" stroke-width="1"/>
+      <text x="95" y="155">x₁</text>
+      <rect x="135" y="135" width="50" height="30" rx="4" fill="#cfe1e0" stroke="#2b2826" stroke-width="1"/>
+      <text x="160" y="155">x₂</text>
+      <rect x="200" y="135" width="50" height="30" rx="4" fill="#cfe1e0" stroke="#2b2826" stroke-width="1"/>
+      <text x="225" y="155">x₃</text>
+      <rect x="265" y="135" width="50" height="30" rx="4" fill="#cfe1e0" stroke="#2b2826" stroke-width="1"/>
+      <text x="290" y="155">x₄</text>
+    </g>
+
+    <!-- Full attention: every-to-every arcs -->
+    <g stroke="#2b2826" stroke-width="0.9" fill="none" opacity="0.55">
+      <path d="M 95 200 C 95 230 160 230 160 200"/>
+      <path d="M 95 200 C 95 250 225 250 225 200"/>
+      <path d="M 95 200 C 95 270 290 270 290 200"/>
+      <path d="M 160 200 C 160 230 225 230 225 200"/>
+      <path d="M 160 200 C 160 250 290 250 290 200"/>
+      <path d="M 225 200 C 225 230 290 230 290 200"/>
+      <path d="M 160 200 C 160 230 95 230 95 200"/>
+      <path d="M 225 200 C 225 250 95 250 95 200"/>
+      <path d="M 290 200 C 290 270 95 270 95 200"/>
+      <path d="M 225 200 C 225 230 160 230 160 200"/>
+      <path d="M 290 200 C 290 250 160 250 160 200"/>
+      <path d="M 290 200 C 290 230 225 230 225 200"/>
+    </g>
+
+    <!-- Block label -->
+    <rect x="55" y="290" width="250" height="48" rx="6" fill="#f5e0c5" stroke="#2b2826" stroke-width="1.2"/>
+    <text x="180" y="312" font-size="12" font-weight="700" fill="#2b2826" text-anchor="middle">Self-attention block</text>
+    <text x="180" y="328" font-size="10" font-style="italic" fill="#2b2826" text-anchor="middle">bidirectional, full visibility</text>
+
+    <!-- Output: contextual reps -->
+    <g font-size="11" fill="#2b2826" text-anchor="middle">
+      <rect x="70" y="365" width="50" height="28" rx="4" fill="#e0dcd6" stroke="#2b2826" stroke-width="0.8"/>
+      <text x="95" y="383">h₁</text>
+      <rect x="135" y="365" width="50" height="28" rx="4" fill="#e0dcd6" stroke="#2b2826" stroke-width="0.8"/>
+      <text x="160" y="383">h₂</text>
+      <rect x="200" y="365" width="50" height="28" rx="4" fill="#e0dcd6" stroke="#2b2826" stroke-width="0.8"/>
+      <text x="225" y="383">h₃</text>
+      <rect x="265" y="365" width="50" height="28" rx="4" fill="#e0dcd6" stroke="#2b2826" stroke-width="0.8"/>
+      <text x="290" y="383">h₄</text>
+    </g>
+
+    <text x="180" y="420" font-size="10" fill="#8a8580" text-anchor="middle" font-style="italic">contextual representations</text>
+    <text x="180" y="446" font-size="11" font-weight="600" fill="#c03000" text-anchor="middle">used for classification, tagging,</text>
+    <text x="180" y="461" font-size="11" font-weight="600" fill="#c03000" text-anchor="middle">retrieval, span prediction</text>
+  </g>
+
+  <!-- Vertical divider -->
+  <line x1="375" y1="80" x2="375" y2="490" stroke="#e0dcd6" stroke-width="1"/>
+
+  <!-- =========== DECODER (middle) =========== -->
+  <g>
+    <text x="495" y="92" font-size="13" font-weight="700" fill="#2b2826" text-anchor="middle" letter-spacing="1.2">DECODER</text>
+    <text x="495" y="110" font-size="10" fill="#8a8580" text-anchor="middle" font-style="italic">GPT, Llama, Mistral</text>
+
+    <g font-size="12" font-weight="600" fill="#2b2826" text-anchor="middle">
+      <rect x="385" y="135" width="50" height="30" rx="4" fill="#fee0cf" stroke="#c03000" stroke-width="1.2"/>
+      <text x="410" y="155">x₁</text>
+      <rect x="450" y="135" width="50" height="30" rx="4" fill="#fee0cf" stroke="#c03000" stroke-width="1.2"/>
+      <text x="475" y="155">x₂</text>
+      <rect x="515" y="135" width="50" height="30" rx="4" fill="#fee0cf" stroke="#c03000" stroke-width="1.2"/>
+      <text x="540" y="155">x₃</text>
+      <rect x="580" y="135" width="50" height="30" rx="4" fill="#fee0cf" stroke="#c03000" stroke-width="1.2"/>
+      <text x="605" y="155">x₄</text>
+    </g>
+
+    <!-- Causal: only look left -->
+    <g stroke="#c03000" stroke-width="0.9" fill="none" opacity="0.7">
+      <path d="M 475 200 C 475 230 410 230 410 200"/>
+      <path d="M 540 200 C 540 230 475 230 475 200"/>
+      <path d="M 540 200 C 540 250 410 250 410 200"/>
+      <path d="M 605 200 C 605 230 540 230 540 200"/>
+      <path d="M 605 200 C 605 250 475 250 475 200"/>
+      <path d="M 605 200 C 605 270 410 270 410 200"/>
+    </g>
+
+    <rect x="370" y="290" width="250" height="48" rx="6" fill="#fee0cf" stroke="#c03000" stroke-width="1.4"/>
+    <text x="495" y="312" font-size="12" font-weight="700" fill="#2b2826" text-anchor="middle">Masked self-attention block</text>
+    <text x="495" y="328" font-size="10" font-style="italic" fill="#2b2826" text-anchor="middle">position i sees only ≤ i</text>
+
+    <!-- Output: next-token predictions -->
+    <g font-size="10" fill="#2b2826" text-anchor="middle">
+      <rect x="385" y="365" width="50" height="28" rx="4" fill="#e0dcd6" stroke="#2b2826" stroke-width="0.8"/>
+      <text x="410" y="383">→ x₂</text>
+      <rect x="450" y="365" width="50" height="28" rx="4" fill="#e0dcd6" stroke="#2b2826" stroke-width="0.8"/>
+      <text x="475" y="383">→ x₃</text>
+      <rect x="515" y="365" width="50" height="28" rx="4" fill="#e0dcd6" stroke="#2b2826" stroke-width="0.8"/>
+      <text x="540" y="383">→ x₄</text>
+      <rect x="580" y="365" width="50" height="28" rx="4" fill="#e0dcd6" stroke="#2b2826" stroke-width="0.8"/>
+      <text x="605" y="383">→ x₅</text>
+    </g>
+
+    <text x="495" y="420" font-size="10" fill="#8a8580" text-anchor="middle" font-style="italic">next-token predictions, one per position</text>
+    <text x="495" y="446" font-size="11" font-weight="600" fill="#c03000" text-anchor="middle">used for autoregressive</text>
+    <text x="495" y="461" font-size="11" font-weight="600" fill="#c03000" text-anchor="middle">generation, completion, chat</text>
+  </g>
+
+  <line x1="690" y1="80" x2="690" y2="490" stroke="#e0dcd6" stroke-width="1"/>
+
+  <!-- =========== ENCODER-DECODER (right) =========== -->
+  <g>
+    <text x="895" y="92" font-size="13" font-weight="700" fill="#2b2826" text-anchor="middle" letter-spacing="1.2">ENCODER-DECODER</text>
+    <text x="895" y="110" font-size="10" fill="#8a8580" text-anchor="middle" font-style="italic">T5, BART</text>
+
+    <!-- Source on left half, target on right half -->
+    <text x="795" y="129" font-size="9" fill="#8a8580" text-anchor="middle" letter-spacing="1">SOURCE</text>
+    <text x="995" y="129" font-size="9" fill="#8a8580" text-anchor="middle" letter-spacing="1">TARGET</text>
+
+    <g font-size="11" font-weight="600" fill="#2b2826" text-anchor="middle">
+      <rect x="713" y="135" width="40" height="30" rx="4" fill="#cfe1e0" stroke="#2b2826" stroke-width="1"/>
+      <text x="733" y="155">s₁</text>
+      <rect x="758" y="135" width="40" height="30" rx="4" fill="#cfe1e0" stroke="#2b2826" stroke-width="1"/>
+      <text x="778" y="155">s₂</text>
+      <rect x="803" y="135" width="40" height="30" rx="4" fill="#cfe1e0" stroke="#2b2826" stroke-width="1"/>
+      <text x="823" y="155">s₃</text>
+
+      <rect x="918" y="135" width="40" height="30" rx="4" fill="#fee0cf" stroke="#c03000" stroke-width="1.2"/>
+      <text x="938" y="155">t₁</text>
+      <rect x="963" y="135" width="40" height="30" rx="4" fill="#fee0cf" stroke="#c03000" stroke-width="1.2"/>
+      <text x="983" y="155">t₂</text>
+      <rect x="1008" y="135" width="40" height="30" rx="4" fill="#fee0cf" stroke="#c03000" stroke-width="1.2"/>
+      <text x="1028" y="155">t₃</text>
+    </g>
+
+    <!-- Encoder self-attention (full) -->
+    <g stroke="#2b2826" stroke-width="0.8" fill="none" opacity="0.5">
+      <path d="M 733 200 C 733 220 778 220 778 200"/>
+      <path d="M 733 200 C 733 235 823 235 823 200"/>
+      <path d="M 778 200 C 778 220 823 220 823 200"/>
+      <path d="M 778 200 C 778 220 733 220 733 200"/>
+      <path d="M 823 200 C 823 220 778 220 778 200"/>
+      <path d="M 823 200 C 823 235 733 235 733 200"/>
+    </g>
+
+    <!-- Decoder masked attention -->
+    <g stroke="#c03000" stroke-width="0.8" fill="none" opacity="0.6">
+      <path d="M 983 200 C 983 220 938 220 938 200"/>
+      <path d="M 1028 200 C 1028 220 983 220 983 200"/>
+      <path d="M 1028 200 C 1028 235 938 235 938 200"/>
+    </g>
+
+    <!-- Cross-attention arrows -->
+    <g stroke="#8a8580" stroke-width="1" fill="none" stroke-dasharray="3,2">
+      <path d="M 823 175 Q 870 250 938 175" marker-end="url(#xarrow)"/>
+      <path d="M 778 175 Q 830 260 983 175" marker-end="url(#xarrow)"/>
+      <path d="M 733 175 Q 800 270 1028 175" marker-end="url(#xarrow)"/>
+    </g>
+    <defs>
+      <marker id="xarrow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+        <polygon points="0 0, 6 3, 0 6" fill="#8a8580"/>
+      </marker>
+    </defs>
+    <text x="895" y="282" font-size="9" fill="#8a8580" text-anchor="middle" font-style="italic">cross-attention: target looks at source</text>
+
+    <rect x="700" y="290" width="190" height="48" rx="6" fill="#f5e0c5" stroke="#2b2826" stroke-width="1.2"/>
+    <text x="795" y="320" font-size="11" font-weight="700" fill="#2b2826" text-anchor="middle">Encoder block</text>
+
+    <rect x="900" y="290" width="190" height="48" rx="6" fill="#fee0cf" stroke="#c03000" stroke-width="1.4"/>
+    <text x="995" y="320" font-size="11" font-weight="700" fill="#2b2826" text-anchor="middle">Decoder block</text>
+
+    <g font-size="10" fill="#2b2826" text-anchor="middle">
+      <rect x="918" y="365" width="40" height="28" rx="4" fill="#e0dcd6" stroke="#2b2826" stroke-width="0.8"/>
+      <text x="938" y="383">→ t₂</text>
+      <rect x="963" y="365" width="40" height="28" rx="4" fill="#e0dcd6" stroke="#2b2826" stroke-width="0.8"/>
+      <text x="983" y="383">→ t₃</text>
+      <rect x="1008" y="365" width="40" height="28" rx="4" fill="#e0dcd6" stroke="#2b2826" stroke-width="0.8"/>
+      <text x="1028" y="383">→ t₄</text>
+    </g>
+
+    <text x="895" y="420" font-size="10" fill="#8a8580" text-anchor="middle" font-style="italic">target generated conditional on source</text>
+    <text x="895" y="446" font-size="11" font-weight="600" fill="#c03000" text-anchor="middle">used for translation,</text>
+    <text x="895" y="461" font-size="11" font-weight="600" fill="#c03000" text-anchor="middle">summarisation, seq2seq</text>
+  </g>
+
+  <text x="550" y="515" font-size="11" font-style="italic" fill="#2b2826" text-anchor="middle">
+    The block is the same Q/K/V machinery throughout. Picking who can attend to whom is the architectural choice.
+  </text>
+</svg>

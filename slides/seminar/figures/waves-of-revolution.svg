@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 440" font-family="Inter, -apple-system, sans-serif" preserveAspectRatio="xMidYMid meet">
+  <rect width="1100" height="440" fill="#f5f2ed"/>
+
+  <text x="550" y="30" font-size="14" font-weight="700" fill="#2b2826" text-anchor="middle">The waves of the LLM revolution</text>
+  <text x="550" y="48" font-size="11" fill="#8a8580" text-anchor="middle">Each wave solved the previous bottleneck and revealed the next. The pattern is more reliable than any single forecast.</text>
+
+  <!-- Timeline ribbon -->
+  <g>
+    <!-- Background ribbon (smooth curve sweeping up) -->
+    <path d="M 80 320 Q 250 310 380 295 Q 510 280 640 250 Q 770 220 880 185 Q 970 160 1020 140 L 1020 180 Q 970 195 880 215 Q 770 245 640 275 Q 510 305 380 320 Q 250 335 80 350 Z"
+          fill="#fee0cf" stroke="#c03000" stroke-width="0.8" opacity="0.55"/>
+
+    <!-- Wave markers (numbered dots along the ribbon). Labels alternate above/below to avoid overlap. -->
+    <g>
+      <!-- Wave 1, label below -->
+      <circle cx="120" cy="320" r="20" fill="#cfe1e0" stroke="#2b2826" stroke-width="1.6"/>
+      <text x="120" y="326" font-size="13" font-weight="700" fill="#2b2826" text-anchor="middle">1</text>
+      <text x="120" y="358" font-size="10" font-weight="700" fill="#2b2826" text-anchor="middle">Representation learning</text>
+      <text x="120" y="372" font-size="9" font-style="italic" fill="#8a8580" text-anchor="middle">pre-2017 · structure from data</text>
+
+      <!-- Wave 2, label above -->
+      <circle cx="265" cy="305" r="20" fill="#cfe1e0" stroke="#2b2826" stroke-width="1.6"/>
+      <text x="265" y="311" font-size="13" font-weight="700" fill="#2b2826" text-anchor="middle">2</text>
+      <text x="265" y="260" font-size="10" font-weight="700" fill="#2b2826" text-anchor="middle">The transformer</text>
+      <text x="265" y="274" font-size="9" font-style="italic" fill="#8a8580" text-anchor="middle">2017–18 · attention beats sequence</text>
+
+      <!-- Wave 3, label below -->
+      <circle cx="410" cy="285" r="20" fill="#cfe1e0" stroke="#2b2826" stroke-width="1.6"/>
+      <text x="410" y="291" font-size="13" font-weight="700" fill="#2b2826" text-anchor="middle">3</text>
+      <text x="410" y="346" font-size="10" font-weight="700" fill="#2b2826" text-anchor="middle">Pretraining scale</text>
+      <text x="410" y="360" font-size="9" font-style="italic" fill="#8a8580" text-anchor="middle">2019–22 · bigger + more data</text>
+
+      <!-- Wave 4, label above -->
+      <circle cx="555" cy="255" r="20" fill="#cfe1e0" stroke="#2b2826" stroke-width="1.6"/>
+      <text x="555" y="261" font-size="13" font-weight="700" fill="#2b2826" text-anchor="middle">4</text>
+      <text x="555" y="212" font-size="10" font-weight="700" fill="#2b2826" text-anchor="middle">Alignment</text>
+      <text x="555" y="226" font-size="9" font-style="italic" fill="#8a8580" text-anchor="middle">2022–23 · SFT + RLHF</text>
+
+      <!-- Wave 5, label below -->
+      <circle cx="700" cy="220" r="20" fill="#cfe1e0" stroke="#2b2826" stroke-width="1.6"/>
+      <text x="700" y="226" font-size="13" font-weight="700" fill="#2b2826" text-anchor="middle">5</text>
+      <text x="700" y="282" font-size="10" font-weight="700" fill="#2b2826" text-anchor="middle">Inference-time scaling</text>
+      <text x="700" y="296" font-size="9" font-style="italic" fill="#8a8580" text-anchor="middle">2024–25 · think longer at test time</text>
+
+      <!-- Wave 6, label above -->
+      <circle cx="845" cy="180" r="20" fill="#fee0cf" stroke="#c03000" stroke-width="2"/>
+      <text x="845" y="186" font-size="13" font-weight="700" fill="#c03000" text-anchor="middle">6</text>
+      <text x="845" y="137" font-size="10" font-weight="700" fill="#c03000" text-anchor="middle">Agentic AI</text>
+      <text x="845" y="151" font-size="9" font-style="italic" fill="#8a8580" text-anchor="middle">2025+ · act on the world</text>
+
+      <!-- Wave 7 (???), label below -->
+      <circle cx="975" cy="140" r="20" fill="#ffffff" stroke="#2b2826" stroke-width="1.6" stroke-dasharray="3,3"/>
+      <text x="975" y="146" font-size="14" font-weight="700" fill="#2b2826" text-anchor="middle">?</text>
+      <text x="975" y="195" font-size="10" font-weight="700" fill="#2b2826" text-anchor="middle">???</text>
+      <text x="975" y="209" font-size="9" font-style="italic" fill="#8a8580" text-anchor="middle">what comes next?</text>
+    </g>
+  </g>
+
+  <!-- legend / closing line -->
+  <g>
+    <rect x="80" y="402" width="940" height="32" rx="6" fill="#ffffff" stroke="#c03000" stroke-width="1.2"/>
+    <text x="100" y="423" font-size="12" fill="#2b2826">You are now equipped to read each new wave on its own terms. <tspan font-weight="700" fill="#c03000">Thank you, and keep asking the hard questions.</tspan></text>
+  </g>
+</svg>

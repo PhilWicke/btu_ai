@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 520" font-family="Inter, -apple-system, sans-serif" preserveAspectRatio="xMidYMid meet">
+  <rect width="1100" height="520" fill="#f5f2ed"/>
+
+  <text x="550" y="34" font-size="14" font-weight="700" fill="#2b2826" text-anchor="middle">Pre-train once, fine-tune many times</text>
+  <text x="550" y="52" font-size="11" fill="#8a8580" text-anchor="middle">The 2018-2020 transfer-learning paradigm: one expensive base model, many cheap downstream specialisations.</text>
+
+  <!-- =========== PRE-TRAINING (left, big) =========== -->
+  <g>
+    <text x="220" y="98" font-size="13" font-weight="700" fill="#2b2826" text-anchor="middle" letter-spacing="1.2">PRE-TRAINING</text>
+    <text x="220" y="115" font-size="10" fill="#8a8580" text-anchor="middle" font-style="italic">general education, expensive, done once per lab</text>
+
+    <!-- corpus cloud -->
+    <ellipse cx="220" cy="180" rx="180" ry="42" fill="#e0dcd6" stroke="#8a8580" stroke-width="1"/>
+    <text x="220" y="172" font-size="12" font-weight="700" fill="#2b2826" text-anchor="middle">Unlabeled corpus</text>
+    <text x="220" y="190" font-size="10" font-style="italic" fill="#8a8580" text-anchor="middle">Common Crawl + Books + Wikipedia + code</text>
+    <text x="220" y="206" font-size="10" fill="#8a8580" text-anchor="middle">trillions of tokens, scraped from the web</text>
+
+    <!-- arrow down -->
+    <path d="M 220 235 L 220 260" stroke="#2b2826" stroke-width="1.4" marker-end="url(#dn3)"/>
+
+    <!-- big model -->
+    <rect x="90" y="262" width="260" height="100" rx="8" fill="#f5e0c5" stroke="#2b2826" stroke-width="1.6"/>
+    <text x="220" y="290" font-size="14" font-weight="700" fill="#2b2826" text-anchor="middle">Base model (large)</text>
+    <text x="220" y="310" font-size="11" font-style="italic" fill="#2b2826" text-anchor="middle">transformer, hundreds of millions</text>
+    <text x="220" y="324" font-size="11" font-style="italic" fill="#2b2826" text-anchor="middle">to billions of parameters</text>
+    <text x="220" y="348" font-size="10" fill="#c03000" text-anchor="middle" font-weight="600">trained with MLM / CLM / span corruption</text>
+
+    <!-- cost -->
+    <text x="220" y="388" font-size="11" fill="#8a8580" text-anchor="middle">≈ GPU-weeks. Six- to eight-figure dollar cost.</text>
+    <text x="220" y="405" font-size="11" fill="#8a8580" text-anchor="middle" font-style="italic">Done once. Released to the world.</text>
+  </g>
+
+  <!-- =========== ARROW: weights shared =========== -->
+  <g>
+    <path d="M 360 312 L 540 312" stroke="#c03000" stroke-width="3" fill="none" marker-end="url(#thick)"/>
+    <text x="450" y="298" font-size="12" font-weight="700" fill="#c03000" text-anchor="middle">copy weights</text>
+    <text x="450" y="332" font-size="10" font-style="italic" fill="#8a8580" text-anchor="middle">same architecture, same parameters</text>
+  </g>
+
+  <!-- =========== FINE-TUNING (right, three small) =========== -->
+  <g>
+    <text x="820" y="98" font-size="13" font-weight="700" fill="#2b2826" text-anchor="middle" letter-spacing="1.2">FINE-TUNING</text>
+    <text x="820" y="115" font-size="10" fill="#8a8580" text-anchor="middle" font-style="italic">specialisation, cheap, done many times</text>
+
+    <!-- three downstream branches -->
+    <g>
+      <!-- branch 1 -->
+      <rect x="560" y="140" width="220" height="32" rx="4" fill="#cfe1e0" stroke="#2b2826" stroke-width="1"/>
+      <text x="670" y="160" font-size="11" font-weight="700" fill="#2b2826" text-anchor="middle">clinical notes (labelled)</text>
+      <path d="M 670 178 L 670 195" stroke="#2b2826" stroke-width="1" marker-end="url(#dn3)"/>
+      <rect x="560" y="198" width="220" height="40" rx="6" fill="#fee0cf" stroke="#c03000" stroke-width="1.4"/>
+      <text x="670" y="222" font-size="12" font-weight="700" fill="#2b2826" text-anchor="middle">Medical text classifier</text>
+    </g>
+    <g>
+      <!-- branch 2 -->
+      <rect x="560" y="262" width="220" height="32" rx="4" fill="#cfe1e0" stroke="#2b2826" stroke-width="1"/>
+      <text x="670" y="282" font-size="11" font-weight="700" fill="#2b2826" text-anchor="middle">legal documents (labelled)</text>
+      <path d="M 670 300 L 670 317" stroke="#2b2826" stroke-width="1" marker-end="url(#dn3)"/>
+      <rect x="560" y="320" width="220" height="40" rx="6" fill="#fee0cf" stroke="#c03000" stroke-width="1.4"/>
+      <text x="670" y="344" font-size="12" font-weight="700" fill="#2b2826" text-anchor="middle">Contract clause tagger</text>
+    </g>
+    <g>
+      <!-- branch 3 -->
+      <rect x="560" y="384" width="220" height="32" rx="4" fill="#cfe1e0" stroke="#2b2826" stroke-width="1"/>
+      <text x="670" y="404" font-size="11" font-weight="700" fill="#2b2826" text-anchor="middle">customer reviews (labelled)</text>
+      <path d="M 670 422 L 670 439" stroke="#2b2826" stroke-width="1" marker-end="url(#dn3)"/>
+      <rect x="560" y="442" width="220" height="40" rx="6" fill="#fee0cf" stroke="#c03000" stroke-width="1.4"/>
+      <text x="670" y="466" font-size="12" font-weight="700" fill="#2b2826" text-anchor="middle">Sentiment analyser</text>
+    </g>
+
+    <!-- cost note -->
+    <g font-size="11" fill="#8a8580">
+      <text x="900" y="210">cheap</text>
+      <text x="900" y="225" font-style="italic">~hours on one GPU</text>
+      <text x="900" y="332">cheap</text>
+      <text x="900" y="347" font-style="italic">~hours on one GPU</text>
+      <text x="900" y="454">cheap</text>
+      <text x="900" y="469" font-style="italic">~hours on one GPU</text>
+    </g>
+  </g>
+
+  <defs>
+    <marker id="dn3" markerWidth="6" markerHeight="6" refX="3" refY="5" orient="auto">
+      <polygon points="0 0, 6 0, 3 6" fill="#2b2826"/>
+    </marker>
+    <marker id="thick" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+      <polygon points="0 0, 8 4, 0 8" fill="#c03000"/>
+    </marker>
+  </defs>
+
+  <text x="550" y="498" font-size="11" font-style="italic" fill="#2b2826" text-anchor="middle">
+    Before 2018, every task trained a model from scratch. After 2018, every task starts from somebody else&apos;s base model.
+  </text>
+</svg>

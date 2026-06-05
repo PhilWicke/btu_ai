@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 460" font-family="Inter, -apple-system, sans-serif" preserveAspectRatio="xMidYMid meet">
+  <rect width="1000" height="460" fill="#f5f2ed"/>
+
+  <text x="40" y="38" font-size="14" font-weight="700" fill="#2b2826">LSTM memory cell</text>
+  <text x="40" y="56" font-size="11" fill="#8a8580">Three gates (forget, input, output) decide what to keep, what to write, and what to expose at each step.</text>
+
+  <!-- Cell outer box -->
+  <rect x="120" y="100" width="760" height="250" rx="10" fill="#fafaf6" stroke="#8a8580" stroke-width="1.4" stroke-dasharray="6,4"/>
+
+  <!-- ============ Cell-state line (top horizontal) C_{t-1} → C_t ============ -->
+  <line x1="120" y1="135" x2="880" y2="135" stroke="#c03000" stroke-width="2.4"/>
+  <polygon points="880,135 871,130 871,140" fill="#c03000"/>
+  <text x="80" y="139" font-size="13" font-family="IBM Plex Mono, monospace" fill="#2b2826" text-anchor="end" font-weight="700">C_t-1</text>
+  <text x="888" y="139" font-size="13" font-family="IBM Plex Mono, monospace" fill="#2b2826" font-weight="700">C_t</text>
+
+  <!-- ============ Hidden-state line (bottom horizontal) h_{t-1} → ... → h_t ============ -->
+  <line x1="120" y1="305" x2="500" y2="305" stroke="#2b2826" stroke-width="1.6"/>
+  <text x="80" y="309" font-size="13" font-family="IBM Plex Mono, monospace" fill="#2b2826" text-anchor="end" font-weight="700">h_t-1</text>
+
+  <!-- Concat with x_t -->
+  <line x1="500" y1="380" x2="500" y2="315" stroke="#2b2826" stroke-width="1.6"/>
+  <text x="500" y="402" font-size="13" font-family="IBM Plex Mono, monospace" fill="#2b2826" font-weight="700" text-anchor="middle">x_t</text>
+
+  <!-- bus that feeds gates -->
+  <line x1="220" y1="305" x2="220" y2="200" stroke="#2b2826" stroke-width="1.2"/>
+  <line x1="370" y1="305" x2="370" y2="200" stroke="#2b2826" stroke-width="1.2"/>
+  <line x1="500" y1="305" x2="500" y2="200" stroke="#2b2826" stroke-width="1.2"/>
+  <line x1="700" y1="305" x2="700" y2="200" stroke="#2b2826" stroke-width="1.2"/>
+
+  <!-- ============ Gates ============ -->
+  <!-- Forget gate σ -->
+  <rect x="195" y="170" width="50" height="34" rx="5" fill="#fee0cf" stroke="#2b2826" stroke-width="1.4"/>
+  <text x="220" y="192" text-anchor="middle" font-size="16" font-style="italic" fill="#2b2826" font-weight="600">σ</text>
+  <text x="220" y="232" text-anchor="middle" font-size="10" fill="#8a8580" font-weight="600" letter-spacing="1">FORGET</text>
+
+  <!-- Input gate σ -->
+  <rect x="345" y="170" width="50" height="34" rx="5" fill="#fee0cf" stroke="#2b2826" stroke-width="1.4"/>
+  <text x="370" y="192" text-anchor="middle" font-size="16" font-style="italic" fill="#2b2826" font-weight="600">σ</text>
+  <text x="370" y="232" text-anchor="middle" font-size="10" fill="#8a8580" font-weight="600" letter-spacing="1">INPUT</text>
+
+  <!-- Candidate tanh -->
+  <rect x="475" y="170" width="50" height="34" rx="5" fill="#cfe1e0" stroke="#2b2826" stroke-width="1.4"/>
+  <text x="500" y="192" text-anchor="middle" font-size="13" font-style="italic" fill="#2b2826" font-weight="600">tanh</text>
+  <text x="500" y="232" text-anchor="middle" font-size="10" fill="#8a8580" font-weight="600" letter-spacing="1">CANDIDATE</text>
+
+  <!-- Output gate σ -->
+  <rect x="675" y="170" width="50" height="34" rx="5" fill="#fee0cf" stroke="#2b2826" stroke-width="1.4"/>
+  <text x="700" y="192" text-anchor="middle" font-size="16" font-style="italic" fill="#2b2826" font-weight="600">σ</text>
+  <text x="700" y="232" text-anchor="middle" font-size="10" fill="#8a8580" font-weight="600" letter-spacing="1">OUTPUT</text>
+
+  <!-- ============ Pointwise ops on top line ============ -->
+  <!-- f_t * C_{t-1} : multiplication node -->
+  <circle cx="220" cy="135" r="13" fill="#f5f2ed" stroke="#2b2826" stroke-width="1.4"/>
+  <text x="220" y="140" font-size="14" text-anchor="middle" fill="#2b2826" font-weight="700">×</text>
+  <line x1="220" y1="170" x2="220" y2="148" stroke="#2b2826" stroke-width="1.2"/>
+
+  <!-- + i_t * candidate : addition node -->
+  <circle cx="430" cy="135" r="13" fill="#f5f2ed" stroke="#2b2826" stroke-width="1.4"/>
+  <text x="430" y="140" font-size="14" text-anchor="middle" fill="#2b2826" font-weight="700">+</text>
+
+  <!-- Multiplication for i_t * candidate (drawn slightly below) -->
+  <circle cx="430" cy="195" r="11" fill="#f5f2ed" stroke="#2b2826" stroke-width="1.2"/>
+  <text x="430" y="200" font-size="12" text-anchor="middle" fill="#2b2826" font-weight="700">×</text>
+  <line x1="395" y1="187" x2="420" y2="193" stroke="#2b2826" stroke-width="1.2"/>
+  <line x1="475" y1="187" x2="441" y2="193" stroke="#2b2826" stroke-width="1.2"/>
+  <line x1="430" y1="184" x2="430" y2="148" stroke="#2b2826" stroke-width="1.2"/>
+
+  <!-- tanh of C_t -->
+  <rect x="595" y="120" width="44" height="30" rx="4" fill="#cfe1e0" stroke="#2b2826" stroke-width="1.2"/>
+  <text x="617" y="140" text-anchor="middle" font-size="12" font-style="italic" fill="#2b2826" font-weight="600">tanh</text>
+
+  <!-- Output multiplication: o_t * tanh(C_t) -->
+  <circle cx="700" cy="135" r="13" fill="#f5f2ed" stroke="#2b2826" stroke-width="1.4"/>
+  <text x="700" y="140" font-size="14" text-anchor="middle" fill="#2b2826" font-weight="700">×</text>
+  <line x1="700" y1="170" x2="700" y2="148" stroke="#2b2826" stroke-width="1.2"/>
+  <line x1="640" y1="135" x2="687" y2="135" stroke="#c03000" stroke-width="1.6"/>
+
+  <!-- h_t exits down/right -->
+  <line x1="700" y1="148" x2="700" y2="305" stroke="#2b2826" stroke-width="0" opacity="0"/>
+  <line x1="700" y1="122" x2="700" y2="80" stroke="#2b2826" stroke-width="1.5"/>
+  <polygon points="700,72 695,82 705,82" fill="#2b2826"/>
+  <text x="722" y="82" font-size="13" font-family="IBM Plex Mono, monospace" fill="#2b2826" font-weight="700">h_t</text>
+
+  <!-- h_t also continues forward on the bottom line -->
+  <line x1="500" y1="305" x2="880" y2="305" stroke="#2b2826" stroke-width="1.6"/>
+  <polygon points="880,305 871,300 871,310" fill="#2b2826"/>
+  <line x1="700" y1="148" x2="700" y2="305" stroke="#2b2826" stroke-width="0.8" stroke-dasharray="3,3"/>
+
+  <!-- ============ Equations strip ============ -->
+  <g font-family="Lora, Georgia, serif" font-style="italic" font-size="12" fill="#2b2826">
+    <text x="500" y="424" text-anchor="middle">f_t = σ(W_f · [h_t-1, x_t])   ·   i_t = σ(W_i · [...])   ·   C̃_t = tanh(W_C · [...])   ·   C_t = f_t ⊙ C_t-1 + i_t ⊙ C̃_t   ·   h_t = o_t ⊙ tanh(C_t)</text>
+  </g>
+  <text x="500" y="446" font-size="11" fill="#8a8580" text-anchor="middle" font-style="italic">Hochreiter &amp; Schmidhuber, 1997.</text>
+</svg>

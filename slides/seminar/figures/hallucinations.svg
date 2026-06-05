@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 540" font-family="Inter, -apple-system, sans-serif" preserveAspectRatio="xMidYMid meet">
+  <rect width="600" height="540" fill="#f5f2ed"/>
+
+  <text x="300" y="34" font-size="14" font-weight="700" fill="#2b2826" text-anchor="middle">Plausibility wins over truth</text>
+  <text x="300" y="52" font-size="11" fill="#8a8580" text-anchor="middle">The training objective rewards what looks right. Inventing an answer is preferred to admitting a gap.</text>
+
+  <!-- Chat backdrop -->
+  <rect x="50" y="80" width="500" height="280" rx="10" fill="#ffffff" stroke="#8a8580" stroke-width="1"/>
+
+  <!-- USER bubble -->
+  <g>
+    <circle cx="90" cy="118" r="20" fill="#cfe1e0" stroke="#2b2826" stroke-width="1"/>
+    <text x="90" y="125" font-size="18" text-anchor="middle">👤</text>
+    <rect x="120" y="100" width="280" height="40" rx="14" fill="#cfe1e0" stroke="#2b2826" stroke-width="1"/>
+    <text x="135" y="125" font-family="IBM Plex Mono, monospace" font-size="13" fill="#2b2826">What is the capital of Mars?</text>
+  </g>
+
+  <!-- MODEL bubble (wrong) -->
+  <g>
+    <rect x="200" y="170" width="320" height="42" rx="14" fill="#fee0cf" stroke="#c03000" stroke-width="1.4"/>
+    <text x="215" y="195" font-family="IBM Plex Mono, monospace" font-size="13" fill="#2b2826">The capital of Mars is <tspan font-weight="700" fill="#c03000">Muskland</tspan>.</text>
+    <circle cx="540" cy="190" r="20" fill="#fee0cf" stroke="#c03000" stroke-width="1.4"/>
+    <text x="540" y="197" font-size="18" text-anchor="middle">🤖</text>
+  </g>
+
+  <!-- Wrongness markers -->
+  <text x="370" y="234" font-size="11" fill="#c03000" font-weight="700" text-anchor="middle">✗ Mars has no capital. Mars has no cities.</text>
+  <text x="370" y="250" font-size="11" font-style="italic" fill="#8a8580" text-anchor="middle">Yet the answer is delivered with full confidence.</text>
+
+  <!-- USER follow-up -->
+  <g>
+    <circle cx="90" cy="295" r="20" fill="#cfe1e0" stroke="#2b2826" stroke-width="1"/>
+    <text x="90" y="302" font-size="18" text-anchor="middle">👤</text>
+    <rect x="120" y="277" width="380" height="40" rx="14" fill="#cfe1e0" stroke="#2b2826" stroke-width="1"/>
+    <text x="135" y="302" font-family="IBM Plex Mono, monospace" font-size="13" fill="#2b2826">Could you cite a source for that?</text>
+  </g>
+
+  <!-- Model further hallucination -->
+  <g>
+    <rect x="120" y="337" width="380" height="18" fill="transparent"/>
+    <text x="120" y="350" font-family="IBM Plex Mono, monospace" font-size="11" fill="#c03000">[the model would now fabricate a plausibly-formatted, fully fake citation]</text>
+  </g>
+
+  <!-- Bottom callout box -->
+  <g>
+    <rect x="50" y="378" width="500" height="100" rx="6" fill="#ffffff" stroke="#c03000" stroke-width="1.2"/>
+    <text x="68" y="400" font-size="11" font-weight="700" fill="#c03000" letter-spacing="1">COMMON CATEGORIES</text>
+    <g font-size="12" fill="#2b2826">
+      <text x="68" y="420">• Citations with real authors but fake titles</text>
+      <text x="68" y="436">• Court cases with real judge names</text>
+      <text x="320" y="420">• Incorrect dates, statistics, and quotes</text>
+      <text x="320" y="436">• Confident answers it cannot possibly know</text>
+    </g>
+    <text x="300" y="464" font-size="11" font-style="italic" fill="#8a8580" text-anchor="middle">A model that could look things up would not need to guess.</text>
+  </g>
+
+  <text x="300" y="510" font-size="11" font-style="italic" fill="#2b2826" text-anchor="middle">Hallucinations are the strongest single argument for giving the model retrieval and tool access.</text>
+</svg>

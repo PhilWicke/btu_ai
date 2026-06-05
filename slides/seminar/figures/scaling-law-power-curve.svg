@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 520" font-family="Inter, -apple-system, sans-serif" preserveAspectRatio="xMidYMid meet">
+  <rect width="1100" height="520" fill="#f5f2ed"/>
+
+  <text x="550" y="34" font-size="14" font-weight="700" fill="#2b2826" text-anchor="middle">Scaling laws: loss falls as a power of compute</text>
+  <text x="550" y="52" font-size="11" fill="#8a8580" text-anchor="middle">On log-log axes the relationship is a straight line. Double the budget and loss drops by a predictable fraction.</text>
+
+  <!-- =========== PLOT AREA =========== -->
+  <g transform="translate(100 100)">
+    <!-- axes -->
+    <line x1="0" y1="0" x2="0" y2="340" stroke="#2b2826" stroke-width="1.4"/>
+    <line x1="0" y1="340" x2="700" y2="340" stroke="#2b2826" stroke-width="1.4"/>
+
+    <!-- y-axis label -->
+    <text x="-40" y="170" font-size="12" font-weight="700" fill="#2b2826" text-anchor="middle" transform="rotate(-90 -40 170)">Test loss (log)</text>
+    <text x="-15" y="14" font-size="10" fill="#8a8580" text-anchor="end">high</text>
+    <text x="-15" y="335" font-size="10" fill="#8a8580" text-anchor="end">low</text>
+
+    <!-- x-axis label -->
+    <text x="350" y="375" font-size="12" font-weight="700" fill="#2b2826" text-anchor="middle">Compute (log)</text>
+
+    <!-- y tick lines -->
+    <line x1="0" y1="60" x2="700" y2="60" stroke="#e0dcd6" stroke-width="0.6" stroke-dasharray="3,3"/>
+    <line x1="0" y1="130" x2="700" y2="130" stroke="#e0dcd6" stroke-width="0.6" stroke-dasharray="3,3"/>
+    <line x1="0" y1="200" x2="700" y2="200" stroke="#e0dcd6" stroke-width="0.6" stroke-dasharray="3,3"/>
+    <line x1="0" y1="270" x2="700" y2="270" stroke="#e0dcd6" stroke-width="0.6" stroke-dasharray="3,3"/>
+
+    <!-- x ticks: powers of 10 -->
+    <g font-size="10" fill="#8a8580" text-anchor="middle">
+      <line x1="0" y1="340" x2="0" y2="346" stroke="#8a8580" stroke-width="0.8"/>
+      <text x="0" y="358">10⁻⁹</text>
+      <line x1="140" y1="340" x2="140" y2="346" stroke="#8a8580" stroke-width="0.8"/>
+      <text x="140" y="358">10⁻⁶</text>
+      <line x1="280" y1="340" x2="280" y2="346" stroke="#8a8580" stroke-width="0.8"/>
+      <text x="280" y="358">10⁻³</text>
+      <line x1="420" y1="340" x2="420" y2="346" stroke="#8a8580" stroke-width="0.8"/>
+      <text x="420" y="358">10⁰</text>
+      <line x1="560" y1="340" x2="560" y2="346" stroke="#8a8580" stroke-width="0.8"/>
+      <text x="560" y="358">10³</text>
+      <line x1="700" y1="340" x2="700" y2="346" stroke="#8a8580" stroke-width="0.8"/>
+      <text x="700" y="358">PF-days</text>
+    </g>
+
+    <!-- scatter points of small training runs -->
+    <g fill="#8a8580" opacity="0.55">
+      <circle cx="40" cy="60" r="2.5"/>
+      <circle cx="70" cy="80" r="2.5"/>
+      <circle cx="55" cy="70" r="2.5"/>
+      <circle cx="100" cy="95" r="2.5"/>
+      <circle cx="130" cy="110" r="2.5"/>
+      <circle cx="160" cy="125" r="2.5"/>
+      <circle cx="190" cy="140" r="2.5"/>
+      <circle cx="220" cy="155" r="2.5"/>
+      <circle cx="250" cy="172" r="2.5"/>
+      <circle cx="285" cy="190" r="2.5"/>
+      <circle cx="320" cy="205" r="2.5"/>
+      <circle cx="355" cy="222" r="2.5"/>
+      <circle cx="395" cy="240" r="2.5"/>
+      <circle cx="435" cy="255" r="2.5"/>
+      <circle cx="470" cy="270" r="2.5"/>
+      <circle cx="510" cy="285" r="2.5"/>
+      <circle cx="550" cy="298" r="2.5"/>
+      <circle cx="595" cy="310" r="2.5"/>
+      <circle cx="640" cy="320" r="2.5"/>
+      <circle cx="680" cy="330" r="2.5"/>
+      <circle cx="35" cy="50" r="2.5"/>
+      <circle cx="80" cy="92" r="2.5"/>
+      <circle cx="180" cy="148" r="2.5"/>
+      <circle cx="265" cy="180" r="2.5"/>
+      <circle cx="370" cy="225" r="2.5"/>
+      <circle cx="450" cy="262" r="2.5"/>
+      <circle cx="525" cy="290" r="2.5"/>
+    </g>
+
+    <!-- The power-law fit line, animated -->
+    <path d="M 0 30 L 700 330" stroke="#c03000" stroke-width="3.2" fill="none" stroke-linecap="round" stroke-dasharray="780" stroke-dashoffset="780">
+      <animate attributeName="stroke-dashoffset" from="780" to="0" dur="2.6s" fill="freeze" begin="0.4s"/>
+    </path>
+
+    <!-- Formula on the fit -->
+    <g opacity="0">
+      <animate attributeName="opacity" from="0" to="1" dur="0.8s" fill="freeze" begin="3.1s"/>
+      <rect x="380" y="86" width="220" height="50" rx="4" fill="#ffffff" stroke="#c03000" stroke-width="1.2"/>
+      <text x="490" y="105" font-size="13" font-weight="700" fill="#c03000" text-anchor="middle" font-family="IBM Plex Mono, monospace">L = (C / C₀)^(-α)</text>
+      <text x="490" y="124" font-size="10" font-style="italic" fill="#8a8580" text-anchor="middle">straight line in log-log space</text>
+    </g>
+  </g>
+
+  <!-- Side text -->
+  <g transform="translate(840 130)">
+    <text x="0" y="0" font-size="12" font-weight="700" fill="#2b2826" letter-spacing="1">KAPLAN ET AL., 2020</text>
+    <rect x="0" y="14" width="220" height="3" fill="#c03000"/>
+    <text x="0" y="44" font-size="12" fill="#2b2826">Loss follows a smooth</text>
+    <text x="0" y="60" font-size="12" fill="#2b2826">power law in N, D, and C</text>
+    <text x="0" y="76" font-size="12" fill="#2b2826">(parameters, data, compute).</text>
+
+    <text x="0" y="106" font-size="12" fill="#2b2826">For the first time, you</text>
+    <text x="0" y="122" font-size="12" fill="#2b2826">could <tspan font-weight="700" fill="#c03000">forecast</tspan> a model&apos;s</text>
+    <text x="0" y="138" font-size="12" fill="#2b2826">loss before training it.</text>
+
+    <text x="0" y="170" font-size="11" font-style="italic" fill="#8a8580">No magic constants are needed.</text>
+    <text x="0" y="184" font-size="11" font-style="italic" fill="#8a8580">The shape generalises across</text>
+    <text x="0" y="198" font-size="11" font-style="italic" fill="#8a8580">model families and tokenisers.</text>
+  </g>
+
+  <text x="550" y="495" font-size="11" font-style="italic" fill="#2b2826" text-anchor="middle">
+    Eyeball the slope and you have a budget. That is what turned LLM scaling from research into engineering.
+  </text>
+</svg>

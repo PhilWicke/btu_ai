@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 500" font-family="Inter, -apple-system, sans-serif" preserveAspectRatio="xMidYMid meet">
+  <rect width="1000" height="500" fill="#f5f2ed"/>
+
+  <text x="40" y="38" font-size="14" font-weight="700" fill="#2b2826">Attention as soft alignment between source and target</text>
+  <text x="40" y="56" font-size="11" fill="#8a8580">At each decoder step, the model places a softmax-weighted spotlight over the encoder states. Highlighted: decoder step 5 attending to source.</text>
+
+  <!-- DECODER (top row): "I deposited money at the bank ." -->
+  <g font-size="11" font-weight="600" fill="#8a8580" letter-spacing="1.5">
+    <text x="80" y="115" letter-spacing="1.5">TARGET</text>
+  </g>
+  <g>
+    <rect x="170" y="100" width="80" height="34" rx="4" fill="#fee0cf" stroke="#2b2826" stroke-width="1"/>
+    <text x="210" y="123" font-size="13" text-anchor="middle" fill="#2b2826">Ich</text>
+
+    <rect x="260" y="100" width="80" height="34" rx="4" fill="#fee0cf" stroke="#2b2826" stroke-width="1"/>
+    <text x="300" y="123" font-size="13" text-anchor="middle" fill="#2b2826">legte</text>
+
+    <rect x="350" y="100" width="80" height="34" rx="4" fill="#fee0cf" stroke="#2b2826" stroke-width="1"/>
+    <text x="390" y="123" font-size="13" text-anchor="middle" fill="#2b2826">Geld</text>
+
+    <rect x="440" y="100" width="80" height="34" rx="4" fill="#fee0cf" stroke="#2b2826" stroke-width="1"/>
+    <text x="480" y="123" font-size="13" text-anchor="middle" fill="#2b2826">auf</text>
+
+    <rect x="530" y="100" width="80" height="34" rx="4" fill="#fee0cf" stroke="#2b2826" stroke-width="1"/>
+    <text x="570" y="123" font-size="13" text-anchor="middle" fill="#2b2826">die</text>
+
+    <!-- highlighted -->
+    <rect x="620" y="98" width="80" height="38" rx="4" fill="#fee0cf" stroke="#c03000" stroke-width="2"/>
+    <text x="660" y="125" font-size="14" text-anchor="middle" fill="#c03000" font-weight="700">Bank</text>
+
+    <rect x="710" y="100" width="80" height="34" rx="4" fill="#fee0cf" stroke="#2b2826" stroke-width="1"/>
+    <text x="750" y="123" font-size="13" text-anchor="middle" fill="#2b2826">.</text>
+  </g>
+
+  <!-- ENCODER (bottom row): "I deposited money at the bank ." -->
+  <g>
+    <rect x="170" y="370" width="80" height="34" rx="4" fill="#cfe1e0" stroke="#2b2826" stroke-width="1"/>
+    <text x="210" y="393" font-size="13" text-anchor="middle" fill="#2b2826">I</text>
+
+    <rect x="260" y="370" width="80" height="34" rx="4" fill="#cfe1e0" stroke="#2b2826" stroke-width="1"/>
+    <text x="300" y="393" font-size="13" text-anchor="middle" fill="#2b2826">deposited</text>
+
+    <rect x="350" y="370" width="80" height="34" rx="4" fill="#cfe1e0" stroke="#2b2826" stroke-width="1"/>
+    <text x="390" y="393" font-size="13" text-anchor="middle" fill="#2b2826">money</text>
+
+    <rect x="440" y="370" width="80" height="34" rx="4" fill="#cfe1e0" stroke="#2b2826" stroke-width="1"/>
+    <text x="480" y="393" font-size="13" text-anchor="middle" fill="#2b2826">at</text>
+
+    <rect x="530" y="370" width="80" height="34" rx="4" fill="#cfe1e0" stroke="#2b2826" stroke-width="1"/>
+    <text x="570" y="393" font-size="13" text-anchor="middle" fill="#2b2826">the</text>
+
+    <rect x="620" y="368" width="80" height="38" rx="4" fill="#cfe1e0" stroke="#c03000" stroke-width="2"/>
+    <text x="660" y="393" font-size="14" text-anchor="middle" fill="#c03000" font-weight="700">bank</text>
+
+    <rect x="710" y="370" width="80" height="34" rx="4" fill="#cfe1e0" stroke="#2b2826" stroke-width="1"/>
+    <text x="750" y="393" font-size="13" text-anchor="middle" fill="#2b2826">.</text>
+  </g>
+
+  <g font-size="11" font-weight="600" fill="#8a8580" letter-spacing="1.5">
+    <text x="80" y="392">SOURCE</text>
+  </g>
+
+  <!-- Attention rays from "Bank" (decoder) to all encoder states.
+       Weights sum to ~1. Use stroke-width and opacity to indicate weight.
+       Heaviest on "bank" (the source) → 0.78, "money" → 0.10, "the" → 0.05, "deposited" → 0.03, "I" → 0.02, "at" → 0.01, "." → 0.01 -->
+  <g stroke="#c03000" fill="none" stroke-linecap="round">
+    <line x1="660" y1="136" x2="210" y2="368" stroke-width="0.8" opacity="0.18"/>
+    <line x1="660" y1="136" x2="300" y2="368" stroke-width="1.0" opacity="0.22"/>
+    <line x1="660" y1="136" x2="390" y2="368" stroke-width="1.6" opacity="0.45"/>
+    <line x1="660" y1="136" x2="480" y2="368" stroke-width="0.8" opacity="0.15"/>
+    <line x1="660" y1="136" x2="570" y2="368" stroke-width="1.2" opacity="0.30"/>
+    <line x1="660" y1="136" x2="660" y2="368" stroke-width="4.5" opacity="0.95"/>
+    <line x1="660" y1="136" x2="750" y2="368" stroke-width="0.8" opacity="0.15"/>
+  </g>
+
+  <!-- Attention weight values along the rays (only the noticeable ones) -->
+  <g font-family="IBM Plex Mono, monospace" font-size="10" fill="#c03000">
+    <text x="675" y="250" font-weight="700">0.78</text>
+    <text x="495" y="240" fill="#8a8580">0.10</text>
+    <text x="595" y="250" fill="#8a8580">0.05</text>
+  </g>
+
+  <!-- Mid label -->
+  <text x="500" y="250" font-size="11" fill="#8a8580" font-style="italic" text-anchor="middle">attention weights αᵢ</text>
+  <text x="500" y="266" font-size="10" fill="#8a8580" font-style="italic" text-anchor="middle">(line width ∝ weight)</text>
+
+  <!-- Equation -->
+  <text x="500" y="465" font-size="13" font-family="Lora, Georgia, serif" font-style="italic" fill="#2b2826" text-anchor="middle">cₜ = Σᵢ αₜᵢ · hᵢ      with  αₜᵢ = softmax(score(sₜ₋₁, hᵢ))</text>
+  <text x="500" y="485" font-size="11" fill="#8a8580" text-anchor="middle" font-style="italic">Bahdanau, Cho &amp; Bengio (2015). Score is a small feed-forward MLP over decoder state and encoder hidden state.</text>
+</svg>

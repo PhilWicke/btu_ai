@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 480" font-family="Inter, -apple-system, sans-serif" preserveAspectRatio="xMidYMid meet">
+  <rect width="1100" height="480" fill="#f5f2ed"/>
+
+  <line x1="550" y1="40" x2="550" y2="440" stroke="#e0dcd6" stroke-width="1"/>
+
+  <!-- ============ SIGMOID PANEL ============ -->
+  <text x="80" y="55" font-size="14" font-weight="700" fill="#2b2826">Sigmoid</text>
+  <text x="80" y="74" font-size="11" fill="#8a8580">one score → one probability  ·  binary decisions</text>
+
+  <g stroke="#e0dcd6" stroke-width="1">
+    <line x1="85" y1="140" x2="480" y2="140" stroke-dasharray="3,3"/>
+    <line x1="85" y1="240" x2="480" y2="240" stroke-dasharray="3,3"/>
+  </g>
+  <line x1="85" y1="340" x2="480" y2="340" stroke="#2b2826" stroke-width="1.2"/>
+  <line x1="282.5" y1="140" x2="282.5" y2="340" stroke="#2b2826" stroke-width="1.2"/>
+
+  <g font-size="10" fill="#8a8580">
+    <text x="85" y="358" text-anchor="middle">−6</text>
+    <text x="183.75" y="358" text-anchor="middle">−3</text>
+    <text x="282.5" y="358" text-anchor="middle">0</text>
+    <text x="381.25" y="358" text-anchor="middle">3</text>
+    <text x="480" y="358" text-anchor="middle">6</text>
+    <text x="495" y="345" font-style="italic" fill="#2b2826">z</text>
+    <text x="79" y="344" text-anchor="end">0</text>
+    <text x="79" y="244" text-anchor="end">0.5</text>
+    <text x="79" y="144" text-anchor="end">1</text>
+    <text x="60" y="130" font-style="italic" fill="#2b2826">σ(z)</text>
+  </g>
+
+  <polyline fill="none" stroke="#c03000" stroke-width="2.5" stroke-linejoin="round"
+    points="85,339.50 117.92,338.66 150.83,336.40 183.75,330.52 216.67,316.16 249.58,286.22 282.5,240.00 315.42,193.78 348.33,163.84 381.25,149.48 414.17,143.60 447.08,141.34 480,140.50"/>
+
+  <circle cx="282.5" cy="240" r="4" fill="#c03000"/>
+  <text x="295" y="232" font-size="10" fill="#8a8580" font-style="italic">σ(0) = 0.5</text>
+
+  <g font-family="Lora, Georgia, serif" font-style="italic" fill="#2b2826">
+    <text x="350" y="195" font-size="18" text-anchor="middle">σ(z) = 1 / (1 + e<tspan baseline-shift="super" font-size="12">−z</tspan>)</text>
+  </g>
+
+  <text x="282.5" y="410" font-size="11" fill="#8a8580" text-anchor="middle" font-style="italic">smooth, saturating, differentiable</text>
+
+  <!-- ============ SOFTMAX PANEL (animated) ============ -->
+  <text x="620" y="55" font-size="14" font-weight="700" fill="#2b2826">Softmax</text>
+  <text x="620" y="74" font-size="11" fill="#8a8580">many scores → distribution that sums to 1  ·  multi-class</text>
+
+  <!-- Logit boxes -->
+  <text x="620" y="115" font-size="10" font-weight="600" fill="#8a8580" letter-spacing="1.5">LOGITS  z_i</text>
+  <g font-family="IBM Plex Mono, monospace" font-size="13">
+    <rect x="620" y="130" width="62" height="28" fill="#2b2826"/>
+    <text x="651" y="149" fill="#f5f2ed" text-anchor="middle">0.5</text>
+    <rect x="620" y="165" width="62" height="28" fill="#2b2826"/>
+    <text x="651" y="184" fill="#f5f2ed" text-anchor="middle">2.3</text>
+    <rect x="620" y="200" width="62" height="28" fill="#2b2826"/>
+    <text x="651" y="219" fill="#f5f2ed" text-anchor="middle">1.1</text>
+    <rect x="620" y="235" width="62" height="28" fill="#2b2826"/>
+    <text x="651" y="254" fill="#f5f2ed" text-anchor="middle">−0.2</text>
+  </g>
+
+  <!-- Arrow + formula -->
+  <line x1="700" y1="197" x2="788" y2="197" stroke="#2b2826" stroke-width="1.5"/>
+  <polygon points="790,197 781,193 781,201" fill="#2b2826"/>
+  <text x="744" y="180" font-family="Lora, Georgia, serif" font-style="italic" font-size="13" fill="#2b2826" text-anchor="middle">e<tspan baseline-shift="super" font-size="10">z_i</tspan> / Σ e<tspan baseline-shift="super" font-size="10">z_j</tspan></text>
+
+  <text x="800" y="115" font-size="10" font-weight="600" fill="#8a8580" letter-spacing="1.5">PROBABILITIES  (Σ = 1)</text>
+
+  <!-- Probability bars - animated. Each foreground rect grows from 0 → target → 0 over 4s, looping. -->
+
+  <!-- Bar 0.12 -->
+  <rect x="800" y="130" width="200" height="28" fill="#e0dcd6"/>
+  <rect x="800" y="130" width="0" height="28" fill="#2b2826">
+    <animate attributeName="width"
+             values="0;24;24;0"
+             keyTimes="0;0.35;0.85;1"
+             dur="4s"
+             repeatCount="indefinite"/>
+  </rect>
+  <text x="1010" y="149" font-family="IBM Plex Mono, monospace" font-size="13" fill="#8a8580" opacity="0">0.12
+    <animate attributeName="opacity"
+             values="0;0;1;1;0"
+             keyTimes="0;0.30;0.45;0.85;1"
+             dur="4s"
+             repeatCount="indefinite"/>
+  </text>
+
+  <!-- Bar 0.72 (winner) -->
+  <rect x="800" y="165" width="200" height="28" fill="#e0dcd6"/>
+  <rect x="800" y="165" width="0" height="28" fill="#c03000">
+    <animate attributeName="width"
+             values="0;144;144;0"
+             keyTimes="0;0.35;0.85;1"
+             dur="4s"
+             repeatCount="indefinite"/>
+  </rect>
+  <text x="1010" y="184" font-family="IBM Plex Mono, monospace" font-size="13" fill="#c03000" font-weight="700" opacity="0">0.72
+    <animate attributeName="opacity"
+             values="0;0;1;1;0"
+             keyTimes="0;0.30;0.45;0.85;1"
+             dur="4s"
+             repeatCount="indefinite"/>
+  </text>
+
+  <!-- Bar 0.13 -->
+  <rect x="800" y="200" width="200" height="28" fill="#e0dcd6"/>
+  <rect x="800" y="200" width="0" height="28" fill="#2b2826">
+    <animate attributeName="width"
+             values="0;26;26;0"
+             keyTimes="0;0.35;0.85;1"
+             dur="4s"
+             repeatCount="indefinite"/>
+  </rect>
+  <text x="1010" y="219" font-family="IBM Plex Mono, monospace" font-size="13" fill="#8a8580" opacity="0">0.13
+    <animate attributeName="opacity"
+             values="0;0;1;1;0"
+             keyTimes="0;0.30;0.45;0.85;1"
+             dur="4s"
+             repeatCount="indefinite"/>
+  </text>
+
+  <!-- Bar 0.03 -->
+  <rect x="800" y="235" width="200" height="28" fill="#e0dcd6"/>
+  <rect x="800" y="235" width="0" height="28" fill="#2b2826">
+    <animate attributeName="width"
+             values="0;6;6;0"
+             keyTimes="0;0.35;0.85;1"
+             dur="4s"
+             repeatCount="indefinite"/>
+  </rect>
+  <text x="1010" y="254" font-family="IBM Plex Mono, monospace" font-size="13" fill="#8a8580" opacity="0">0.03
+    <animate attributeName="opacity"
+             values="0;0;1;1;0"
+             keyTimes="0;0.30;0.45;0.85;1"
+             dur="4s"
+             repeatCount="indefinite"/>
+  </text>
+
+  <text x="820" y="410" font-size="11" fill="#8a8580" text-anchor="middle" font-style="italic">largest logit gets most probability mass; softmax is smooth and differentiable</text>
+</svg>
