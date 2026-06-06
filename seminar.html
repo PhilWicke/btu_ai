@@ -54,7 +54,7 @@
         </ul>
       </section>
 
-      <section>
+      <section id="notebooks-section" style="display:none;">
         <h3>Notebooks</h3>
         <p>
           Each notebook opens directly in Google Colab. A free Google account is
@@ -101,5 +101,21 @@
       <p>&copy; 2026 Philipp Wicke. All rights reserved.</p>
     </footer>
   </div>
+
+  <script>
+    // Reveal the Notebooks section only on a seminar day. Compared against the
+    // visitor's local date; the section disappears again at midnight.
+    (function() {
+      var SEMINAR_DATES = ['2026-06-06', '2026-06-20', '2026-07-25'];
+      var d = new Date();
+      var today = d.getFullYear() + '-'
+        + String(d.getMonth() + 1).padStart(2, '0') + '-'
+        + String(d.getDate()).padStart(2, '0');
+      if (SEMINAR_DATES.indexOf(today) !== -1) {
+        var s = document.getElementById('notebooks-section');
+        if (s) s.style.display = '';
+      }
+    })();
+  </script>
 </body>
 </html>
