@@ -266,6 +266,16 @@ a.lecture-link:hover {
   position: relative;
 }
 
+.lecture-detail ul ul {
+  margin-top: 4px;
+  margin-bottom: 6px;
+  padding-left: 4px;
+}
+
+.lecture-detail ul ul li {
+  font-weight: 400;
+}
+
 .lecture-detail ul li::before {
   content: "";
   position: absolute;
