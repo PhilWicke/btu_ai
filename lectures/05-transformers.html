@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>05 &mdash; Transformers &amp; Self-Attention &mdash; Language Models</title>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+</head>
+<body>
+  <div class="container">
+    <a href="../index.html" class="back-link">Lectures</a>
+
+    <div class="lecture-detail">
+      <h2>05 &mdash; Transformers &amp; Self-Attention</h2>
+      <p class="lecture-meta">Monday, 08 June 2026 &mdash; H&ouml;rsaal 9.122</p>
+
+      <section>
+        <h3>Overview</h3>
+        <p>
+          This lecture opens the box on the transformer block. We start from the
+          two failure modes of recurrent models &mdash; no parallelism and decaying
+          long-range information &mdash; and motivate attention as the mechanism that
+          replaces recurrence entirely. We then derive scaled dot-product self-attention
+          from the query/key/value abstraction, walk through one token end-to-end on a
+          worked example, and read off the attention matrix and the causal mask.
+        </p>
+      </section>
+
+      <section>
+        <h3>Topics</h3>
+        <ul>
+          <li>From RNNs to transformers: the sequential bottleneck and the promise of parallel attention</li>
+          <li>Polysemy and context: how the same token vector gets reshaped by its neighbours</li>
+          <li>Loss, gradient descent, and stochastic gradient descent as a one-paragraph refresher</li>
+          <li>Bahdanau et al. (2015): attention as soft alignment in seq2seq translation</li>
+          <li>Vaswani et al. (2017): &ldquo;Attention Is All You Need&rdquo; &mdash; recurrence removed entirely</li>
+          <li>Self-attention intuition: scoring relevance, softmaxing, weighted blend of values</li>
+          <li>Query, key, value as three learned linear projections of the same input</li>
+          <li>Scaled dot-product attention: the formula and why we divide by <em>&radic;d<sub>k</sub></em></li>
+          <li>The attention matrix and the causal mask (upper triangle &rarr; &minus;&infin; before softmax)</li>
+          <li>Multi-head attention, the feed-forward sublayer, and the residual stream</li>
+          <li>The full transformer block, end-to-end</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>Slides</h3>
+        <p><a href="../slides/LEC04_Transformers_and_Attention.pdf">LEC04_Transformers_and_Attention.pdf</a> (password protected)</p>
+      </section>
+
+      <section>
+        <h3>Reading</h3>
+        <ul>
+          <li><a href="https://arxiv.org/abs/1706.03762" target="_blank" rel="noopener">Vaswani et al. &mdash; Attention Is All You Need</a> (NeurIPS 2017)</li>
+          <li><a href="https://arxiv.org/abs/1409.0473" target="_blank" rel="noopener">Bahdanau, Cho &amp; Bengio &mdash; Neural Machine Translation by Jointly Learning to Align and Translate</a> (ICLR 2015)</li>
+          <li><a href="https://jalammar.github.io/illustrated-transformer/" target="_blank" rel="noopener">Jay Alammar &mdash; The Illustrated Transformer</a></li>
+          <li><a href="https://web.stanford.edu/~jurafsky/slp3/9.pdf" target="_blank" rel="noopener">Jurafsky &amp; Martin, Ch. 9: The Transformer</a> (SLP 3rd ed. draft)</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>Watching</h3>
+        <ul>
+          <li><a href="https://www.youtube.com/watch?v=wjZofJX0v4M" target="_blank" rel="noopener">3Blue1Brown &mdash; Transformers, the tech behind LLMs</a></li>
+          <li><a href="https://www.youtube.com/watch?v=eMlx5fFNoYc" target="_blank" rel="noopener">3Blue1Brown &mdash; Attention in transformers, step-by-step</a></li>
+        </ul>
+        <p class="disclaimer">External links are provided as optional supplementary material. The course instructor is not responsible for changes to third-party content or its availability.</p>
+      </section>
+    </div>
+
+    <footer class="footer">
+      <p>&copy; 2026 Philipp Wicke. All rights reserved.</p>
+    </footer>
+  </div>
+</body>
+</html>
