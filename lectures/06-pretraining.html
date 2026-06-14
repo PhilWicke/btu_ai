@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>06: Pretraining and Scaling &middot; Language Models</title>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+</head>
+<body>
+  <div class="container">
+    <a href="../index.html" class="back-link">Lectures</a>
+
+    <div class="lecture-detail">
+      <h2>06: Pretraining and Scaling</h2>
+      <p class="lecture-meta">Monday, 15 June 2026, H&ouml;rsaal 9.122</p>
+
+      <section>
+        <h3>Overview</h3>
+        <p>
+          The transformer block branches into three families: encoder (BERT),
+          decoder (GPT), encoder-decoder (T5). Each comes with its own
+          pretraining objective: masked language modelling, causal language
+          modelling, span corruption. The lecture works through each objective,
+          shows how the same block becomes a different model under each
+          training signal, and follows the 2018&ndash;2020 paradigm of
+          &ldquo;pretrain once, fine-tune many times.&rdquo; The story ends with the
+          shift from fine-tuning to in-context learning as models scale: GPT-2
+          zero-shot, GPT-3 few-shot, no gradient updates at inference.
+        </p>
+      </section>
+
+      <section>
+        <h3>Topics</h3>
+        <ul>
+          <li>Three architecture families: encoder, decoder, encoder-decoder</li>
+          <li>The 2018 ImageNet moment: pretrain once, fine-tune everywhere</li>
+          <li>Causal language modelling: every position in every sentence is a free training example</li>
+          <li>Why bidirectional next-word prediction collapses, and how BERT fixes it</li>
+          <li>Masked language modelling and the 80/10/10 substitution rule</li>
+          <li>Two meanings of "mask": BERT masks the data, GPT masks the attention</li>
+          <li>Fine-tuning BERT (new head per task) vs. fine-tuning GPT (target text changes)</li>
+          <li>T5 and span corruption: every task as text-to-text</li>
+          <li>GPT-1 (117M), GPT-2 (1.5B), GPT-3 (175B): the scaling trajectory</li>
+          <li>From fine-tune per task, to zero-shot, to few-shot in-context</li>
+          <li>Scaling laws (Kaplan, Chinchilla) and the question of emergence</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>Slides</h3>
+        <p><a href="../slides/LEC05_Pretraining_and_Scaling.pdf">LEC05_Pretraining_and_Scaling.pdf</a> (password protected)</p>
+      </section>
+
+      <section>
+        <h3>Reading</h3>
+        <ul>
+          <li><a href="https://arxiv.org/abs/1810.04805" target="_blank" rel="noopener">Devlin et al., BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding</a> (NAACL 2019)</li>
+          <li><a href="https://cdn.openai.com/research-covers/language-unsupervised/language_understanding_paper.pdf" target="_blank" rel="noopener">Radford et al., Improving Language Understanding by Generative Pre-Training</a> (GPT-1, 2018)</li>
+          <li><a href="https://arxiv.org/abs/1910.10683" target="_blank" rel="noopener">Raffel et al., Exploring the Limits of Transfer Learning with a Unified Text-to-Text Transformer</a> (T5, JMLR 2020)</li>
+          <li><a href="https://arxiv.org/abs/2005.14165" target="_blank" rel="noopener">Brown et al., Language Models are Few-Shot Learners</a> (GPT-3, NeurIPS 2020)</li>
+          <li><a href="https://arxiv.org/abs/2001.08361" target="_blank" rel="noopener">Kaplan et al., Scaling Laws for Neural Language Models</a> (2020)</li>
+          <li><a href="https://arxiv.org/abs/2203.15556" target="_blank" rel="noopener">Hoffmann et al., Training Compute-Optimal Large Language Models</a> (Chinchilla, 2022)</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>Watching</h3>
+        <ul>
+          <li><a href="https://jalammar.github.io/illustrated-bert/" target="_blank" rel="noopener">Jay Alammar, The Illustrated BERT, ELMo, and co.</a></li>
+          <li><a href="https://jalammar.github.io/illustrated-gpt2/" target="_blank" rel="noopener">Jay Alammar, The Illustrated GPT-2</a></li>
+          <li><a href="https://www.youtube.com/watch?v=zjkBMFhNj_g" target="_blank" rel="noopener">Andrej Karpathy, Intro to Large Language Models</a></li>
+        </ul>
+        <p class="disclaimer">External links are optional supplementary material. The course instructor is not responsible for changes to third-party content or its availability.</p>
+      </section>
+    </div>
+
+    <footer class="footer">
+      <p>&copy; 2026 Philipp Wicke. All rights reserved.</p>
+    </footer>
+  </div>
+</body>
+</html>
