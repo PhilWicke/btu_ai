@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>07: Alignment and Reasoning &middot; Language Models</title>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+</head>
+<body>
+  <div class="container">
+    <a href="../index.html" class="back-link">Lectures</a>
+
+    <div class="lecture-detail">
+      <h2>07: Alignment and Reasoning</h2>
+      <p class="lecture-meta">Monday, 22 June 2026, H&ouml;rsaal 9.122</p>
+
+      <section>
+        <h3>Overview</h3>
+        <p>
+          A base model knows the world but autocompletes questions instead of
+          answering them. Three training stages turn it into an assistant:
+          supervised fine-tuning on demonstrations, RLHF on human preference,
+          and reinforcement learning against verifiable rewards. The lecture
+          walks each stage, the failure modes that show up at every step
+          (reward hacking, Goodhart drift, sycophancy), and ends at the
+          inference-time scaling axis opened by o1 and DeepSeek-R1: more
+          tokens, more thinking, more compute spent at runtime.
+        </p>
+      </section>
+
+      <section>
+        <h3>Topics</h3>
+        <ul>
+          <li>Base vs chat model: identical knowledge, different response policy</li>
+          <li>Helpful, harmless, honest as the assistant target</li>
+          <li>Supervised fine-tuning: InstructGPT (13k demonstrations), LIMA (1k)</li>
+          <li>The superficial alignment hypothesis and what it does and does not claim</li>
+          <li>Reward models, Bradley-Terry, and where the preference signal comes from</li>
+          <li>PPO, the RLHF loop, and the KL leash that keeps the policy on-distribution</li>
+          <li>Reward hacking: Coast Runners, Goodhart's law, sycophancy (the April 2025 GPT-4o rollback)</li>
+          <li>DPO: optimising directly on preference pairs, no reward model needed</li>
+          <li>Chain-of-thought prompting, "let's think step by step," self-consistency</li>
+          <li>Kahneman's two systems: a forward pass is System 1; the scratchpad buys System 2</li>
+          <li>Are chains of thought the real reasoning? Useful computation, imperfect testimony</li>
+          <li>Verifiable rewards: maths and code as graders, no KL leash needed</li>
+          <li>o1 and inference-time scaling: a second axis on top of training compute</li>
+          <li>DeepSeek-R1 and GRPO: long-chain reasoning from pure RL on a base model</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>Slides</h3>
+        <p><a href="../slides/LEC06_Alignment_and_Reasoning.pdf">LEC06_Alignment_and_Reasoning.pdf</a> (password protected)</p>
+      </section>
+
+      <section>
+        <h3>Reading</h3>
+        <ul>
+          <li><a href="https://arxiv.org/abs/2112.00861" target="_blank" rel="noopener">Askell et al., A General Language Assistant as a Laboratory for Alignment</a> (Anthropic, 2021)</li>
+          <li><a href="https://arxiv.org/abs/2203.02155" target="_blank" rel="noopener">Ouyang et al., Training Language Models to Follow Instructions with Human Feedback</a> (InstructGPT, NeurIPS 2022)</li>
+          <li><a href="https://arxiv.org/abs/2305.11206" target="_blank" rel="noopener">Zhou et al., LIMA: Less Is More for Alignment</a> (NeurIPS 2023)</li>
+          <li><a href="https://arxiv.org/abs/2305.18290" target="_blank" rel="noopener">Rafailov et al., Direct Preference Optimization</a> (NeurIPS 2023)</li>
+          <li><a href="https://arxiv.org/abs/2201.11903" target="_blank" rel="noopener">Wei et al., Chain-of-Thought Prompting Elicits Reasoning in Large Language Models</a> (NeurIPS 2022)</li>
+          <li><a href="https://arxiv.org/abs/2205.11916" target="_blank" rel="noopener">Kojima et al., Large Language Models are Zero-Shot Reasoners</a> (NeurIPS 2022)</li>
+          <li><a href="https://arxiv.org/abs/2203.11171" target="_blank" rel="noopener">Wang et al., Self-Consistency Improves Chain-of-Thought Reasoning</a> (ICLR 2023)</li>
+          <li><a href="https://arxiv.org/abs/2305.04388" target="_blank" rel="noopener">Turpin et al., Language Models Don&rsquo;t Always Say What They Think</a> (NeurIPS 2023)</li>
+          <li><a href="https://arxiv.org/abs/2310.13548" target="_blank" rel="noopener">Sharma et al., Towards Understanding Sycophancy in Language Models</a> (Anthropic, 2023)</li>
+          <li><a href="https://arxiv.org/abs/2501.12948" target="_blank" rel="noopener">DeepSeek-AI, DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning</a> (2025)</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>Watching</h3>
+        <ul>
+          <li><a href="https://huggingface.co/blog/rlhf" target="_blank" rel="noopener">Lambert et al., Illustrating Reinforcement Learning from Human Feedback</a> (Hugging Face)</li>
+          <li><a href="https://rlhfbook.com/" target="_blank" rel="noopener">Nathan Lambert, The RLHF Book</a> (free online)</li>
+          <li><a href="https://openai.com/index/learning-to-reason-with-llms/" target="_blank" rel="noopener">OpenAI, Learning to Reason with LLMs</a> (o1 announcement)</li>
+          <li><a href="https://openai.com/index/faulty-reward-functions/" target="_blank" rel="noopener">OpenAI, Faulty Reward Functions in the Wild</a> (Coast Runners, 2016)</li>
+        </ul>
+        <p class="disclaimer">External links are optional supplementary material. The course instructor is not responsible for changes to third-party content or its availability.</p>
+      </section>
+    </div>
+
+    <footer class="footer">
+      <p>&copy; 2026 Philipp Wicke. All rights reserved.</p>
+    </footer>
+  </div>
+</body>
+</html>
