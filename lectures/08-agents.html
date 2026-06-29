@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>08: Agents and Tools &middot; Language Models</title>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+</head>
+<body>
+  <div class="container">
+    <a href="../index.html" class="back-link">Lectures</a>
+
+    <div class="lecture-detail">
+      <h2>08: Agents and Tools</h2>
+      <p class="lecture-meta">Monday, 29 June 2026, H&ouml;rsaal 9.122</p>
+
+      <section>
+        <h3>Overview</h3>
+        <p>
+          A chat model is sealed: it can only ever emit text into a box.
+          The lecture works through what it takes to let it look things up
+          and act. Retrieval-augmented generation opens the weights to a
+          live corpus. Tool calling lets the model write a function call as
+          text and have an executor run it. The ReAct loop stitches the two
+          into agents that plan, observe, and recover. The session ends on
+          the failure modes that come with agency: compounding errors,
+          blast radius, prompt injection, and the question of where the
+          human stays in the loop.
+        </p>
+      </section>
+
+      <section>
+        <h3>Topics</h3>
+        <ul>
+          <li>Hallucinations and the two memory limits: training cutoff and finite context window</li>
+          <li>Retrieval-augmented generation: embed, retrieve top-K, ground the answer</li>
+          <li>Retrieval vs. long context: when to select, when to paste everything</li>
+          <li>Anatomy of an agent: planning, memory, tools (the agent is the loop, not the model)</li>
+          <li>The ReAct loop: thought, action, observation, repeat</li>
+          <li>How text becomes an action: tool schemas, constrained JSON, the executor holds the keys</li>
+          <li>Workflows before agents: fix the path where you can, leave autonomy for last</li>
+          <li>Agent memory mapped to human memory: working, declarative, procedural</li>
+          <li>Multi-agent systems: when parallel subtasks justify the token cost</li>
+          <li>The Model Context Protocol: one wire format, M+N adapters instead of M&times;N</li>
+          <li>A worked example: Claude Code as a coding agent in production</li>
+          <li>The arithmetic of long chains: 95% per step is 36% after twenty</li>
+          <li>Blast radius: search &lt; write &lt; execute &lt; pay</li>
+          <li>Prompt injection and the lethal trifecta: private data + untrusted content + outbound channel</li>
+          <li>Autonomy as a dial, gated by reversibility</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>Slides</h3>
+        <p><a href="../slides/LEC07_Agents_and_Tools.pdf">LEC07_Agents_and_Tools.pdf</a> (password protected)</p>
+      </section>
+
+      <section>
+        <h3>Reading</h3>
+        <ul>
+          <li><a href="https://arxiv.org/abs/2005.11401" target="_blank" rel="noopener">Lewis et al., Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks</a> (NeurIPS 2020)</li>
+          <li><a href="https://arxiv.org/abs/2210.03629" target="_blank" rel="noopener">Yao et al., ReAct: Synergizing Reasoning and Acting in Language Models</a> (ICLR 2023)</li>
+          <li><a href="https://lilianweng.github.io/posts/2023-06-23-agent/" target="_blank" rel="noopener">Lilian Weng, LLM Powered Autonomous Agents</a> (2023)</li>
+          <li><a href="https://www.anthropic.com/research/building-effective-agents" target="_blank" rel="noopener">Anthropic, Building Effective Agents</a> (2024)</li>
+          <li><a href="https://www.anthropic.com/engineering/built-multi-agent-research-system" target="_blank" rel="noopener">Anthropic, How we built our multi-agent research system</a> (2025)</li>
+          <li><a href="https://modelcontextprotocol.io/" target="_blank" rel="noopener">Model Context Protocol &mdash; specification and docs</a></li>
+          <li><a href="https://simonwillison.net/series/prompt-injection/" target="_blank" rel="noopener">Simon Willison, Prompt Injection series</a> (2022&ndash;present)</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>Watching</h3>
+        <ul>
+          <li><a href="https://www.anthropic.com/news/claude-code" target="_blank" rel="noopener">Anthropic, Introducing Claude Code</a></li>
+          <li><a href="https://www.youtube.com/watch?v=hKVhRA9kfeM" target="_blank" rel="noopener">Andrej Karpathy, Software Is Changing (Again)</a></li>
+        </ul>
+        <p class="disclaimer">External links are optional supplementary material. The course instructor is not responsible for changes to third-party content or its availability.</p>
+      </section>
+    </div>
+
+    <footer class="footer">
+      <p>&copy; 2026 Philipp Wicke. All rights reserved.</p>
+    </footer>
+  </div>
+</body>
+</html>
