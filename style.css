@@ -132,6 +132,31 @@ body {
   color: var(--black);
 }
 
+.progress-bar {
+  display: block;
+  height: 6px;
+  max-width: 240px;
+  margin-top: 6px;
+  background: var(--gray-light);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  display: block;
+  height: 100%;
+  background: var(--accent);
+  border-radius: 3px;
+}
+
+.progress-caption {
+  display: block;
+  margin-top: 3px;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 10px;
+  color: var(--gray);
+}
+
 /* Lecture List */
 .lecture-list {
   list-style: none;
