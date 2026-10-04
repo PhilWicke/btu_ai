@@ -11,8 +11,8 @@
   --white: #f5f2ed;
   --gray: #8a8580;
   --gray-light: #e0dcd6;
-  --accent: #c03000;
-  --accent-soft: rgba(192,48,0,0.06);
+  --accent: #2c5680;
+  --accent-soft: rgba(44,86,128,0.06);
   --radius: 4px;
   --transition: 0.2s ease;
 }
