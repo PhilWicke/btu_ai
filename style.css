@@ -7,10 +7,10 @@
 }
 
 :root {
-  --black: #2b2826;
-  --white: #f5f2ed;
-  --gray: #8a8580;
-  --gray-light: #e0dcd6;
+  --black: #202833;
+  --white: #f4f6f9;
+  --gray: #7d8695;
+  --gray-light: #dfe3ea;
   --accent: #2c5680;
   --accent-soft: rgba(44,86,128,0.06);
   --radius: 4px;
