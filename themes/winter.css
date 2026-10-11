@@ -1,0 +1,9 @@
+/* Winter semester palette (cool off-white, steel-blue accent). Used from WS 2026/27. */
+:root {
+  --black: #202833;
+  --white: #f4f6f9;
+  --gray: #7d8695;
+  --gray-light: #dfe3ea;
+  --accent: #2c5680;
+  --accent-soft: rgba(44,86,128,0.06);
+}

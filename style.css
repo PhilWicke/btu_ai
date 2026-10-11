@@ -1,4 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&family=Lora:wght@500;600&display=swap');
+/* Seasonal colours live in themes/summer.css and themes/winter.css.
+   Switch with: sh themes/switch.sh summer  (or winter). */
+@import url('themes/winter.css');
 
 * {
   margin: 0;
@@ -7,12 +10,6 @@
 }
 
 :root {
-  --black: #202833;
-  --white: #f4f6f9;
-  --gray: #7d8695;
-  --gray-light: #dfe3ea;
-  --accent: #2c5680;
-  --accent-soft: rgba(44,86,128,0.06);
   --radius: 4px;
   --transition: 0.2s ease;
 }

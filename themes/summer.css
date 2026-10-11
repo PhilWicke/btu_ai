@@ -1,0 +1,9 @@
+/* Summer semester palette (warm cream, copper accent). Used in SS 2026. */
+:root {
+  --black: #2b2826;
+  --white: #f5f2ed;
+  --gray: #8a8580;
+  --gray-light: #e0dcd6;
+  --accent: #c03000;
+  --accent-soft: rgba(192,48,0,0.06);
+}
