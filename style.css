@@ -129,6 +129,11 @@ body {
   color: var(--black);
 }
 
+.announcement-text a {
+  color: var(--accent);
+  text-underline-offset: 2px;
+}
+
 .progress-bar {
   display: block;
   height: 6px;
